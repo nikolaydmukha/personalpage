@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ad9d2f2-0f37-4405-a61f-aeeedb638a43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pay_bcard/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pay_sber/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile_settings/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/messages/messages.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pay_bcard/pay_bcard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/profile_settings/profile_settings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/your_messages/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/your_messages/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personalpage/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/personalpage/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personalpage/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/personalpage/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main/wrapper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/block/block.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/block/block.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/wrapper.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="133" column="94" selection-start-line="133" selection-start-column="94" selection-end-line="133" selection-end-column="94" />
+            <state relative-caret-position="629">
+              <caret line="148" column="26" lean-forward="true" selection-start-line="133" selection-start-column="20" selection-end-line="148" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -59,7 +46,7 @@
         <entry file="file://$PROJECT_DIR$/templates/block/block.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
+              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -517,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/messages/messages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="43" selection-start-column="43" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/your_messages/urls.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -564,20 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="482" column="18" selection-start-line="482" selection-start-column="18" selection-end-line="482" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/wrapper.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="133" column="94" selection-start-line="133" selection-start-column="94" selection-end-line="133" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/dpay/dpay.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -585,10 +551,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/wrapper.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="148" column="26" lean-forward="true" selection-start-line="133" selection-start-column="20" selection-end-line="148" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="482" column="18" selection-start-line="482" selection-start-column="18" selection-end-line="482" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/messages/messages.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="43" selection-start-column="43" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/block/block.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
