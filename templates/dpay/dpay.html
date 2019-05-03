@@ -1,0 +1,16 @@
+{%include "wrapper.html" with active="dpay"%}
+{% load staticfiles %}
+<script>
+localStorage.getItem('KEY')
+var i;
+
+console.log("local storage");
+for (i = 0; i < localStorage.length; i++)   {
+    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+}
+</script>
+{% block  content %}
+
+
+
+{% endblock %}

@@ -1,13 +1,36 @@
 body {
-background: #f8f9f9;
-font-family: ChevinPro,Arial,Helvetica,sans-serif;
+    background: #f8f9f9;
+    font-family: ChevinPro,Arial,Helvetica,sans-serif;
+    min-width: 1000px;
+    background-color: #f8f9f9;
+    font-size: 62.5%;
+    color: #000;
+    overflow-y: scroll;
+    height: 100%;
+    min-height: 100%;
 }
+}
+/********************************/
 /*Стили для главного контейнера*/
+/********************************/
+.main_outer {
+    height: auto;
+}
+.main_outer {
+    width: auto;
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+    z-index: 1;
+}
+/***********************************/
+/*Стили для саб-главного контейнера*/
+/***********************************/
 .main_inner {
     font-size : 10px;
     text-decoration : none solid rgb(0, 0, 0);
     word-spacing : 0px;
-    background-color :  #FFFFFF;
+    background-color :  #f8f9f9;
     background-position : 0% 0%;
     color :  #000000;
     height : 1047.8px;
@@ -19,7 +42,9 @@ font-family: ChevinPro,Arial,Helvetica,sans-serif;
     transition : all 0s ease 0s;
     box-sizing : border-box;
 }
+/***********************************/
 /*Стили для общей обёртки header`а*/
+/**********************************/
 .header_wrapper {
     font-size : 10px;
     text-decoration : none solid rgb(0, 0, 0);
@@ -166,7 +191,39 @@ font-family: ChevinPro,Arial,Helvetica,sans-serif;
 color: #000000;
     text-decoration: none;
 }
+/*В блоке "Скидки" делаем замену картинки при наведении*/
+.img_sp_off_change {
+    height : 34.4px;
+    width : 75.55px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: url(../images/sp_off_new.png);
+}
+.img_sp_off_change:hover {
+    background-image: url(../images/sp_off_new_hover.png);
+}
+/*В блоке "Сообщения" делаем замену картинки при наведении*/
+.img_bell_change {
+    height : 34.4px;
+    width : 75.55px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: url(../images/i-bell-static.png);
+}
+.img_bell_change:hover {
+    background-image: url(../images/i-bell-hover.png);
+}
+.img_bell_change:focus {
+    background-image: url(../images/i-bell-focus.png);
+}
+/*Убираем рамки, которые появляются при наведении и клике на кликабельный элемент*/
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+/***********************************************/
 /*Стили для блока с информацией о пользователе*/
+/**********************************************/
 .gold-client-and-user-block .user-block {
     float: right;
     width: 22em;
@@ -269,7 +326,6 @@ color: #000000;
     background-color: #fff;
     text-align: center;
 }
-
 .pc_user_block .pc_user_tooltip:before {
     content: "";
     position: absolute;
@@ -278,7 +334,6 @@ color: #000000;
     border: 5px solid transparent;
     border-bottom-color: #fff;
 }
-
 .pc_user_block .pc_user_tooltip .menu {
     border-radius: 3px;
     font-size: 15px;
@@ -294,8 +349,8 @@ color: #000000;
     content: " ";
     display: table;
 }
-
-.header_wrapper .gold-client-and-user-block:after, .header_wrapper .gold-client-and-user-block:before, .header_wrapper:after, .header_wrapper:before {
+.header_wrapper .gold-client-and-user-block:after, .header_wrapper .gold-client-and-user-block:before,
+.header_wrapper:after, .header_wrapper:before {
     display: table;
     content: " ";
 }
@@ -304,11 +359,9 @@ color: #000000;
 .header_wrapper .links {
     float: right;
 }
-
 .header-link:not(:last-child) {
     margin-left: 8px;
 }
-
 .header-link.tech-serv {
     width: 104px;
     background-image: url(../images/techsup.png);
@@ -345,7 +398,6 @@ color: #000000;
     width: 96px;
     background-image: url(../images/call24.png);
 }
-
 .header-link {
     float: right;
     display: block;
@@ -363,20 +415,127 @@ color: #000000;
 .g-btn.loading, .header-link, .item-checkbox .fake {
     background-repeat: no-repeat;
 }
-.header-link:before {
-    content: "";
-    position: absolute;
-    z-index: 10;
-    bottom: -1px;
-    right: 0;
-    left: 0;
-    border-style: solid;
-    border-width: 12px 48px;
-    border-color: transparent transparent #f9f8f8;
-}
+
 
 *, :after, :before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+/***************************************************************/
+/*Блок со всеми данными клиента, меню и справочной информацией*/
+/**************************************************************/
+.content-wrapper:before {
+    content: " ";
+    display: table;
+}
+.content-wrapper:after, .content-wrapper:before {
+    content: " ";
+    display: table;
+}
+/*Меню*/
+.content-wrapper .content-col-right {
+    float: right;
+    width: 260px;
+}
+.side-menu {
+    border-radius: 10px;
+    margin: 0 0 3.6em;
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+}
+
+.side-menu .side-menu-item:not(:first-child) {
+    border-top: 1px solid #e6e6e6;
+}
+
+.side-menu .side-menu-item .level-0 {
+    transition: .2s;
+    display: block;
+    padding: .5882em .8823em;
+    color: #1b1c20;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.side-menu .side-menu-item.active .level-0 {
+    color: #e50004;
+}
+
+
+.side-menu .side-menu-item .level-0 .icon-wrap {
+    display: inline-block;
+    width: 10px;
+    position: relative;
+    top: -1px;
+    margin-right: 9px;
+}
+
+.side-menu .side-menu-item.active .side-menu {
+    display: block;
+}
+.side-menu .side-menu-item .side-menu {
+    padding: 10px 10px 10px 35px;
+    display: none;
+    border: none;
+    margin: 0;
+}
+.side-menu {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 3.6em;
+    padding: 0;
+    border: 1px solid #e6e6e6;
+    background: #fff;
+}
+.list-null, .side-menu, ol, ul {
+    list-style: none;
+}
+
+.side-menu .side-menu-item .side-menu .side-menu-item a {
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    border-bottom: 1px solid #999;
+    font-size: 15px;
+    line-height: 21px;
+    color: #000;
+    text-decoration: none;
+}
+.i-arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: url(../images/arr_right.png);
+}
+.side-menu .side-menu-item.active .level-0 i {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+h2 {
+    font-size: 24px;
+    margin-bottom: .625em;
+    font-weight: 600;
+}
+
+
+
+/*Футер*/
+.footer_inner {
+    border-top: 2px solid #000;
+    padding-top: 25px;
+    font-size: 15px;
+    color: #1b1c20;
+}
+.footer_inner, .main_inner {
+    width: 980px;
+    margin: 0 auto;
 }

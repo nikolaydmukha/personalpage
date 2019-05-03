@@ -32,13 +32,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    ###'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'block',
+    'dpay',
+    'pay_bcard',
+    'pay_sber',
+    'profile_settings',
+
+    'your_messages',
 ]
 
 MIDDLEWARE = [
