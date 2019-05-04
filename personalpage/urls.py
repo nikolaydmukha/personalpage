@@ -24,7 +24,11 @@ urlpatterns = [
     path('pay_bcard/', include('pay_bcard.urls')),
     path('pay_sber/', include('pay_sber.urls')),
     path('profile_settings/', include('profile_settings.urls')),
-
+    path('history_incomes/', include('history_incomes.urls')),
     path('your_messages/', include('your_messages.urls')),
+    path('history_incomes/', include('history_incomes.urls')),
+    path('history_traf/', include('history_traf.urls')),
+    path('settings_inet/', include('settings_inet.urls')),
+    path('settings_personal/', include('settings_personal.urls')),
     path('', include('main.urls'))
 ]

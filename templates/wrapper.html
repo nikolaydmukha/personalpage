@@ -131,24 +131,24 @@
 					<div class="side-menu-item {% if active == 'profile_settings' %}active{% endif %}">
 						<a href="/profile_settings" class="level-0">Изменить контактные данные</a>
 					</div>
-					<div class="side-menu-item {% if active == 'pay_bcard' %}active{% endif %}">
-						<a href="" class="level-0 has-sub-menu ">
+                    <div class="side-menu-item {% if active == 'history_incomes' or active == 'history_traf' %}active{% endif %}">
+						<a href="/history_incomes" class="level-0 has-sub-menu ">
 							<span class="icon-wrap">
                                 <i class="i-arrow"></i>
                             </span>
 							Статистика
                         </a>
 					    <div class="side-menu">
-						    <div class="side-menu-item {% if active == 'incomes' %}active{% endif %}">
-							    <a href="/history/incomes" class="">История платежей</a>
+						    <div class="side-menu-item {% if active == 'history_incomes'  %}active{% endif %}">
+							    <a href="/history_incomes" class="">История платежей</a>
 						    </div>
-						    <div class="side-menu-item {% if active == 'traf' %}active{% endif %}">
-					    		<a href="/history/traf" class="">Расходы и трафик</a>
+						    <div class="side-menu-item {% if active == 'history_traf'  %}active{% endif %}">
+					    		<a href="/history_traf" class="">Расходы и трафик</a>
 					        </div>
 				         </div>
 			        </div>
-	        		<div class="side-menu-item">
-		        	    <a href="" class="level-0 has-sub-menu ">
+	        		<div class="side-menu-item {% if active == 'settings_inet' or active == 'settings_personal' %}active{% endif %}">
+		        	    <a href="/settings_inet" class="level-0 has-sub-menu ">
 	    				    <span class="icon-wrap">
     	    			    	<i class="i-arrow"></i>
 	    				    </span>
@@ -156,10 +156,10 @@
                         </a>
 	    		    	<div class="side-menu">
 	    	    	    	<div class="side-menu-item">
-			    	    		<a href="/settings/inet" class="">Настройки услуги "Интернет"</a>
+			    	    		<a href="/settings_inet" class="">Настройки услуги "Интернет"</a>
 			    	    	</div>
 			    	    	<div class="side-menu-item">
-			    	    		<a href="/settings/personal" class="">Настройки Личного Кабинета</a>
+			    	    		<a href="/settings_personal" class="">Настройки Личного Кабинета</a>
 			    	    	</div>
 		    	    	</div>
 	    	    	</div>
@@ -181,6 +181,7 @@
              this.className += " active";
              });
           }
+
         </script>
     </div>
     <!--Конец блока main_inner -->

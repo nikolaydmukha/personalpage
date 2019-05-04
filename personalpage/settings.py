@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'pay_bcard',
     'pay_sber',
     'profile_settings',
-
+    'history_incomes',
+    'history_traf',
+    'settings_inet',
+    'settings_personal',
     'your_messages',
 ]
 

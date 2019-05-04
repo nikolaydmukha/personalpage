@@ -1,7 +1,10 @@
 {%include "wrapper.html" with active="dpay"%}
 {% load staticfiles %}
 <script>
-localStorage.getItem('KEY')
+if(localStorage.getItem('KEY') == "Click")
+{
+    console.log("AAAA");
+}
 var i;
 
 console.log("local storage");
@@ -14,3 +17,4 @@ for (i = 0; i < localStorage.length; i++)   {
 
 
 {% endblock %}
+
