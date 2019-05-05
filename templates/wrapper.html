@@ -72,7 +72,7 @@
 		            </span>
                     <span class="text">Ваши скидки</span>
                 </a>
-                <a href="/messages" class="b-messages">
+                <a href="/your_messages" class="b-messages">
 						<span class="icon">
                             <div class="img_bell_change" tabindex="0"></div>
                             <!--<img src="{% static 'images/i-bell-static.png' %}" height="32" width="32" alt="" class="static">
@@ -106,7 +106,7 @@
             <!--Блок для размещения кнопок: скидки, сообщения, информация о пользователе. Конец gold-client-and-user-block.-->
         </div>
         <!--Обёртка для самого верхнего блока на странице.Конец header_wrapper. -->
-        <h2>Состояние счета и подключенные услуги</h2>
+        <h2>{{ title }}</h2>
         <!-- Контейнер с управляемой, справочной информацией и меню -->
         <section class="content-wrapper">
             <div class="content-col-right">
@@ -140,10 +140,10 @@
                         </a>
 					    <div class="side-menu">
 						    <div class="side-menu-item {% if active == 'history_incomes'  %}active{% endif %}">
-							    <a href="/history_incomes" class="">История платежей</a>
+							    <a href="/history_incomes" class="{% if active == 'history_incomes'  %}active{% endif %}">История платежей</a>
 						    </div>
 						    <div class="side-menu-item {% if active == 'history_traf'  %}active{% endif %}">
-					    		<a href="/history_traf" class="">Расходы и трафик</a>
+					    		<a href="/history_traf" class="{% if active == 'history_traf'  %}active{% endif %}">Расходы и трафик</a>
 					        </div>
 				         </div>
 			        </div>
@@ -156,10 +156,10 @@
                         </a>
 	    		    	<div class="side-menu">
 	    	    	    	<div class="side-menu-item">
-			    	    		<a href="/settings_inet" class="">Настройки услуги "Интернет"</a>
+			    	    		<a href="/settings_inet" class="{% if active == 'settings_inet' %}active{% endif %}">Настройки услуги "Интернет"</a>
 			    	    	</div>
 			    	    	<div class="side-menu-item">
-			    	    		<a href="/settings_personal" class="">Настройки Личного Кабинета</a>
+			    	    		<a href="/settings_personal" class="{% if active == 'settings_personal' %}active{% endif %}">Настройки Личного Кабинета</a>
 			    	    	</div>
 		    	    	</div>
 	    	    	</div>

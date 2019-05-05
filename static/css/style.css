@@ -466,6 +466,10 @@ color: #000000;
     color: #e50004;
 }
 
+.side-menu .side-menu-item .level-0:hover {
+    color: #e50004;
+    border-color: #e6e6e6;
+}
 
 .side-menu .side-menu-item .level-0 .icon-wrap {
     display: inline-block;
@@ -480,7 +484,7 @@ color: #000000;
 }
 .side-menu .side-menu-item .side-menu {
     padding: 10px 10px 10px 35px;
-    display: none;
+    display: none;yak32-221
     border: none;
     margin: 0;
 }
@@ -507,6 +511,15 @@ color: #000000;
     line-height: 21px;
     color: #000;
     text-decoration: none;
+}
+.side-menu .side-menu-item .side-menu .side-menu-item a:hover {
+    border-color: #e6e6e6;
+    color: #e50004;
+}
+
+.side-menu .side-menu-item .side-menu .side-menu-item a.active {
+    color: #e50004;
+    border-bottom-color: transparent;
 }
 .i-arrow {
     display: inline-block;
