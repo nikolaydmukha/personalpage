@@ -1,8 +1,152 @@
-{%include "wrapper.html" with active="home" title="Состояние счета и подключенные услуги"%}
+{% extends "wrapper.html" %}
+<!-- {% include "wrapper.html" with active="home" title="Состояние счета и подключенные услуги" %} -->
+
 {% load staticfiles %}
 
 {% block  content %}
 
-
+<div class="l-services">
+    <div class="l-services-item g-block">
+		<div class="l-services-item-title">
+			<div class="col-left color-gray">
+				Интернет, Цифровое ТВ
+            </div>
+			<div class="col-right">
+				<label class="g-label label-success">Доступ открыт</label>
+			</div>
+		</div>
+		<div class="l-services-item-content">
+			<div class="payment-general flexbox-x">
+				<div class="col col-to-pay wafer" title="К оплате">
+					<div class="amount">
+					 	<span>0</span>
+						<sup>руб.</sup>
+					</div>
+	    			<div class="comment">К оплате за май 2019</div>
+    			</div>
+				<div class="col col-balance" title="Баланс">
+					<div class="amount">
+						<span>515.34</span>
+						<sup>руб.</sup>
+					</div>
+					<div class="comment">Остаток на счете</div>
+				</div>
+				<div class="col col-login">
+                    <div class="login-current">
+                        <div class="key">Ваш логин</div>
+                        <div class="value">1100077049</div>
+                    </div>
+                    <div class="login-old">
+                        <div class="key">Старый логин</div>
+                        <div class="value">yak32-221</div>
+                    </div>
+                    <div class="login-old">
+                        <div class="key">Пин-код</div>
+                        <div class="value">64433</div>
+                    </div>
+				</div>
+			</div>
+			<div class="btns">
+			</div>
+			<div class="payment-details">
+				<div class="payment-details-item title">
+					<div class="col-left">Абонентская плата</div>
+					<div class="col-right">
+						300 руб/мес
+					</div>
+				</div>
+   				<div class="payment-details-item">
+   					<div class="col-left">
+						VIP 100
+						(100 Мбит/с)
+					</div>
+				<div class="col-right">
+    				0 руб/мес
+				</div>
+				<div class="hidden">
+					<span class="ok">Вкл</span>
+				</div>
+			</div>
+			<div class="payment-details-item">
+				<div class="col-left">
+					Внешний IP-адрес
+            	</div>
+    		    <div class="col-right">
+    				0 руб/мес
+                </div>
+    			<div class="hidden">
+    				<span class="ok">Вкл</span>
+    			</div>
+        	</div>
+			<div class="payment-details-item">
+				<div class="col-left">
+					Цифровое ТВ - Расширенный
+    			</div>
+                <div class="col-right">
+    				300 руб/мес
+				</div>
+				<div class="hidden">
+					<span class="ok">Вкл</span>
+				</div>
+			</div>
+		</div>
+       <div class="service-by">
+           <span>Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
+       </div>
+    </div>
+</div>
+<div class="l-services-item g-block">
+	<div class="l-services-item-title">
+		<div class="col-left color-gray">
+    		Интерактивное ТВ - сервис «СмотрЁшка»
+        </div>
+		<div class="col-right">
+			<label class="g-label label-danger" title="Данные находятся в стадии обновления. Если Вы наблюдаете данный статус уже более 30 минут, пожалуйста, обратитесь в техподдержку.">Выкл</label>
+        </div>
+	</div>
+	<div class="l-services-item-content">
+		<div class="payment-general flexbox-x">
+			<div class="col col-to-pay wafer" title="К оплате">
+				<div class="amount">
+				 	<span>0</span>
+					<sup>руб.</sup>
+				</div>
+				<div class="comment">К оплате за май 2019</div>
+			</div>
+			<div class="col col-balance" title="Баланс">
+				<div class="amount">
+    				<span>38.14</span>
+    				<sup>руб.</sup>
+				</div>
+	    		<div class="comment">Остаток на счете</div>
+    		</div>
+        </div>
+    	<div class="btns">
+		</div>
+		<div class="payment-details">
+			<div class="payment-details-item title">
+				<div class="col-left">Абонентская плата</div>
+    				<div class="col-right">
+    					0 руб/мес
+					</div>
+			</div>
+   			<div class="payment-details-item">
+   				<div class="col-left">
+					Первый Бандл
+                </div>
+				<div class="col-right">
+					0 руб/мес
+                </div>
+			    <div class="hidden">
+					<span class="red">Выкл</span>
+				</div>
+			</div>
+        </div>
+		<div class="service-by">
+	    	<span>Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
+    	</div>
+	</div>
+</div>
+</div>
 
 {% endblock %}

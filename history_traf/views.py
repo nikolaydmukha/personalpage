@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'history_traf/history_traf.html')
+    context = {"active": "history_traf", "title": "Расходы и трафик"}
+    return render(request, 'history_traf/history_traf.html', context)

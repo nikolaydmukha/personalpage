@@ -3,4 +3,5 @@ from django.shortcuts import render
 # Create your views here.
 
 def index(request):
-    return render(request, 'dpay/dpay.html')
+    context = {"active": "dpay", "title": "Обещанный платёж"}
+    return render(request, 'dpay/dpay.html', context)

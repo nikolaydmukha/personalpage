@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'settings_inet/settings_inet.html')
+    context = {"active": "settings_inet", "title": "Настройки услуги 'Интернет'"}
+    return render(request, 'settings_inet/settings_inet.html', context)

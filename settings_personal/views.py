@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'settings_personal/settings_personal.html')
+    context = {"active": "settings_personal", "title": "Настройки личного кабинета"}
+    return render(request, 'settings_personal/settings_personal.html', context)

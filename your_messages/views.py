@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'messages/messages.html')
+    context = {"active": "your_messages", "title": "Мои сообщения"}
+    return render(request, 'messages/messages.html', context)

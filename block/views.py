@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'block/block.html')
+    context = {"active": "block", "title": "Добровольная блокировка доступа"}
+    return render(request, 'block/block.html', context)

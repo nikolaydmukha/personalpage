@@ -552,3 +552,11 @@ h2 {
     width: 980px;
     margin: 0 auto;
 }
+.footer_outer {
+    height: 140px;
+    margin: -140px auto 0;
+    min-height: 140px;
+    position: relative;
+    z-index: 2;
+}
+

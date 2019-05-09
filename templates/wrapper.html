@@ -27,17 +27,6 @@
 			};
 		}
 	</script>
-	<!-- STATIC CSS -->
-    <!-- /STATIC CSS -->
-
-    <!-- STATIC JS -->
-    <!-- /STATIC JS -->
-
-	<!-- DYNAMIC CSS -->
-    <!-- /DYNAMIC CSS -->
-
-	<!-- DYNAMIC JS -->
-    <!-- /DYNAMIC JS -->
 </head>
 <body>
 <!--Начало блока main_outer -->
@@ -167,8 +156,15 @@
 		        		<a href="/your_messages" class="level-0">Мои сообщения</a>
 		            </div>
 	    	    </div>
-		<!-- /menu -->
-	        </div>
+	        </div><!-- /menu -->
+            <!-- Блок с информацаией -->
+            <div class="content-col-left">
+
+                Content: {{active}} {{title}}
+                {% block content %}
+
+                {% endblock %}
+            </div><!-- Конец блока с информацаией -->
         </section>
         <!--Add active class to the current button -->
         <script type="text/javascript">
@@ -181,15 +177,10 @@
              this.className += " active";
              });
           }
-
         </script>
-    </div>
-    <!--Конец блока main_inner -->
-</div>
-<!--Конец блока main_outer -->
-    {% block content %}
+    </div><!--Конец блока main_inner -->
+</div><!--Конец блока main_outer -->
 
-    {% endblock %}
 <footer class="footer_outer">
 	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
