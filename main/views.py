@@ -5,5 +5,5 @@ from django.shortcuts import render
 
 
 def index(request):
-    context = {"active": "home", "title": "Состояние счета и подключенные услуги"}
+    context = {"active": "home", "title": "Состояние счёта и подключенные услуги"}
     return render(request, 'main/home.html', context)

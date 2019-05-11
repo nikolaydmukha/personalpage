@@ -1,12 +1,177 @@
 {% extends "wrapper.html" %}
-<!-- {%include "wrapper.html" with active="dpay" title="Обещанный платёж"%} -->
-
 {% load staticfiles %}
 
-
-{% block  content %}
-
-
+{% block content %}
+<div class="content-col-left">
+	<!-- HERE BE CONTENTS!!!! -->
+	<div class="g-block">
+		<!-- Service selector -->
+        <h3 class="color-gray">Выберите услугу</h3>
+        <div class="l-select-service">
+            <div class="l-select-service-item ">
+                <div class="radio">
+                    <label for="select-service-0" class="checked">
+                        <div class="item-radio">
+                            <input type="radio" name="ulogin" id="select-service-0" data-login="1100077049" data-service-name="Интернет, Цифровое ТВ" value="yak32-221" checked="CHECKED" class="select-service-radio">
+                            <span class="fake"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="login">
+                    Логин: 1100077049
+                    <br>
+                    (yak32-221)
+                </div>
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-0">
+                            Интернет, Цифровое ТВ
+                        </label>
+                    </div>
+                    <div class="amount">
+                    </div>
+                </div>
+            </div>
+            <div class="l-select-service-item ">
+                <div class="radio">
+                    <label for="select-service-1">
+                        <div class="item-radio">
+                            <input type="radio" name="ulogin" id="select-service-1" data-login="2100077041" data-service-name="Интерактивное ТВ - сервис «СмотрЁшка»" value="yak32-221sm" class="select-service-radio">
+                            <span class="fake"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="login">
+                    Логин: 2100077041
+                    <br>
+                    (yak32-221sm)
+                </div>
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-1">
+                            Интерактивное ТВ - сервис «СмотрЁшка»
+                        </label>
+                    </div>
+                    <div class="amount">
+                        Обещанный платеж заблокирован
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Service selector -->
+		<!-- Dpay stats -->
+        <div class="dpaydata" data-login="1100077049" style="">
+            <table class="type1" cellpadding="0" cellspacing="0">
+                <tbody><tr>
+                    <td>
+                        <strong>
+                            Логин абонента:
+                        </strong>
+                    </td>
+                    <td>
+                        1100077049 (yak32-221)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>
+                        В настоящее время услуга
+                        </strong>
+                    </td>
+                    <td>не активна</td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3>Последние обещанные платежи</h3>
+            <table class="type1" cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <td>Начало</td>
+                    <td>Конец</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        09.02.2015 17:27
+                    </td>
+                    <td>
+                        18.02.2015 23:59
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        15.03.2012 22:29
+                    </td>
+                    <td>
+                        24.03.2012 23:59
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+				</div>
+				<div class="dpaydata" data-login="2100077041" style="display: none">
+					<table class="type1" cellpadding="0" cellspacing="0">
+						<tbody><tr>
+							<td>
+                                <strong>
+                                    Логин абонента:
+                                </strong>
+                            </td>
+							<td>
+                                2100077041 (yak32-221sm)
+                            </td>
+						</tr>
+						<tr>
+							<td>
+                                <strong>
+                                    В настоящее время услуга
+                                </strong>
+                            </td>
+							<td>не активна</td>
+						</tr>
+					</tbody>
+                    </table>
+					<br>
+				</div>
+				<!-- /Dpay stats -->
+			<br>
+			<h3>
+				Условия предоставления услуги «Обещанный платёж»
+			</h3>
+			<ul>
+				<li>Услуга предоставляется  физическим лицам.</li>
+				<li>Услуга может быть активирована один раз в течение календарного месяца.</li>
+				<li>Услуга предоставляется при условии своевременной оплаты предыдущего Обещанного платежа.</li>
+				<li>Срок действия услуги 10 суток (полных и неполных) с момента активации.</li>
+				<li>Активация услуги занимает от 1 до 10 минут.</li>
+			</ul>
+        <br>
+        <br>
+        <button id="dpay_enable" class="g-btn btn-danger">Активировать «Обещанный платеж»</button>
+	</div>
+	<div class="hidden" id="dpay_confirmation">
+		<div class="b-popup popup-md">
+			<h3>
+				Активация услуги «Обещанный платёж»
+			</h3>
+			<div class="g-alert alert-success">
+				Внимание! Время активации услуги - от 1 до 10 минут.
+			</div>
+            <hr>
+				<h4 id="confirm-div">
+					Выбранный логин: <strong id="confirm-data"></strong>
+				</h4>
+				<h4>Нажатием кнопки "Активировать "Обещанный платёж" Вы соглашаетесь с условиями предоставления услуги.</h4>
+            <hr>
+			<div class="b-popup-footer">
+				<button class="g-btn btn-primary">Активировать "Обещанный платёж"</button>
+				<button class="g-btn btn-link btn-close-fancybox">Отмена</button>
+			</div>
+		</div>
+	</div><!-- HERE END CONTENTS!!!! -->
+</div>
 
 {% endblock %}
 

@@ -1,10 +1,144 @@
-{%include "wrapper.html" with active="block" title="Добровольная блокировка доступа"%}
+{% extends "wrapper.html" %}
 {% load staticfiles %}
-<script>
-localStorage.setItem('KEY', 'PROVERKA')
-</script>
+
 {% block  content %}
-
-
+<div class="content-col-left">
+	<!-- HERE BE CONTENTS!!!! -->
+	<div class="g-block">
+		<!-- Service selector -->
+				<h3 class="color-gray">Выберите услугу</h3>
+				<div class="l-select-service">
+						<div class="l-select-service-item">
+							<div class="radio">
+								<label for="select-service-0" class="checked">
+									<div class="item-radio">
+										<input type="radio" name="ulogin" id="select-service-0" data-login="1100077049" data-service-name="Интернет, Цифровое ТВ" value="yak32-221" checked="CHECKED" class="select-service-radio">
+										<span class="fake"></span>
+									</div>
+								</label>
+							</div>
+							<div class="login">
+								Логин: 1100077049
+                                <br>
+								(yak32-221)
+							</div>
+							<div class="purpose">
+								<div class="name">
+									<label for="select-service-0">
+										Интернет, Цифровое ТВ
+                                    </label>
+								</div>
+							</div>
+						</div>
+						<div class="l-select-service-item active">
+							<div class="radio">
+								<label for="select-service-1">
+									<div class="item-radio">
+										<input type="radio" name="ulogin" id="select-service-1" data-login="2100077041" data-service-name="Интерактивное ТВ - сервис «СмотрЁшка»" value="yak32-221sm" class="select-service-radio">
+										<span class="fake"></span>
+									</div>
+								</label>
+							</div>
+							<div class="login">
+								Логин: 2100077041
+                                <br>
+								(yak32-221sm)
+							</div>
+							<div class="purpose">
+								<div class="name">
+									<label for="select-service-1">
+										Интерактивное ТВ - сервис «СмотрЁшка»
+                                    </label>
+								</div>
+							</div>
+						</div>
+				</div>
+			<!-- /Service selector -->
+		<!-- Idle stats -->
+			<div class="idledata" data-login="1100077049" style="display: none;">
+				<table class="type1" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><strong>Логин абонента:</strong></td>
+						<td>1100077049 (yak32-221)</td>
+					</tr>
+					<tr>
+						<td><strong>Кол-во блокировок в текущем месяце:</strong></td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td><strong>Текущая блокировка:</strong></td>
+						<td>
+								нет
+						</td>
+					</tr>
+				</tbody></table>
+				<div class="section">
+                </div>
+			</div>
+			<div class="idledata" data-login="2100077041" style="">
+				<table class="type1" cellpadding="0" cellspacing="0">
+					<tbody><tr>
+						<td><strong>Логин абонента:</strong></td>
+						<td>2100077041 (yak32-221sm)</td>
+					</tr>
+					<tr>
+						<td><strong>Кол-во блокировок в текущем месяце:</strong></td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<td><strong>Текущая блокировка:</strong></td>
+						<td>
+								нет
+						</td>
+					</tr>
+				</tbody></table>
+				<div class="section">
+				</div>
+			</div>
+		<!-- /Idle stats -->
+		<br>
+		<!-- Idle footer -->
+		<h3>
+			Условия предоставления Добровольной блокировки доступа
+		</h3>
+		<ul>
+			<li>Первая блокировка в календарном месяце предоставляется бесплатно.</li>
+			<li>Стоимость каждой последующей блокировки в течение календарного месяца - 30 руб.</li>
+			<li>Услуга доступна только при положительном остатке на абонентском счете.</li>
+			<li>Активация услуги занимает от 1 до 10 минут.</li>
+		</ul>
+		<!-- /conditions -->
+		<br>
+		<br>
+		<button id="switch_block" class="g-btn btn-danger">В<span class="onoff-letter"></span>ключить блокировку</button>
+	</div>
+	<div class="hidden" id="block_confirmation">
+		<div class="b-popup popup-md">
+			<h3>
+				Условия предоставления Добровольной блокировки доступа
+			</h3>
+			<ul class="text-base">
+				<li>Первая блокировка в календарном месяце предоставляется бесплатно.</li>
+				<li>Стоимость каждой последующей блокировки в течение календарного месяца - 30 руб.</li>
+				<li>Услуга доступна только при положительном остатке на абонентском счете.</li>
+			</ul>
+			<br>
+			<div class="g-alert alert-success">
+				Уважаемые абоненты! Доводим до вашего сведения, что время активации/деактивации <br>
+				услуги добровольной блокировки доступа занимает от 1 до 10 минут.
+			</div>
+			<hr>
+				<h4 id="confirm-div">
+					Выбранный логин: <strong id="confirm-data"></strong>
+				</h4>
+					<h4>Нажатием кнопки "В<span class="onoff-letter"></span>ключить блокировку" Вы соглашаетесь с условиями предоставления услуги.</h4>
+			<hr>
+			<div class="b-popup-footer">
+				<button class="g-btn btn-primary">В<span class="onoff-letter"></span>ключить блокировку</button>
+				<button class="g-btn btn-link btn-close-fancybox">Отмена</button>
+			</div>
+		</div>
+	</div><!-- HERE END CONTENTS!!!! -->
+</div>
 
 {% endblock %}
