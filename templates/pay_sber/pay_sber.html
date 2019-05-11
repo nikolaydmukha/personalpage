@@ -1,9 +1,97 @@
 {% extends "wrapper.html" %}
-<!-- {%include "wrapper.html" with active="pay_sber" title="Оплата в Сбербанке"%}-->
 {% load staticfiles %}
 
 {% block  content %}
 
+<div class="content-col-left">
+    <!-- HERE BE CONTENTS!!!! -->
+    <div class="g-block">
+        <p>
+            Вы можете оплатить услуги RiNet через сервис "Сбербанк Онл@йн" и терминалы Сбербанка. Платёж поступает моментально, комиссия не взимается.<br>
+            Также вы можете распечатать QR-код с данной страницы и использовать его для быстрой оплаты услуг в терминале Сбербанка.
+        </p>
+        <!-- payment service -->
+        <h3 class="color-gray">Услуги к оплате:</h3>
+        <div class="l-select-service">
+            <div class="l-select-service-item ">
+                <div class="radio">
+                    <label for="select-service-0">
+                    </label>
+                </div>
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-0">
+                            Интернет, Цифровое ТВ
+                        </label>
+                    </div>
+                    <div class="amount">
+                    </div>
+                </div>
+            </div>
+            <div class="l-select-service-item ">
+                <div class="radio">
+                    <label for="select-service-1">
+                    </label>
+                </div>
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-1">
+                            Интерактивное ТВ - сервис «СмотрЁшка»
+                        </label>
+                    </div>
+                    <div class="amount">
+                    </div>
+                </div>
+            </div>
 
+        </div>
+        <!-- /payment service -->
+        <p>
+            Сканируйте или сфотографируйте данный QR-код с помощью вашего
+            устройства или распечатайте его.
+            В терминале Сбербанка выберите раздел "Платежи", затем - "Поиск
+            организации по штрих-коду".
+            Поднесите распечатанный QR-код, или его фотографию, или изображение на
+            экране смартфона к считывателю терминала.
+            За более подробной информацией вы можете обратиться к консультанту банка.
+        </p>
+        <div class="qrserv">
+            <p>
+                <span class="text-small color-gray" id="qrdisclaimer">Код для оплаты:</span>
+                <br>
+
+                <span id="qrerror" hidden="">Ошибка</span>
+                <img id="qrimg" src="/pay/qr/sber/qr.png?service=1" alt="qr">
+            </p>
+            <button class="g-btn btn-danger" id="qrprint">Распечатать</button>
+        </div>
+        <script type="text/javascript">
+            document.getElementById("qrimg").onload = function () {
+                document.getElementById("qrloading").remove();
+            };
+            document.getElementById("qrimg").onerror = function () {
+                document.getElementById("qrloading").remove();
+                document.getElementById("qrerror").removeAttribute("hidden");
+            };
+            document.getElementById("qrprint").onclick = function() {
+                var disclaimer = 'Интернет-провайдер RiNet. Оплата';
+                var winPrint = window.open('','','left=50,top=50,width=800,height=640,toolbar=0,scrollbars=1,status=0');
+                winPrint.document.write('<html><body>' +
+                    '<p style="font-size: 16px; font-weight: bold; font-face: Arial, Courier, Times New Roman">'+disclaimer+'</p>' +
+                    '<img src="/pay/qr/sber/qr.png?service=1" alt="QR"><p id="qrwinloading">Загрузка...</p></body></html>'
+                );
+                winPrint.document.close();
+                winPrint.focus();
+                winPrint.onload = function () {
+                    var _e = winPrint.document.getElementById('qrwinloading');
+                    _e.parentNode.removeChild(_e);
+                    winPrint.print();
+                    winPrint.close();
+                }
+            }
+        </script>
+    </div>
+    <!-- HERE END CONTENTS!!!! -->
+</div>
 
 {% endblock %}
