@@ -1,10 +1,94 @@
 {% extends "wrapper.html" %}
-<!-- {%include "wrapper.html" with active="pay_bcard" title="Пополнить счёт"%}-->
-
 {% load staticfiles %}
 
 {% block  content %}
 
-
+<div class="content-col-left">
+    <!-- HERE BE CONTENTS!!!! -->
+    <!-- refill -->
+    <div class="b-refill g-block">
+        <!-- payment service -->
+        <h3 class="color-gray">Услуги для оплаты</h3>
+        <div class="l-select-service">
+            <div class="l-select-service-item">
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-1">
+                            Интернет, Цифровое ТВ
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="l-select-service">
+            <div class="l-select-service-item">
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-1">
+                            Интерактивное ТВ - сервис «СмотрЁшка»
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /payment service -->
+        <!-- payment sum -->
+        <div class="b-amount">
+            <h3>
+                <span>Сумма:</span>
+                <input value="0" input-filter="number" name="sum" id="isum" type="text">
+                <span>руб.</span>
+            </h3>
+        </div>
+        <!-- /payment sum -->
+        <!-- pay button -->
+        <div class="b-refill-footer">
+            <button id="ipay" class="g-btn btn-danger">Пополнить</button>
+            <span id="ipay_msg"></span>
+        </div>
+        <!-- /pay button -->
+    </div>
+        <!-- notification -->
+    <div class="b-notification g-block">
+        <div class="row">Оповещение о поступлении платежа придет на мобильный телефон: </div>
+        <div class="row">
+            <span class="phone">+7 (906) 704-2585</span>
+            <a href="/profile_settings" class="btn-change">
+                <i>
+                    <img src="{% static 'images/i-cog-gray.png' %}" height="17" width="19" alt="">
+                </i>
+            <span>Изменить</span>
+            </a>
+        </div>
+    </div>
+    <!-- / notification -->
+    <!-- payment type -->
+    <div class="b-payment-type g-block">
+        <span class="title">К оплате принимаются карты</span>
+        <span class="cards"><img src="{% static 'images/logos-cards.png' %}" height="38" width="225" alt=""></span>
+    </div>
+    <!-- / payment type -->
+    <!-- Obsolete PSP selection dummy -->
+    <div id="ipay-tabs" class="hide"><ul><li class="ui-state-active" data-psp="alfabank"></li></ul></div>
+    <!-- /Obsolete PSP selection dummy -->
+    <!-- Payment script -->
+    <script type="text/javascript">
+        function psp_alfabank(data, button) {
+            data.loading = [button];
+            data.keepLoading = true;
+            ajax_post('/pay/bcard/alfa', data, function(res_data) {
+                if (res_data.success) {
+                    $('#ipay_msg').text('Подождите, пожалуйста. Перемещение на страницу оплаты...');
+                    location.href = res_data.location;
+                } else {
+                    niceErr('Ошибка', res_data.err.text);
+                    button.removeClass('loading');
+                }
+            });
+        }
+    </script>
+    <!-- /Payment script -->
+    <!-- HERE END CONTENTS!!!! -->
+</div>
 
 {% endblock %}
