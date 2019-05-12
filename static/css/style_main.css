@@ -535,7 +535,7 @@ h4
 	content: "";
 	display: block;
 	filter: alpha(opacity=0 );
-	height: 8px;
+	height: 18px;
 	left: 50%;
 	moz-border-radius: 10px;
 	moz-transform: translate(-50%,-50%);
@@ -550,7 +550,7 @@ h4
 	webkit-border-radius: 10px;
 	webkit-transform: translate(-50%,-50%);
 	webkit-transition: .2s;
-	width: 8px;
+	width: 18px;
 }
 .header_wrapper .gold-client-and-user-block:after,.header_wrapper .gold-client-and-user-block:before,.header_wrapper:after,.header_wrapper:before
 {
