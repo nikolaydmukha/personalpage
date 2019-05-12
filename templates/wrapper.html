@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
    <!-- <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">-->
     <link href="{% static 'css/style_main.css' %}" rel="stylesheet" type="text/css">
+    <!-- Datepicker -->
+    <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
  <!--   <link href="{% static 'css/style_block.css' %}" rel="stylesheet" type="text/css"> -->
     <link href="{% static 'css/style_wrapper.css' %}" rel="stylesheet" type="text/css">
 	<link rel="icon" href="{% static 'favicon/favicon.png' %}">
@@ -33,6 +35,7 @@
 <body>
 <!--Начало блока main_outer -->
 <div class="main_outer">
+    BLOCK !!!!!!!!!!!!! {{ active }}
     <!--Начало блока main_inner -->
     <div class="main_inner">
         <!--Обёртка для самого верхнего блока на странице. Начало header_wrapper.-->
@@ -166,18 +169,6 @@
                 {% endblock %}
             </div><!-- Конец блока с информацаией -->
         </section>
-        <!--Add active class to the current button -->
-        <script type="text/javascript">
-             var header = document.getElementById("side-menu");
-             var btns = header.getElementsByClassName("side-menu-item");
-             for (var i = 0; i < btns.length; i++) {
-             btns[i].addEventListener("click", function() {
-             var current = document.getElementsByClassName("active");
-             current[0].className = current[0].className.replace(" active", "");
-             this.className += " active";
-             });
-          }
-        </script>
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
 

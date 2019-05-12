@@ -1,10 +1,230 @@
 {% extends "wrapper.html" %}
-<!-- {%include "wrapper.html" with active="settings_inet" title="Настройки услуги 'Интернет'"%}-->
-
 {% load staticfiles %}
 
 {% block  content %}
 
 
+<!-- HERE BE CONTENTS!!!! -->
+<!-- find ip -->
+<div class="g-block b-find-ip">
+	<input type="text" id="ip_finder" placeholder="Быстрый поиск IP-адреса">
+</div>
+<!-- / find ip -->
+<div class="l-settings">
+    <!-- setting item -->
+    <div class="l-settings-item g-block" data-scope-for="195.91.174.102">
+        <div class="l-settings-item-content">
+            <div class="l-form form-contact-details">
+                <div class="col-right">
+                    <label class="g-label label-success">
+                        Включен
+                    </label>
+                </div>
+                <div class="l-form-item">
+                    <div class="field-name">
+                        IP-адрес
+                    </div>
+                    <div class="field-option">
+                        <p class="form-control-static" data-ip-for="195.91.174.102">
+                            195.91.174.102
+                        </p>
+                    </div>
+                </div>
+                <div class="l-form-item row-email">
+                    <div class="field-name">Mac-адрес</div>
+                    <div class="field-option">
+                        <div class="field-wrap">
+                            <input type="text" autocomplete="off" class="mac" name="mac" value="e8:37:7a:9a:f0:f1" data-mac-for="195.91.174.102">
+                        </div>
+                    </div>
+                </div>
+                <div class="l-form-item row-email">
+                    <div class="field-name">Сетевые порты</div>
+                    <div class="field-option">
+                        <div class="field-wrap port-cell">
+                            <div class="mgn-select-wrap basic">
+                                <div class="mgn-select-choosed">
+                                    Открыты
+                                    <span class="crutch">
+                                        fwopen
+                                    </span>
+                                </div>
+                                <div class="mgn-select-list">
+                                    <div class="mgn-select-item" data-selected="&quot;&quot;">
+                                        Открыты
+                                        <span class="crutch">
+                                            fwopen
+                                        </span>
+                                    </div>
+                                    <div class="mgn-select-item">
+                                        Открыты в Локальную Сеть
+                                        <span class="crutch">
+                                            fwlocal
+                                        </span>
+                                    </div>
+                                    <div class="mgn-select-item">
+                                        Закрыты
+                                        <span class="crutch">
+                                            fwclosed
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="mgn-select" data-layout="basic" style="display: none;">
+                                <li data-selected="">
+                                    Открыты
+                                    <span class="crutch">
+                                        fwopen
+                                    </span>
+                                </li>
+                                <li>
+                                    Открыты в Локальную Сеть
+                                    <span class="crutch">
+                                        fwlocal
+                                    </span>
+                                </li>
+                                <li>
+                                    Закрыты
+                                    <span class="crutch">
+                                      fwclosed
+                                    </span>
+                                </li>
+                            </ul>
+                            <select name="fw" class="net-port fw" id="port_state_select_195.91.174.102" hidden="" data-fwport-for="195.91.174.102">
+                                <option value="fwopen" selected="selected">
+                                    Открыты
+                                </option>
+                                <option value="fwlocal">
+                                    Открыты в Локальную Сеть
+                                </option>
+                                <option value="fwclosed">
+                                    Закрыты
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-form-item row-btns">
+                    <button class="g-btn btn-danger save" disabled="DISABLED" data-save-for="195.91.174.102">
+                        Сохранить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / setting item -->
+    <!-- setting item -->
+    <div class="l-settings-item g-block" data-scope-for="10.253.10.54">
+        <div class="l-settings-item-content">
+            <div class="l-form form-contact-details">
+                <div class="col-right">
+                    <label class="g-label label-success">
+                        Включен
+                    </label>
+                </div>
+                <div class="l-form-item">
+                    <div class="field-name">IP-адрес</div>
+                    <div class="field-option">
+                        <p class="form-control-static" data-ip-for="10.253.10.54">
+                            10.253.10.54
+                        </p>
+                    </div>
+                </div>
+                <div class="l-form-item row-email">
+                    <div class="field-name">
+                        Mac-адрес
+                    </div>
+                    <div class="field-option">
+                        <div class="field-wrap">
+                            <input type="text" autocomplete="off" class="mac" name="mac" value="00:16:e8:d8:2a:fb" data-mac-for="10.253.10.54">
+                        </div>
+                    </div>
+                </div>
+                <div class="l-form-item row-email">
+                    <div class="field-name">Сетевые порты</div>
+                    <div class="field-option">
+                        <div class="field-wrap port-cell">
+                            <div class="mgn-select-wrap basic">
+                                <div class="mgn-select-choosed">
+                                    Закрыты
+                                    <span class="crutch">
+                                        fwclosed
+                                    </span>
+                                </div>
+                                <div class="mgn-select-list">
+                                    <div class="mgn-select-item">
+                                        Открыты в Локальную Сеть
+                                        <span class="crutch">
+                                            fwlocal
+                                        </span>
+                                    </div>
+                                    <div class="mgn-select-item" data-selected="&quot;&quot;">
+                                        Закрыты
+                                        <span class="crutch">
+                                            fwclosed
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="mgn-select" data-layout="basic" style="display: none;">
+                                <li>
+                                    Открыты в Локальную Сеть
+                                    <span class="crutch">
+                                        fwlocal
+                                    </span>
+                                </li>
+                                <li data-selected="">
+                                    Закрыты
+                                    <span class="crutch">
+                                        fwclosed
+                                    </span>
+                                </li>
+                            </ul>
+                            <select name="fw" class="net-port fw" id="port_state_select_10.253.10.54" hidden="" data-fwport-for="10.253.10.54">
+                                <option value="fwlocal">
+                                    Открыты в Локальную Сеть
+                                </option>
+                                <option value="fwclosed" selected="selected">
+                                    Закрыты
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-form-item row-btns">
+                    <button class="g-btn btn-danger save" disabled="DISABLED" data-save-for="10.253.10.54">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / setting item -->
+</div>
+
+<!-- info -->
+<div class="g-block b-info">
+    <div class="icon"><img src="/i/img/i-alert.png" height="30" width="34" alt=""></div>
+    <div class="text">Изменения ваших настроек вступят в силу в течении 10 минут!</div>
+</div>
+<!-- / info -->
+
+<!-- new device -->
+<div class="g-block">
+    <h3>Авторизация нового устройства</h3>
+    <p>В сети RiNet устройства авторизуются по MAC-адресу.</p>
+    <p>MAC-адрес — это уникальный идентификатор сетевого устройства. Когда вы подключаете к кабелю новое устройство (роутер, компьютер), оно проходит авторизацию, т.е. осуществляется привязка мак-адреса к ip-адресу.</p>
+    <p>Обычно, когда вы подключаете кабель к новому устройству, то при попытке открыть любой сайт происходит переадресация на страницу привязки нового устройства.</p>
+    <p>В редких случаях этого может не произойти, например из-за настроек безопасности роутера, запрещающих переадресацию.</p>
+    <p>Тогда вы можете самостоятельно привязать новое устройство на данной странице, указав его MAC-адрес.</p>
+</div>
+<!-- / new device -->
+
+        <!-- get mac address -->
+    <div class="g-block b-get-mac-address">
+        <div class="icon"><img src="/i/img/i-lifebuoy.png" height="34" width="34" alt=""></div>
+        <div class="text"><a href="http://rinet.ru/help/mac/">Как узнать MAC-адрес?</a></div>
+    </div>
+    <!-- / get mac address -->
+<!-- HERE END CONTENTS!!!! -->
+</div>
 
 {% endblock %}
