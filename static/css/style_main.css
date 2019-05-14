@@ -1,4 +1,9 @@
 @charset "utf-8";
+@font-face {
+    font-family: CustomRinetFont;
+    src: url('../fonts/ChevinPro-Light.otf');
+    font-weight: normal;
+}
 body,html,ul li
 {
 	position: relative;
@@ -13,7 +18,7 @@ img,table
 }
 .chevin-pro,body,button,input,select,textarea
 {
-	font-family: ChevinPro,Arial,Helvetica,sans-serif;
+	font-family: CustomRinetFont,Arial,Helvetica,sans-serif;
 }
 .list-null,body,form,ol,ul
 {
@@ -715,7 +720,7 @@ h4
 .content-wrapper .content-col-left
 {
 	float: left;
-	font-size: 13px;
+	font-size: 15px;
 	width: 700px;
 }
 .content-wrapper .content-col-right
@@ -1383,7 +1388,7 @@ table.type1
 table.type1 td
 {
 	border: 1px solid #e9eaea;
-	font-size: 14px;
+	font-size: 18px;
 	padding: 10px 20px;
 	width: 300px;
 }

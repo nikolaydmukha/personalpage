@@ -175,39 +175,42 @@
 		при переключении чекбокса делаем активный тот или иной чекбокс
 		и выводим информацию в блкое ниже под radio -->
 <script type="text/javascript">
-	/*Функция навешивает класс active для чекбокса в случае щелчка по нему*/
-	 var header = document.getElementById("radio_button_switcher");
-	 var btns = header.getElementsByClassName("l-select-service");
-	 for (var i = 0; i < btns.length; i++) {
-	 btns[i].addEventListener("click", function() {
-	 var current = document.getElementsByClassName(" active");
-    console.log(current[0]);
-	 current[0].className = current[0].className.replace(" active", "");
-	 this.className += " active";
-	 });
-  	}
-  	/*Функцию, плавно выводящая данные */
-  	function show_slow(block){
-  	    var op = 0;
-        setTimeout(function (){
-        if (op > 1) return;
-        document.getElementById(block).style.opacity=op;
-        op+=0.1
-        setTimeout(arguments.callee, 10);}, 10);
-        document.getElementById(block).style.backgroundColor = 'white';
-  	}
-  	/*Функции отображают ту или иную информацию при щелчке по radio*/
-	document.getElementById("radio_but1").onclick = function() {
-		document.getElementById("tv_login").style.display = "none";
-	    document.getElementById("inet_login").style.display = "block";
-	    document.getElementById("inet_login").style.backgroundColor = 'yellow';
-	    show_slow('inet_login')
+    if (document.getElementById("radio_button_switcher"))
+    {
+        /*Функция навешивает класс active для чекбокса в случае щелчка по нему*/
+         var header = document.getElementById("radio_button_switcher");
+         var btns = header.getElementsByClassName("l-select-service");
+         for (var i = 0; i < btns.length; i++) {
+         btns[i].addEventListener("click", function() {
+         var current = document.getElementsByClassName(" active");
+        console.log(current[0]);
+         current[0].className = current[0].className.replace(" active", "");
+         this.className += " active";
+         });
         }
-	document.getElementById("radio_but2").onclick = function() {
-		document.getElementById("tv_login").style.display = "block";
-	    document.getElementById("inet_login").style.display = "none";
-	    show_slow('tv_login')
-	    }
+        /*Функцию, плавно выводящая данные */
+        function show_slow(block){
+            var op = 0;
+            setTimeout(function (){
+            if (op > 1) return;
+            document.getElementById(block).style.opacity=op;
+            op+=0.1
+            setTimeout(arguments.callee, 10);}, 10);
+            document.getElementById(block).style.backgroundColor = 'white';
+        }
+        /*Функции отображают ту или иную информацию при щелчке по radio*/
+        document.getElementById("radio_but1").onclick = function() {
+            document.getElementById("tv_login").style.display = "none";
+            document.getElementById("inet_login").style.display = "block";
+            document.getElementById("inet_login").style.backgroundColor = 'yellow';
+            show_slow('inet_login')
+            }
+        document.getElementById("radio_but2").onclick = function() {
+            document.getElementById("tv_login").style.display = "block";
+            document.getElementById("inet_login").style.display = "none";
+            show_slow('tv_login')
+            }
+	}
 </script>
 
 <footer class="footer_outer">
