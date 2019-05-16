@@ -9,6 +9,7 @@
     <link href="{% static 'css/style_main.css' %}" rel="stylesheet" type="text/css">
     <!-- Datepicker -->
     <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css">
  <!--   <link href="{% static 'css/style_block.css' %}" rel="stylesheet" type="text/css"> -->
     <link href="{% static 'css/style_wrapper.css' %}" rel="stylesheet" type="text/css">
 	<link rel="icon" href="{% static 'favicon/favicon.png' %}">
@@ -171,10 +172,10 @@
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
 
-<!-- Код JS для реальзиации функционала(на страницах ОП, блокировки):
-		при переключении чекбокса делаем активный тот или иной чекбокс
-		и выводим информацию в блкое ниже под radio -->
 <script type="text/javascript">
+    /* Код JS для реальзиации функционала(на страницах ОП, блокировки):
+	при переключении чекбокса делаем активный тот или иной чекбокс
+	и выводим информацию в блкое ниже под radio */
     if (document.getElementById("radio_button_switcher"))
     {
         /*Функция навешивает класс active для чекбокса в случае щелчка по нему*/
@@ -211,9 +212,36 @@
             show_slow('tv_login')
             }
 	}
+	/*
+	    Datepicker
+	*/
+	if (document.getElementById("form-show-history"))
+    {
+        /*Функция навешивает класс active для чекбокса в случае щелчка по нему*/
+        document.getElementById("ifrom").onclick = function() {
+            document.getElementById("ui-datepicker-div").style = "position: absolute; top: 311.2px; left: 49.825px; z-index: 2; display: block;"
+        }
+        document.getElementById("ito").onclick = function() {
+            document.getElementById("ui-datepicker-div").style = "position: absolute; top: 311.2px; left: 237.088px; z-index: 2; display: block;"
+        }
+
+
+window.addEventListener('click', function(e){
+  if (document.getElementById('form-show-history').contains(e.target)){
+  } else{
+    document.getElementById("ui-datepicker-div").style = ""
+  }
+});
+
+
+    }
+
 </script>
 
-<footer class="footer_outer">
+<footer class="footer_outer" style="
+{% if active == 'settings_inet'  %}margin: 320px auto 0;
+{% elif active == 'dpay' %}margin: -80px auto 0;
+{% endif %}">
 	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
 
