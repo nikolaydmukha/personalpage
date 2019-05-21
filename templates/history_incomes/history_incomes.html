@@ -3,23 +3,24 @@
 
 {% block  content %}
 
-    <!-- HERE BE CONTENTS!!!! -->
-    <div class="g-block">
-        <h3>Показать платежи</h3>
-        <div class="form-show-history" id="form-show-history">
-            <form action="/history/incomes">
-                <span>
-                    c
-                </span>
-                <input type="text" id="ifrom" name="from" class="has-datepicker hasDatepicker">
-                <span>
-                    по
-                </span>
-                <input type="text" id="ito" name="to" class="has-datepicker hasDatepicker">
-                <input type="submit" class="g-btn btn-danger" value="Показать">
-            </form>
-        </div>
-    </div><!-- HERE END CONTENTS!!!! -->
+<!-- HERE BE CONTENTS!!!! -->
+
+<div class="g-block">
+    <h3>Показать платежи</h3>
+    <div class="form-show-history" id="form-show-history">
+        <form action="/history/incomes">
+            <span>
+                c
+            </span>
+            <input type="text" id="ifrom" name="from" class="has-datepicker hasDatepicker">
+            <span>
+                по
+            </span>
+            <input type="text" id="ito" name="to" class="has-datepicker hasDatepicker">
+            <input type="submit" class="g-btn btn-danger" value="Показать">
+        </form>
+    </div>
+</div><!-- HERE END CONTENTS!!!! -->
 
 <div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
    <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">

@@ -3,165 +3,165 @@
 
 {% block  content %}
 
-    <!-- HERE BE CONTENTS!!!! -->
-    <!-- profile -->
-    <div class="b-contact-details g-block">
+<!-- HERE BE CONTENTS!!!! -->
+<!-- profile -->
+<div class="b-contact-details g-block">
+    <div class="l-form form-contact-details">
+        <div class="l-form-item row-surname">
+            <div class="field-name">
+                Фамилия
+            </div>
+            <div class="field-option">
+                <p class="form-control-static">
+                    Генералов
+                </p>
+            </div>
+        </div>
+        <div class="l-form-item row-name">
+            <div class="field-name">
+                Имя
+            </div>
+            <div class="field-option">
+                <p class="form-control-static">
+                    Михаил
+                </p>
+            </div>
+        </div>
+        <div class="l-form-item row-fathers-name">
+            <div class="field-name">
+                Отчество
+            </div>
+            <div class="field-option">
+                <p class="form-control-static">
+                    Владимирович
+                </p>
+            </div>
+        </div>
+        <div class="l-form-item row-email">
+            <div class="field-name">
+                Электронный адрес
+            </div>
+            <div class="field-option">
+                <input type="email" id="iemail" class="email" name="email" value="ner@rinet.ru">
+                <p class="help-block">
+                    <label for="iadvmail" class="checked">
+                        <span class="item-checkbox">
+                            <input type="checkbox" name="advmail" id="iadvmail" checked="">
+                            <span class="fake"></span>
+                        </span>
+                        <span class="text color-gray">
+                            Присылать на email новости об изменениях услуг и тарифов, акциях и специальных предложениях
+                        </span>
+                    </label>
+                </p>
+            </div>
+        </div>
+        Также у вас имеется e-mail nerevarin@rinet.ru
+        <div class="l-form-item row-phone">
+            <div class="field-name">
+                Мобильный телефон
+            </div>
+            <div class="field-option">
+                <input type="text" name="mobile" input-filter="phone" value="+7 (906) 704-2585" id="imobile">
+                <p class="help-block">
+                    <label for="isms" class="checked">
+                        <span class="item-checkbox">
+                            <input type="checkbox" name="sms" id="isms" class="ios-switch" checked="">
+                            <span class="fake">
+
+                            </span>
+                        </span>
+                        <span class="text color-gray">
+                            Отправлять на телефон СМС-подтверждения о поступлении платежей и необходимости оплаты
+                        </span>
+                    </label>
+                </p>
+            </div>
+        </div>
+        <div class="l-form-item row-phone">
+            <div class="field-name">
+                ПИН-код
+            </div>
+            <div class="field-option">
+                <input type="text" name="pincode" value="64433" id="ipincode">
+                <p class="help-block">
+                    <label for="ipincode">
+                        <span class="text color-gray">
+                            Никому не сообщайте свой пароль! Для обращений в абонентскую службу, требующих вашей дополнительной авторизации, сообщайте оператору данный ПИН-код. Пожалуйста, используйте разные ПИН-коды, если у вас несколько подключений к RiNet.
+                        </span>
+                    </label>
+                </p>
+            </div>
+        </div>
+        <div id="profile_btn_section" class="l-form-item row-btns">
+            <button id="profile_save" class="g-btn btn-danger">
+                Сохранить
+            </button>
+            <button id="wrongname" class="g-btn btn-primary fancybox">
+                Сообщить о неверном ФИО
+            </button>
+            <span style="flex-grow: 1;"></span>
+            <span id="profile_save_status"></span>
+        </div>
+    </div>
+</div>
+<!--/profile-->
+<!-- name change div -->
+<div id="wrongname_form" class="b-popup popup-sm popup-change-full-name hidden">
+    <h3>Способы связи</h3>
+    <div class="b-popup-body">
         <div class="l-form form-contact-details">
-            <div class="l-form-item row-surname">
+            <div class="l-form-item">
                 <div class="field-name">
-                    Фамилия
-                </div>
-                <div class="field-option">
-                    <p class="form-control-static">
-                        Генералов
-                    </p>
-                </div>
-            </div>
-            <div class="l-form-item row-name">
-                <div class="field-name">
-                    Имя
-                </div>
-                <div class="field-option">
-                    <p class="form-control-static">
-                        Михаил
-                    </p>
-                </div>
-            </div>
-            <div class="l-form-item row-fathers-name">
-                <div class="field-name">
-                    Отчество
-                </div>
-                <div class="field-option">
-                    <p class="form-control-static">
-                        Владимирович
-                    </p>
-                </div>
-            </div>
-            <div class="l-form-item row-email">
-                <div class="field-name">
-                    Электронный адрес
-                </div>
-                <div class="field-option">
-                    <input type="email" id="iemail" class="email" name="email" value="ner@rinet.ru">
-                    <p class="help-block">
-                        <label for="iadvmail" class="checked">
-                            <span class="item-checkbox">
-                                <input type="checkbox" name="advmail" id="iadvmail" checked="">
-                                <span class="fake"></span>
-                            </span>
-                            <span class="text color-gray">
-                                Присылать на email новости об изменениях услуг и тарифов, акциях и специальных предложениях
-                            </span>
-                        </label>
-                    </p>
-                </div>
-            </div>
-            Также у вас имеется e-mail nerevarin@rinet.ru
-            <div class="l-form-item row-phone">
-                <div class="field-name">
-                    Мобильный телефон
-                </div>
-                <div class="field-option">
-                    <input type="text" name="mobile" input-filter="phone" value="+7 (906) 704-2585" id="imobile">
-                    <p class="help-block">
-                        <label for="isms" class="checked">
-                            <span class="item-checkbox">
-                                <input type="checkbox" name="sms" id="isms" class="ios-switch" checked="">
-                                <span class="fake">
+                    <label for="iwrongname_email_en" class="checked">
+                        <span class="item-checkbox">
+                            <input type="checkbox" id="iwrongname_email_en" class="ios-switch" disabler="iwrongname_email" disabler-clear="" checked="checked">
+                            <span class="fake">
 
-                                </span>
                             </span>
-                            <span class="text color-gray">
-                                Отправлять на телефон СМС-подтверждения о поступлении платежей и необходимости оплаты
-                            </span>
-                        </label>
-                    </p>
-                </div>
-            </div>
-            <div class="l-form-item row-phone">
-                <div class="field-name">
-                    ПИН-код
+                        </span>
+                        <span class="text color-gray">
+                            E-mail
+                        </span>
+                    </label>
                 </div>
                 <div class="field-option">
-                    <input type="text" name="pincode" value="64433" id="ipincode">
-                    <p class="help-block">
-                        <label for="ipincode">
-                            <span class="text color-gray">
-                                Никому не сообщайте свой пароль! Для обращений в абонентскую службу, требующих вашей дополнительной авторизации, сообщайте оператору данный ПИН-код. Пожалуйста, используйте разные ПИН-коды, если у вас несколько подключений к RiNet.
-                            </span>
-                        </label>
-                    </p>
+                    <input type="text" id="iwrongname_email" field="wrongname_email" class="email" value="ner@rinet.ru">
                 </div>
             </div>
-            <div id="profile_btn_section" class="l-form-item row-btns">
-                <button id="profile_save" class="g-btn btn-danger">
-                    Сохранить
-                </button>
-                <button id="wrongname" class="g-btn btn-primary fancybox">
-                    Сообщить о неверном ФИО
-                </button>
-                <span style="flex-grow: 1;"></span>
-                <span id="profile_save_status"></span>
+            <div class="l-form-item">
+                <div class="field-name">
+                    <label for="iwrongname_phone_en" class="checked">
+                        <span class="item-checkbox">
+                            <input type="checkbox" id="iwrongname_phone_en" class="ios-switch" disabler="iwrongname_phone" disabler-clear="" checked="checked">
+                            <span class="fake"></span>
+                        </span>
+                        <span class="text color-gray">Мобильный телефон</span>
+                    </label>
+                </div>
+                <div class="field-option">
+                    <input type="text" id="iwrongname_phone" field="wrongname_phone" input-filter="phone" value="+7 (906) 704-2585">
+                </div>
             </div>
         </div>
     </div>
-    <!--/profile-->
-    <!-- name change div -->
-    <div id="wrongname_form" class="b-popup popup-sm popup-change-full-name hidden">
-        <h3>Способы связи</h3>
-        <div class="b-popup-body">
-            <div class="l-form form-contact-details">
-                <div class="l-form-item">
-                    <div class="field-name">
-                        <label for="iwrongname_email_en" class="checked">
-                            <span class="item-checkbox">
-                                <input type="checkbox" id="iwrongname_email_en" class="ios-switch" disabler="iwrongname_email" disabler-clear="" checked="checked">
-                                <span class="fake">
-
-                                </span>
-                            </span>
-                            <span class="text color-gray">
-                                E-mail
-                            </span>
-                        </label>
-                    </div>
-                    <div class="field-option">
-                        <input type="text" id="iwrongname_email" field="wrongname_email" class="email" value="ner@rinet.ru">
-                    </div>
-                </div>
-                <div class="l-form-item">
-                    <div class="field-name">
-                        <label for="iwrongname_phone_en" class="checked">
-                            <span class="item-checkbox">
-                                <input type="checkbox" id="iwrongname_phone_en" class="ios-switch" disabler="iwrongname_phone" disabler-clear="" checked="checked">
-                                <span class="fake"></span>
-                            </span>
-                            <span class="text color-gray">Мобильный телефон</span>
-                        </label>
-                    </div>
-                    <div class="field-option">
-                        <input type="text" id="iwrongname_phone" field="wrongname_phone" input-filter="phone" value="+7 (906) 704-2585">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div class="b-popup-footer text-center">
-            <h4 class="color-gray">
-                Наши менеджеры свяжуться с вами, чтобы внести необходимые уточнения.
-            </h4>
-            <br>
-            <div>
-                <button id="wrongname_submit" class="g-btn btn-primary fancyOk">
-                    Связаться для исправления ФИО
-                </button>
-                <a href="#" class="g-btn btn-link btn-close-fancybox">
-                    Отмена
-                </a>
-            </div>
+    <hr>
+    <div class="b-popup-footer text-center">
+        <h4 class="color-gray">
+            Наши менеджеры свяжуться с вами, чтобы внести необходимые уточнения.
+        </h4>
+        <br>
+        <div>
+            <button id="wrongname_submit" class="g-btn btn-primary fancyOk">
+                Связаться для исправления ФИО
+            </button>
+            <a href="#" class="g-btn btn-link btn-close-fancybox">
+                Отмена
+            </a>
         </div>
     </div>
-    <!-- /name change div -->
+</div>
+<!-- /name change div -->
 <script type="text/javascript">
 </script><!-- HERE END CONTENTS!!!! -->
 {% endblock %}
