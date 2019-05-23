@@ -1,0 +1,69 @@
+﻿.flexbox-x {
+	display: flex;
+	flex-flow: row wrap;
+}
+.flexbox-y {
+	display: flex;
+	flex-flow: column wrap;
+}
+	.flex-jstart {
+		justify-content: flex-start;
+	}
+	.flex-jend {
+		justify-content: flex-end;
+	}
+	.flex-jaround {
+		justify-content: space-around;
+	}
+	.flex-jbetween {
+		justify-content: space-between;
+	}
+	.flex-center {
+		align-items: center;
+	}
+	.flex-stretch {
+		align-items: stretch;
+	}
+	.flex-dummy {
+		flex-grow: 1;
+	}
+
+
+.cur-hlp {
+	cursor: help;
+}
+.wafer {
+	background-color: rgba(0,0,0,0.1);
+	}
+	.wafer * {
+		color: white;
+	}
+.invisible {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.l-select-service.bordered {
+	padding: 10px;
+	border: 1px solid rgb(233, 234, 234);
+}
+.detail_card {
+	border: none !important;
+	border-radius: 0 !important;
+}
+.gold-client-and-user-block > * {
+	margin-left: 10px;
+}
+.input-starred {
+    position: relative;
+}
+.input-starred::after {
+    position: absolute;
+    color: #EA1B23;
+    content: '*';
+    right: 10px; top: 10px;
+   font-size: 18px;
+   font-weight: bold;
+}
+
+

@@ -1,0 +1,153 @@
+﻿
+div.dwbox_wrap {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: auto;
+    z-index: 1101;
+}
+.dwbox_wrap {
+    min-height: 80px;
+    min-width: 80px;
+}
+div.dwbox_wrap.loading .detail_card {
+	visibility: hidden;
+}
+
+ 
+
+ 
+
+.w_overlay .finger,.overlay .finger{
+	position: absolute;
+	background: url('../images/fbx_hand.png') no-repeat scroll 0px 0px transparent;
+	width: 256px;
+	height: 1694px;
+	top: -1660px;
+	right: -50px;
+	z-index:9999;
+}
+
+div.detail_card {
+    background-color: #f7f5f5;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    display: block;
+    min-height: 80px;
+    min-width: 80px;
+    /*padding: 10px 10px 9px 9px;*/
+    position: relative;
+	 
+}
+
+div.detail_card div.closebtn {
+	background-image: url("../images/fbx_close.png");
+	background-position: 5px 5px;
+	background-repeat:no-repeat;
+	background-color: #000;
+	background-color: rgba(0,0,0,0.4);
+	padding: 5px;
+	cursor: pointer;
+	display: block;
+	height: 33px;
+	position: fixed;
+	right: 76px;
+	top: 61px;
+	width: 34px;
+	z-index: 9000;
+}
+
+
+div.dwbox_overlay {
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+ background: rgba(0, 0, 0, 0.72);
+z-index: 999999;
+display: block;
+}
+
+.dwbox_opened{
+	cursor:pointer;
+}
+
+@media only screen and (max-width : 1441px),
+only screen and (max-device-width : 1441px){	
+		
+div.detail_card div.closebtn {
+	right: 50px;
+	top: 50px;
+	position: fixed;
+}
+
+
+}
+div.w_wrap {
+    display: block;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: auto;
+    z-index: 1101;
+}
+.w_wrap {
+    min-height: 80px;
+    min-width: 80px;
+}
+div.w_card {
+    background-color: #f7f5f5;
+    border: 1px solid #000000;
+    border-radius: 7px;
+    display: inline-block; 
+    min-height: 80px;
+    min-width: 80px;
+    /*padding: 10px 10px 9px 9px;*/
+    position: relative;
+	padding:18px;
+}
+
+div.w_card div.w_closebtn {
+background: url(../images/fbx_close.png) no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+cursor: pointer;
+display: block;
+height: 33px;
+position: fixed;
+right: 76px;
+top: 61px;
+width: 34px;
+}
+
+
+div.w_overlay {
+position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+ background: rgba(0, 0, 0, 0.72);
+z-index: 999999;
+display: block;
+}
+
+.w_opened{
+	cursor:pointer;
+}
+
+@media only screen and (max-width : 1441px),
+only screen and (max-device-width : 1441px){	
+		
+div.w_detail_card div.w_closebtn{
+	right: -46px;
+	top: 0px;
+}
+
+
+}
+
+
+

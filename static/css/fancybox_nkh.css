@@ -1,0 +1,19 @@
+﻿#fancybox-close {
+	position: fixed;
+	background: url("../images/fbx_close.png") 0 0 no-repeat;
+	width: 34px;
+	height: 33px;
+	cursor: pointer;
+	display: none;
+	top: 50px;
+	right: 50px;
+}
+#fancybox-wrap {
+	padding: 0;
+}
+#fancybox-content {
+	overflow: visible;
+}
+#fancybox-content > div {
+    overflow: visible !important;
+}

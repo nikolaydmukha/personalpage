@@ -12,9 +12,11 @@
     <link href="{% static 'css/style_wrapper.css' %}" rel="stylesheet" type="text/css">
 	<link rel="icon" href="{% static 'favicon/favicon.png' %}">
 
-    <!-- Datepicker -->
-    <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css">
+
+
+
+
+
 
     <!-- JS -->
     <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
@@ -44,6 +46,10 @@
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
 
     <!-- /JS -->
+
+	<!-- Datepicker -->
+    <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css">
 
 	<title>Личный кабинет RiNet: Состояние счета и подключенные услуги</title>
 	<!-- JS fixes for deprecated browsers -->
@@ -264,7 +270,7 @@
         document.getElementById("ito").onclick = function() {
             document.getElementById("ui-datepicker-div").style = "position: absolute; top: 311.2px; left: 495px; z-index: 2; display: block;"
         }
-        // Скрываем календарь, если щелкнули вне его 
+        // Скрываем календарь, если щелкнули вне его
         window.addEventListener('click', function(e){
           if (document.getElementById('form-show-history').contains(e.target)){
           } else{
