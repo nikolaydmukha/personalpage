@@ -1430,15 +1430,6 @@ table.type1 td
 {
 	padding-bottom: 10px;
 }
-div.ui-datepicker
-{
-	font-size: 15px;
-}
-.has-datepicker
-{
-	background: url(../images/calendar-small.png) 120px 50% no-repeat;
-	width: 150px;
-}
 .b-history-results
 {
 	margin-top: 30px;
@@ -1905,4 +1896,8 @@ div.ui-datepicker
 .l-special-offers.even .l-special-offers-item:nth-child(even)
 {
 	margin-left: 4%;
+}
+#ifrom, #ito {
+    width:35%;
+    background: url(../images/calendar-small.png)  200px 50% no-repeat;
 }

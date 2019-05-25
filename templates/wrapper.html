@@ -11,13 +11,6 @@
     <!-- Стиль wrapper -->
     <link href="{% static 'css/style_wrapper.css' %}" rel="stylesheet" type="text/css">
 	<link rel="icon" href="{% static 'favicon/favicon.png' %}">
-
-
-
-
-
-
-
     <!-- JS -->
     <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery-ui-1.10.4.custom.min.js' %}"></script>
@@ -39,17 +32,24 @@
 	<script type="text/javascript" src="{% static 'js/lk_ui.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/lk_err.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/lk_logged_in_ui.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/history_incomes_index.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/history_traf.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/mgn.select.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/angular.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
-
+	<!-- Pages js -->
+	<script type="text/javascript" src="{% static 'js/lk/history_incomes_index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/lk/history_traf.js' %}"></script>
     <!-- /JS -->
 
 	<!-- Datepicker -->
-    <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css">
+    <!-- <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css"> -->
+	<link href="{% static 'css/datepicker/datepicker.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/datepicker/datepicker.min.css' %}" rel="stylesheet" type="text/css">
+ 	<script type="text/javascript" src="{% static 'js/datepicker/datepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datepicker/datepicker.js' %}"></script>
+
+
+
 
 	<title>Личный кабинет RiNet: Состояние счета и подключенные услуги</title>
 	<!-- JS fixes for deprecated browsers -->
