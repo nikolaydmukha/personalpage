@@ -441,7 +441,7 @@ h4
 }
 .item-checkbox input
 {
-	filter: alpha(opacity=0 );
+	filter: alpha(opacity=0);
 	height: 0;
 	left: 0;
 	margin: 0;
@@ -458,7 +458,7 @@ h4
 }
 .item-checkbox input:checked+.fake
 {
-	background-image: url(../../img/i-check.png);
+	background-image: url(../images/i-check.png);
 	border-color: #000;
 }
 .item-checkbox input:disabled+.fake
@@ -1897,7 +1897,17 @@ table.type1 td
 {
 	margin-left: 4%;
 }
+/* Добавим миниатюры календаря в поля выбора дат на странице history_incomes */
 #ifrom, #ito {
     width:35%;
     background: url(../images/calendar-small.png)  200px 50% no-repeat;
+}
+/* Выведем картинки на странице settings_inet - воскл.знак, спасательный круг */
+.alert{
+     content: url(../images/i-alert.png);
+     width: 34;
+     height: 34;
+}
+.mac{
+    content: url(../images/i-lifebuoy.png);
 }
