@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block  content %}
-
+<script type="text/javascript" src="{% static 'js/lk/pay_bcard.js' %}"></script>
 <!-- HERE BE CONTENTS!!!! -->
 <!-- refill -->
 <div class="b-refill g-block">
@@ -34,13 +34,10 @@
     <!-- payment sum -->
     <div class="b-amount">
         <h3>
-            <span>С
-                умма:
+            <span>Сумма(руб.):
             </span>
             <input value="0" input-filter="number" name="sum" id="isum" type="text">
-            <span>
-                руб.
-            </span>
+
         </h3>
     </div>
     <!-- /payment sum -->
@@ -91,7 +88,7 @@
 
         </li>
     </ul>
-</div>
+</div><!-- HERE END CONTENTS!!!! -->
 <!-- /Obsolete PSP selection dummy -->
 <!-- Payment script -->
 <script type="text/javascript">
@@ -110,7 +107,7 @@
     }
 </script>
 <!-- /Payment script -->
-<!-- HERE END CONTENTS!!!! -->
+
 
 
 {% endblock %}

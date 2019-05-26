@@ -1,0 +1,83 @@
+
+<div class="help_pop_up">
+	<div class="pop_up_in">
+		<section>
+			<div class="b-popup popup-sm">
+				<form id="ordercall">
+					<h2>Позвоните мне!</h2>
+					<div class="b-popup-body">
+						<p>Заполните данную форму и наши менеджеры<br> позвонят вам по указанному телефону.</p>
+						<p class="block_border_red">Ваши заявки обрабатываются ежедневно с
+							10.00 до 21.30. Отправляя заявку после 21.30,
+							вы можете ожидать звонка менеджера на следующий день после 10.00.
+						</p>
+						<div class="b_form order_call clearfix">
+							<!-- form -->
+
+								<div class="l-form">
+									<div class="l-form-item">
+										<div class="item first input-starred">
+											<input style="width: 100%" type="text" title="Ваше имя" placeholder="Ваше имя" name="name" value="Михаил" size="0">
+										</div>
+									</div>
+									<div class="l-form-item">
+										<div class="item first input-starred">
+											<input class="input-starred" style="width: 100%" type="text" title="Номер телефона" placeholder="Номер телефона" name="phone" value="+7(906)704-25-85" size="0">
+										</div>
+									</div>
+									<div class="l-form-item" >
+										<div class="item first">
+											<input  style="width: 100%" type="text" title="Удобное время для звонка менеджера" placeholder="Удобное время для звонка менеджера" name="time" value="" size="0">
+										</div>
+									</div>
+									<div class="l-form-item">
+										<div class="item first">
+											<textarea style="width: 100%" name="contacts" title="Дополнительные контакты (e-mail, телефон)" cols="40" rows="5" placeholder="Дополнительные контакты (e-mail, телефон)"></textarea>
+										</div>
+									</div>
+
+								</div>
+
+						</div>
+					</div>
+
+					<div class="b-popup-footer">
+						<button  class="g-btn btn-primary" name="submit">Отправить</button>
+					</div>
+				</form>
+
+			</div>
+		</section>
+	</div>
+</div>
+<script type="text/javascript">
+	var _ifrm = $('form#ordercall');
+	setTimeout(function() {_ifrm.find('[name=name]').focus().select();}, 100);
+	_ifrm.find('button[name=submit]').clickActive(function() {
+		console.log('submit');
+		var data = {loading: $(this)};
+		// Validate
+		var _iname = _ifrm.find('[name=name]');
+		data.name = _iname.val().trim();
+		if (!data.name) {
+			_iname.validationErr('Обязательное поле', {addClasses: 'over-dwbox', sneaky: true});
+			return false;
+		}
+		var _iphone = _ifrm.find('[name=phone]');
+		data.phone = _iphone.val().trim();
+		if (!data.phone) {
+			_iphone.validationErr('Обязательное поле', {addClasses: 'over-dwbox', sneaky: true});
+		}
+		data.time = _ifrm.find('[name=time]').val().trim();
+		data.contacts = _ifrm.find('[name=contacts]').val().trim();
+		ajax_post('/dialogs/callorder', data, function(res) {
+			if (res.success) {
+				dwbox.close();
+				niceAlert('Спасибо за заявку!\nНаши менеджеры свяжутся с Вами в ближайшее время.');
+			} else {
+				niceAlert('Ошибка при отправке запроса.\nВы можете попробовать снова.\nПриносим извинения за возможные неудобства.');
+			}
+		})
+		return false;
+	});
+</script>

@@ -2,25 +2,33 @@
 {% load staticfiles %}
 
 {% block  content %}
-
+<!-- HERE BE CONTENTS!!!! -->
 <div class="g-block">
 	<h4>Настройки доступа</h4>
-	<p>Здесь Вы можете настроить доступ к различным фукнциям Личного Кабинета из Интернета.
-		При этом, с адреса подключения функционал всегда будет оставаться полным.
-	</p>
+	<p>Здесь Вы можете настроить доступ к различным фукнциям Личного Кабинета из Интернета. При этом, с адреса подключения функционал всегда будет оставаться полным.</p>
 
 	<div class="b-access-type">
 		<div class="name">Доступ из Интернета</div>
 		<div class="value">
+			<div class="mgn-select-wrap basic">
+				<div class="mgn-select-choosed">Полный
+					<span class="crutch">1</span>
+				</div>
+				<div class="mgn-select-list">
+					<div class="mgn-select-item" data-selected="&quot;&quot;">Полный<span class="crutch">1</span></div>
+					<div class="mgn-select-item">Баланс, статистика, оплата<span class="crutch">2</span></div>
+					<div class="mgn-select-item">Только оплата<span class="crutch">3</span></div></div>
+			</div>
 			<ul class="mgn-select" style="display: none;">
 				<li data-selected="">Полный<span class="crutch">1</span></li>
-			<li>Баланс, статистика, оплата<span class="crutch">2</span></li>
-			<li>Только оплата<span class="crutch">3</span></li>
-		</ul>
-			<select name="access_external" id="iaccess_external" data-width="300px" hidden="">
-            	<option value="1" selected="selected">Полный</option><option value="2">Баланс, статистика, оплата</option>
-				<option value="3">Только оплата</option>
-			</select>
+				<li>Баланс, статистика, оплата<span class="crutch">2</span></li>
+				<li>Только оплата<span class="crutch">3</span></li>
+			</ul>
+				<select name="access_external" id="iaccess_external" data-width="300px" hidden="">
+            		<option value="1" selected="selected">Полный</option>
+					<option value="2">Баланс, статистика, оплата</option>
+					<option value="3">Только оплата</option>
+				</select>
 		</div>
 	</div>
 	<br>
@@ -29,5 +37,11 @@
 		<span class="fcell" id="settings_save_status"></span>
 	</p>
 </div>
+<script type="text/javascript">
+	var __ipType = 'external';
+	var __oldExt = '1';
+	var __admin = 'true';
+</script><!-- HERE END CONTENTS!!!! -->
+
 
 {% endblock %}

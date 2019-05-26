@@ -5,12 +5,22 @@
     <meta name="viewport" conntent="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Личный кабинет RiNet: Состояние счета и подключенные услуги</title>
     <!-- Стиль для блока, в котором открывается контент каждого пункта меню -->
     <link href="{% static 'css/style_main.css' %}" rel="stylesheet" type="text/css">
-
     <!-- Стиль wrapper -->
     <link href="{% static 'css/style_wrapper.css' %}" rel="stylesheet" type="text/css">
 	<link rel="icon" href="{% static 'favicon/favicon.png' %}">
+	<!-- CSS -->
+	<link href="{% static 'css/dwbox.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/fancybox_nkh.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/fixes_post.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/fixes_pre.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/jquery.fancybox.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/jquery.qtip.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'css/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
+
+
     <!-- JS -->
     <script type="text/javascript" src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery-ui-1.10.4.custom.min.js' %}"></script>
@@ -36,22 +46,21 @@
     <script type="text/javascript" src="{% static 'js/angular.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
 	<!-- Pages js -->
-	<script type="text/javascript" src="{% static 'js/lk/history_incomes_index.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/lk/history_traf.js' %}"></script>
-    <!-- /JS -->
 
+
+
+
+
+
+
+	<!-- Connected on the block service page!!!
+	<script type="text/javascript" src="{% static 'js/lk/block.js' %}"></script> -->
+    <!-- /JS -->
 	<!-- Datepicker -->
-    <!-- <link href="{% static 'js/jquery-ui.custom.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css"> -->
 	<link href="{% static 'css/datepicker/datepicker.css' %}" rel="stylesheet" type="text/css">
 	<link href="{% static 'css/datepicker/datepicker.min.css' %}" rel="stylesheet" type="text/css">
  	<script type="text/javascript" src="{% static 'js/datepicker/datepicker.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'js/datepicker/datepicker.js' %}"></script>
-
-
-
-
-	<title>Личный кабинет RiNet: Состояние счета и подключенные услуги</title>
 	<!-- JS fixes for deprecated browsers -->
 	<script type="text/javascript">
 		if (!(window.console && console.log)) {
@@ -76,7 +85,7 @@
 		var __dump = {"gitBranch":"master","gitCommit":"a6c900b55c33001404af947203c1e96783b5b363","gitCommitTime":"1555518306","dumps":[{"var":3,"name":"iptype"},{"var":{"access_external":"1"},"name":"settings"},{"var":{"balance\/exp":1558412604,"traf":1558413010,"balance\/exp:yak32-221":1558412604,"balance\/exp:yak32-221sm":1558412604},"name":"upd"},{"var":["10.253.10.54","195.91.174.102"],"name":"ips-inet_tvma"},{"var":["open","open"],"name":"ipstats-inet_tvma"},{"var":["10.254.5.116"],"name":"ips-tvls"},{"var":["closed"],"name":"ipstats-tvls"},{"var":{"client":{"dateaccept":"2005-07-02","ulogin":"yak32-221","blogin":"y32-221","dlogin":"1100077049","pincode":"64433","surname":"\u0413\u0435\u043d\u0435\u0440\u0430\u043b\u043e\u0432","firstname":"\u041c\u0438\u0445\u0430\u0438\u043b","middlename":"\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447","legacy_fio":"\u0413\u0435\u043d\u0435\u0440\u0430\u043b\u043e\u0432 \u041c\u0438\u0445\u0430\u0438\u043b \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447","ltype":"1","payment":"1","privjur":"1","address":{"apartment":"221","house":"32","building":"","block":"","fraction":"","estate":"0","housecomment":"","name":"\u042f\u043a\u0438\u043c\u0430\u043d\u043a\u0430","pre":"\u0411.","post":"\u0443\u043b.","npre":""},"messages":{"num_unread":0,"num_total":3},"address_readable":"\u0443\u043b. \u0411. \u042f\u043a\u0438\u043c\u0430\u043d\u043a\u0430 \u0434. 32 \u043a\u0432. 221"},"upd":{"balance\/exp":1558412604,"traf":1558413010,"balance\/exp:yak32-221":1558412604,"balance\/exp:yak32-221sm":1558412604},"services":{"serviceGroups":{"inet_tvma":{"tariff":"hal-w55","tariff_basic":"hal-w55","statsServiceId":1,"totalPrice":300,"label":"\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442, \u0426\u0438\u0444\u0440\u043e\u0432\u043e\u0435 \u0422\u0412","services":{"inet":{"label":"\u0418\u043d\u0442\u0435\u0440\u043d\u0435\u0442","subservices":{"tariff":{"type":"inet","billingType":"stoppable","service":1,"label":"VIP 100","price":"0","desc":"100 \u041c\u0431\u0438\u0442\/\u0441"},"extIp":{"type":"extIp","billingType":"stoppable","service":1,"label":"\u0412\u043d\u0435\u0448\u043d\u0438\u0439 IP-\u0430\u0434\u0440\u0435\u0441","price":0,"desc":""}}},"rent":{"label":"\u0410\u0440\u0435\u043d\u0434\u0430 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u044f","subservices":[]},"ma":{"label":"\u0426\u0438\u0444\u0440\u043e\u0432\u043e\u0435 \u0422\u0412","subservices":{"mainpack1":{"type":"mainpack","billingType":"stoppable","service":16,"label":"\u0426\u0438\u0444\u0440\u043e\u0432\u043e\u0435 \u0422\u0412 - \u0420\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u043d\u044b\u0439","price":"300","desc":""}}}},"ulogin":"yak32-221","dlogin":"1100077049","blogin":"y32-221","stat":{"service":1,"balance":"515.34","reqpay":"-515.34","status":"1","extstatus":0,"known":true,"virus":true,"exttext":"\u0412\u043a\u043b","extblock":false,"exttextclass":"ok"},"lastpay":{"id":"3679207","org_id":"1","psp":"alfabank","ptype":"V","stype":"P","user":"y32-221","ctime":"1554638291","sum":"10","ctime_formatted":"07.04.2019 14:58","ptype_formatted":"\u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430","stype_formatted":"\u043f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0441\u0447\u0451\u0442\u0430"}},"tvls":{"tariff":"blokirovka","hide_logins":true,"label":"\u0418\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0435 \u0422\u0412 - \u0441\u0435\u0440\u0432\u0438\u0441 \u00ab\u0421\u043c\u043e\u0442\u0440\u0401\u0448\u043a\u0430\u00bb","ulogin":"yak32-221sm","dlogin":"2100077041","blogin":"yak32-221sm","statsServiceId":21,"totalPrice":0,"services":{"tvls":{"label":"\u0418\u043d\u0442\u0435\u0440\u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0435 \u0422\u0412","subservices":{"mainpack1":{"type":"mainpack","billingType":"stoppable","service":21,"label":"\u041f\u0435\u0440\u0432\u044b\u0439 \u0411\u0430\u043d\u0434\u043b","price":"0","desc":""}}}},"stat":{"service":21,"balance":"38.14","reqpay":"-38.14","status":"0","extstatus":5,"known":true,"exttext":"\u0412\u044b\u043a\u043b","extblock":"\u0414\u0430\u043d\u043d\u044b\u0435 \u043d\u0430\u0445\u043e\u0434\u044f\u0442\u0441\u044f \u0432 \u0441\u0442\u0430\u0434\u0438\u0438 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f. \u0415\u0441\u043b\u0438 \u0412\u044b \u043d\u0430\u0431\u043b\u044e\u0434\u0430\u0435\u0442\u0435 \u0434\u0430\u043d\u043d\u044b\u0439 \u0441\u0442\u0430\u0442\u0443\u0441 \u0443\u0436\u0435 \u0431\u043e\u043b\u0435\u0435 30 \u043c\u0438\u043d\u0443\u0442, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u043e\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044c \u0432 \u0442\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0443.","exttextclass":"red"},"lastpay":{"id":"3359623","org_id":"1","psp":"alfabank","ptype":"V","stype":"P","user":"yak32-221sm","ctime":"1529706286","sum":"10","ctime_formatted":"23.06.2018 01:24","ptype_formatted":"\u0431\u0430\u043d\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043a\u0430\u0440\u0442\u0430","stype_formatted":"\u043f\u043e\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u0441\u0447\u0451\u0442\u0430"}}},"totalPrice":300},"stat":{"1":{"service":1,"balance":"515.34","reqpay":"-515.34","status":"1","extstatus":"on"},"21":{"service":21,"balance":"38.14","reqpay":"-38.14","status":"0","extstatus":"off"}},"address":"\u0443\u043b. \u0411. \u042f\u043a\u0438\u043c\u0430\u043d\u043a\u0430 \u0434. 32 \u043a\u0432. 221"},"name":"view data"},{"var":{"displayUserBlock":true,"justLoggedIn":false,"auth":true,"devEx":[],"canAdmin":true,"lowPerm":false,"path":"\/"},"name":"lkData"}],"hostPrefix":"","hostSuffix":"secure.rinet.ru"};
 		var serverDateTime = new Date(2019,05-1,21,07,41,41);
 		var serverDate = new Date(2019,05-1,21);
-			</script>
+	</script>
 	<!-- /JS SERVER DATA -->
 </head>
 <body>
@@ -98,8 +107,12 @@
             <!--Блок для размещения логотипа компании. Конец logo-and-phone.-->
             <!--Блок для кнопки "Заказать звонок", "Техническая поддержка". Начало links.-->
             <div class="links">
-                <a href="http://rinet.ru/help" class="header-link tech-serv" style=""><span>Техническая<br>поддержка</span></a>
-                <a href="#" onclick="dwbox.load('/dialogs/callorder/dummy.html'); return false;" class="header-link call-back" style=""><span>Заказать<br>звонок</span></a>
+                <a href="http://rinet.ru/help" class="header-link tech-serv" style="">
+					<span>Техническая<br>поддержка</span>
+				</a>
+                <a href="#" onclick="dwbox.load('dummy'); return false;" class="header-link call-back" style="">
+					<span>Заказать<br>звонок</span>
+				</a>
             </div>
             <!--Блок для кнопки "Заказать звонок", "Техническая поддержка". Конец links.-->
             <!--Блок для размещения кнопок: скидки, сообщения, информация о пользователе. Начало gold-client-and-user-block.-->
@@ -107,17 +120,12 @@
                 <a href="http://rinet.ru/services/?ab=a" target="blank" class="b-messages">
                     <span class="icon">
                         <div class="img_sp_off_change"></div>
-    	                <!--<img src="{% static 'images/sp_off.png' %}" height="32" width="32">
-                        <img style="sp_off" height="32" width="32">-->
 		            </span>
                     <span class="text">Ваши скидки</span>
                 </a>
                 <a href="/your_messages" class="b-messages">
 						<span class="icon">
                             <div class="img_bell_change" tabindex="0"></div>
-                            <!--<img src="{% static 'images/i-bell-static.png' %}" height="32" width="32" alt="" class="static">
-							<img src="{% static 'images/i-bell-hover.png' %}" height="32" width="32" alt="" class="hover">
-							<img src="{% static 'images/i-bell-focus.png' %}" height="32" width="32" alt="" class="focus">-->
 						</span>
 						<span class="text" style="">Сообщения</span>
 				</a>
@@ -217,94 +225,135 @@
         </section>
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
-
-<script type="text/javascript">
-    /* Код JS для реалзиации функционала(на страницах ОП, блокировки):
-	при переключении чекбокса делаем активный тот или иной чекбокс
-	и выводим информацию в блкое ниже под radio */
-    if (document.getElementById("radio_button_switcher"))
-    {
-        /*Функция навешивает класс active для чекбокса в случае щелчка по нему*/
-         var header = document.getElementById("radio_button_switcher");
-         var btns = header.getElementsByClassName("l-select-service");
-         for (var i = 0; i < btns.length; i++) {
-         btns[i].addEventListener("click", function() {
-         var current = document.getElementsByClassName(" active");
-         current[0].className = current[0].className.replace(" active", "");
-         this.className += " active";
-         });
-        }
-        /*Функцию, плавно выводящая данные */
-        function show_slow(block){
-            var op = 0;
-            setTimeout(function (){
-            if (op > 1) return;
-            document.getElementById(block).style.opacity=op;
-            op+=0.1
-            setTimeout(arguments.callee, 10);}, 10);
-            document.getElementById(block).style.backgroundColor = 'white';
-        }
-        /*Функции отображают ту или иную информацию при щелчке по radio*/
-        document.getElementById("radio_but1").onclick = function() {
-            document.getElementById("tv_login").style.display = "none";
-            document.getElementById("inet_login").style.display = "block";
-            document.getElementById("inet_login").style.backgroundColor = 'yellow';
-            show_slow('inet_login')
-            }
-        document.getElementById("radio_but2").onclick = function() {
-            document.getElementById("tv_login").style.display = "block";
-            document.getElementById("inet_login").style.display = "none";
-            show_slow('tv_login')
-            }
-	}
-	/*
-	    Код JS для реалзиации функционала(на странице "История платежей")
-	    Datepicker на странице
-
-	if (document.getElementById("form-show-history"))
-    {
-        // Функция навешивает класс active для чекбокса в случае щелчка по нему
-        document.getElementById("ifrom").onclick = function() {
-            document.getElementById("ui-datepicker-div").style = "position: absolute; top: 311.2px; left: 305px; z-index: 2; display: block;"
-        }
-        document.getElementById("ito").onclick = function() {
-            document.getElementById("ui-datepicker-div").style = "position: absolute; top: 311.2px; left: 495px; z-index: 2; display: block;"
-        }
-        // Скрываем календарь, если щелкнули вне его
-        window.addEventListener('click', function(e){
-          if (document.getElementById('form-show-history').contains(e.target)){
-          } else{
-            document.getElementById("ui-datepicker-div").style = ""
-          }
-        });
-    }
-
-	    Код JS для реалзиации функционала(на странице "История трафика")
-	    Datepicker на странице
-
-    if (document.getElementById("form-show-traffic"))
-    {
-        document.getElementById("form-show-traffic").onclick = function() {
-            var list_button = document.getElementById("form-show-traffic");
-            if (list_button.classList.contains("active"))
-            {
-                document.getElementById("form-show-traffic").className = "mgn-select-wrap basic";
-            }
-            else
-            {
-                document.getElementById("form-show-traffic").className += " active";
-            }
-         }
-    }
-    */
-</script>
-
 <footer class="footer_outer" style="
     {% if active == 'settings_inet'  %}margin: 320px auto 0;
     {% elif active == 'dpay' %}margin: -80px auto 0;
     {% endif %}">
 	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
+<!-- err div -->
+<div id="_errMsg" class="b-popup popup-md">
+	<div class="b-popup-body">
+		<h3 id="_errMsgHead"></h3>
+		<div id="_errMsgBody"></div>
+	</div>
+	<div class="b-popup-footer">
+		<button class="g-btn btn-primary fancyOk">ОК</button>
+	</div>
+</div>
+<!-- /err div -->
+<!-- message div -->
+<div id="_msgMsg" class="hide b-popup popup-md">
+	<div class="b-popup-body">
+		<h3 id="_msgMsgHead"></h3>
+		<div id="_msgMsgBody"></div>
+	</div>
+	<div id="_msgMsgPushButtons" class="b-popup-footer">
+		<button class="g-btn btn-primary fancyOk">Сообщение прочитано. Больше не показывать</button>
+		<button class="g-btn btn-link fancyCancel">Прочитать позже</button>
+	</div>
+</div>
+<!-- /message div -->
+<style type="text/css">		div.dwbox_overlay{		position: fixed;		top: 0;		left: 0;		bottom: 0;
+right: 0;		/*background-image: url(../images/dwbox/black80.png);*/		z-index: 999999;		display: block;	}
+div.dwbox_wrap {		/* background-color: white; */		position: absolute;		margin: 0px;		padding: 0px;
+	z-index: 1101;		width: auto;		height: auto;		display: block;	}	div.dwbox_wrap.loading {
+	background-image: url(/bitrix/templates/rinet/images/loader.gif);		background-position: 50% 50%;
+	background-repeat: no-repeat;		overflow:hidden;		padding-right:90px;		padding-top:90px;
+	border-radius: 7px;		background-color:#e7ebee	}
+</style>
+
+<div class="dwbox_overlay" style="display: none;">
+	<div class="dwbox_wrap" style="left: 140.5px; top: 53px;">
+		<div class="detail_card">
+			<div class="closebtn" onclick="dwbox.close();">
+
+			</div>
+			<div class="help_pop_up">
+				<div class="pop_up_in">
+					<section>
+						<div class="b-popup popup-sm">
+							<form id="ordercall">
+								<h2>Позвоните мне!</h2>
+								<div class="b-popup-body">
+									<p>Заполните данную форму и наши менеджеры<br> позвонят вам по указанному телефону.</p>
+									<p class="block_border_red">Ваши заявки обрабатываются ежедневно с
+										10.00 до 21.30. Отправляя заявку после 21.30,
+										вы можете ожидать звонка менеджера на следующий день после 10.00.
+									</p>
+									<div class="b_form order_call clearfix">
+										<!-- form -->
+											<div class="l-form">
+												<div class="l-form-item">
+													<div class="item first input-starred">
+														<input style="width: 100%" type="text" title="Ваше имя" placeholder="Ваше имя" name="name" value="Михаил" size="0">
+													</div>
+												</div>
+												<div class="l-form-item">
+													<div class="item first input-starred">
+														<input class="input-starred" style="width: 100%" type="text" title="Номер телефона" placeholder="Номер телефона" name="phone" value="+7(906)704-25-85" size="0">
+													</div>
+												</div>
+												<div class="l-form-item">
+													<div class="item first">
+														<input style="width: 100%" type="text" title="Удобное время для звонка менеджера" placeholder="Удобное время для звонка менеджера" name="time" value="" size="0">
+													</div>
+												</div>
+												<div class="l-form-item">
+													<div class="item first">
+														<textarea style="width: 100%" name="contacts" title="Дополнительные контакты (e-mail, телефон)" cols="40" rows="5" placeholder="Дополнительные контакты (e-mail, телефон)"></textarea>
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+								<div class="b-popup-footer">
+									<button class="g-btn btn-primary" name="submit">Отправить</button>
+								</div>
+							</form>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var _ifrm = $('form#ordercall');
+	setTimeout(function() {_ifrm.find('[name=name]').focus().select();}, 100);
+	_ifrm.find('button[name=submit]').clickActive(function() {
+		console.log('submit');
+		var data = {loading: $(this)};
+		// Validate
+		var _iname = _ifrm.find('[name=name]');
+		data.name = _iname.val().trim();
+		if (!data.name) {
+			_iname.validationErr('Обязательное поле', {addClasses: 'over-dwbox', sneaky: true});
+			return false;
+		}
+		var _iphone = _ifrm.find('[name=phone]');
+		data.phone = _iphone.val().trim();
+		if (!data.phone) {
+			_iphone.validationErr('Обязательное поле', {addClasses: 'over-dwbox', sneaky: true});
+		}
+		data.time = _ifrm.find('[name=time]').val().trim();
+		data.contacts = _ifrm.find('[name=contacts]').val().trim();
+		ajax_post('/dialogs/callorder', data, function(res) {
+			if (res.success) {
+				dwbox.close();
+				niceAlert('Спасибо за заявку!\nНаши менеджеры свяжутся с Вами в ближайшее время.');
+			} else {
+				niceAlert('Ошибка при отправке запроса.\nВы можете попробовать снова.\nПриносим извинения за возможные неудобства.');
+			}
+		})
+		return false;
+	});
+</script>
+<div id="blockbyte-bs-indicator" class="blockbyte-bs-fullHeight blockbyte-bs-visible" data-pos="left" style="width: 21px; height: 100%; top: 0%;">
+	<div>
+		<span></span>
+	</div>
+</div>
 
 </body>
 </html>

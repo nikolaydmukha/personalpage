@@ -545,7 +545,8 @@ h4
 	webkit-transition: .2s;
 	width: 18px;
 }
-.header_wrapper .gold-client-and-user-block:after,.header_wrapper .gold-client-and-user-block:before,.header_wrapper:after,.header_wrapper:before
+.header_wrapper .gold-client-and-user-block:after,.header_wrapper .gold-client-and-user-block:before,
+.header_wrapper:after,.header_wrapper:before
 {
 	content: " ";
 	display: table;
@@ -596,7 +597,8 @@ h4
 	text-decoration: none;
 	webkit-border-radius: 7px;
 }
-.b-gold-client .focus,.b-gold-client .hover,.b-gold-client:hover .static,.b-messages .focus,.b-messages .hover,.b-messages:hover .static
+.b-gold-client .focus,.b-gold-client .hover,.b-gold-client:hover .static,.b-messages .focus,.b-messages .hover,
+.b-messages:hover .static
 {
 	display: none;
 }
@@ -817,7 +819,10 @@ h4
 	height: 10px;
 	width: 10px;
 }
-.l-services .l-services-item .l-services-item-content .payment-general:after,.l-services .l-services-item .l-services-item-content .payment-general:before,.l-services .l-services-item .l-services-item-title:after,.l-services .l-services-item .l-services-item-title:before
+.l-services .l-services-item .l-services-item-content .payment-general:after,
+.l-services .l-services-item .l-services-item-content .payment-general:before,
+.l-services .l-services-item .l-services-item-title:after,
+.l-services .l-services-item .l-services-item-title:before
 {
 	content: " ";
 	display: table;
@@ -834,7 +839,10 @@ h4
 {
 	margin-bottom: 15px;
 }
-.l-services .l-services-item .l-services-item-content .btns,.l-services .l-services-item .l-services-item-content .form-connect-tv,.l-services .l-services-item .l-services-item-content .payment-details,.l-services .l-services-item .l-services-item-content .payment-general
+.l-services .l-services-item .l-services-item-content .btns,
+.l-services .l-services-item .l-services-item-content .form-connect-tv,
+.l-services .l-services-item .l-services-item-content .payment-details,
+.l-services .l-services-item .l-services-item-content .payment-general
 {
 	margin-bottom: 20px;
 }
@@ -881,7 +889,14 @@ h4
 	margin-left: 5px;
 	vertical-align: top;
 }
-.b-selected-packages .list .row:after,.b-selected-packages .list .row:before,.form-connect-tv .row:after,.form-connect-tv .row:before,.l-services .l-services-item .l-services-item-content .payment-details .payment-details-item:after,.l-services .l-services-item .l-services-item-content .payment-details .payment-details-item:before,.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-current:after,.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-current:before,.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-old:after,.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-old:before
+.b-selected-packages .list .row:after,.b-selected-packages .list .row:before,
+.form-connect-tv .row:after,.form-connect-tv .row:before,
+.l-services .l-services-item .l-services-item-content .payment-details .payment-details-item:after,
+.l-services .l-services-item .l-services-item-content .payment-details .payment-details-item:before,
+.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-current:after,
+.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-current:before,
+.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-old:after,
+.l-services .l-services-item .l-services-item-content .payment-general .col.col-login .login-old:before
 {
 	content: " ";
 	display: table;
@@ -1227,7 +1242,8 @@ body .fancybox-wrap .fancybox-skin
 {
 	border-bottom: 1px dashed #777;
 }
-.l-form .l-form-item:after,.l-form .l-form-item:before,.l-select-service .l-select-service-item:after,.l-select-service .l-select-service-item:before
+.l-form .l-form-item:after,.l-form .l-form-item:before,.l-select-service .l-select-service-item:after,
+.l-select-service .l-select-service-item:before
 {
 	content: " ";
 	display: table;
@@ -1548,7 +1564,8 @@ table.type1 td
 	background-color: #e50004;
 	color: #fff;
 }
-.mgn-select-wrap .mgn-select-list .mgn-select-item.active a,.mgn-select-wrap .mgn-select-list .mgn-select-item.active a:hover
+.mgn-select-wrap .mgn-select-list .mgn-select-item.active a,
+.mgn-select-wrap .mgn-select-list .mgn-select-item.active a:hover
 {
 	color: #fff;
 }

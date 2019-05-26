@@ -1,6 +1,6 @@
 ﻿.flexbox-x {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 }
 .flexbox-y {
 	display: flex;
@@ -65,5 +65,3 @@
    font-size: 18px;
    font-weight: bold;
 }
-
-

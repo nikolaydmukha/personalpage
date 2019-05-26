@@ -17,13 +17,13 @@ $.fn.clickActive = function(callback) {
 $.fn.numeric = function(callback) {
 	var _e = $(this);
 	_e.on('keydown', function(event) {
-		 if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || 
+		 if ( event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
              // Allow: Ctrl+A
-            (event.keyCode == 65 && event.ctrlKey === true) || 
+            (event.keyCode == 65 && event.ctrlKey === true) ||
              //Allow: Ctrl+V
-			 (event.keyCode == 86 && event.ctrlKey === true) || 
+			 (event.keyCode == 86 && event.ctrlKey === true) ||
 			 //Allow: Ctrl+C
-			 (event.keyCode == 67 && event.ctrlKey === true) || 
+			 (event.keyCode == 67 && event.ctrlKey === true) ||
 			 //Allow: Enter
 			 (event.keyCode == 13) ||
 			 // Allow: home, end, left, right
@@ -38,7 +38,7 @@ $.fn.numeric = function(callback) {
 			}
             // Ensure that it is a number and stop the keypress
             if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-                event.preventDefault(); 
+                event.preventDefault();
             }
         }
 	});
@@ -98,17 +98,17 @@ $(function () {
 			});
 		}
 	});
-	
+
 	// Fancybox close
 	$('[act=fancybox-close]').click(function() {$.fancybox.close();});
-	
+
 	// Bootstrap select
 	$('[data-bootstrap-select]').selectpicker();
-	
+
 	// Disabled
 	$('[disabler]').change(function() {
-		var dis = !XOR($(this).is('[disabler-invert]'), $(this).prop('checked')), 
-			clear = $(this).is('[disabler-clear]'), 
+		var dis = !XOR($(this).is('[disabler-invert]'), $(this).prop('checked')),
+			clear = $(this).is('[disabler-clear]'),
 			elem = $('#'+$(this).attr('disabler'));
 		if (dis) {
 			if (clear) {
@@ -129,7 +129,7 @@ $(function () {
 		}).addClass('tabs_'+$(this).find('[data-content-tab]').length+'')
 	});
 	$('[data-pay-tabs]').tabs();
-	
+
 	// Info-letter
 	$('.info-letter-click').click(function(e) {
 		if (e.target == this) {
@@ -138,9 +138,9 @@ $(function () {
 	});
 	$('.info-letter-click .text .text-container .closer').click(function() {
 		$(this).closest('.text').css('display', 'none');
-		
+
 	});
-	
+
 	/**** INIT ****/
 	console.log('Page loaded');
 	if (window['dbg']) dbg();

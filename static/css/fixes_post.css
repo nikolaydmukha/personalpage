@@ -1,69 +1,133 @@
-﻿.flexbox-x {
-	display: flex;
-	flex-flow: row wrap;
-}
-.flexbox-y {
-	display: flex;
-	flex-flow: column wrap;
-}
-	.flex-jstart {
-		justify-content: flex-start;
+﻿/* dwbox closebtn fix*/
+
+.closebtn {
+	position: absolute !important;
+	top: 22px !important;
+	right: 18px !important;
+	background-image: url('../../img/sprite-i-close.png') !important;
+	background-color: transparent !important;
+	height: 19px !important; width: 19px !important;
+	padding: 0 !important; margin: 0 !important;
+	background-position: 0 0 !important;
 	}
-	.flex-jend {
-		justify-content: flex-end;
-	}
-	.flex-jaround {
-		justify-content: space-around;
-	}
-	.flex-jbetween {
-		justify-content: space-between;
-	}
-	.flex-center {
-		align-items: center;
-	}
-	.flex-stretch {
-		align-items: stretch;
-	}
-	.flex-dummy {
-		flex-grow: 1;
+	.closebtn:hover {
+		background-position: 0 -19px !important;
 	}
 
 
-.cur-hlp {
-	cursor: help;
-}
-.wafer {
-	background-color: rgba(0,0,0,0.1);
-	}
-	.wafer * {
-		color: white;
-	}
-.invisible {
-	opacity: 0;
-	visibility: hidden;
+.password .show {
+	width: 77px;
 }
 
-.l-select-service.bordered {
-	padding: 10px;
-	border: 1px solid rgb(233, 234, 234);
+.hide {
+	display: none;
 }
-.detail_card {
-	border: none !important;
-	border-radius: 0 !important;
+
+#_errMsg {
+	display: none;
 }
-.gold-client-and-user-block > * {
+
+/* Firefox address :before bug fix */
+.pc_user_block::before {
+  display: none;
+}
+
+/* phone fix */
+.phone {
+  text-decoration: none;
+  color: black;
+}
+
+
+/** Devel **/
+
+#dev-window ul li::before {
+	content: '-';
+	width: 0; height: 0;
+	margin: 0; padding: 0;
+	border: none;
+	position: relative; top: 0; left: 0;
+	background-color: transparent;
+	color: rgba(0,0,0,0.3);
+}
+
+.dev-window-show-button {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: none;
+	font-weight: bold;
+	cursor: pointer;
+	border: 1px solid #CCC;
+	padding: 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px #E6E6E6;
+	opacity: 0.3;
+
+	z-index: 27;
+}
+.dev-window {
+	width: 200px;
+	position: absolute;
+	box-shadow: 5px 5px 3px #E6E6E6;
+	top: 10px;
+	left: 10px;
+	border: 2px solid #CCC;
+	border-radius: 5px;
+	padding: 5px;
+    z-index: 2;
+}
+.dev-window-wrapper {
+	position: relative;
+}
+.dev-window-close-button {
+	position: absolute;
+	font-weight: bold;
+	font-size: 9px;
+	right: -3px;
+	top: -3px;
+	cursor: pointer;
+	z-index: 27;
+}
+.dev-window ul li {
+	font-family: Lucidia Console;
+	font-size: 13px;
+	line-height: 17px;
+	padding: 0;
+	margin: 5px 0;
+	background: none;
+}
+.dev-window ul li::before {
+	content: "\2022";
+}
+.dev-small {
+	line-height: 11px;
+	font-size: 9px;
+}
+.dev-window ul li ul li {
 	margin-left: 10px;
 }
-.input-starred {
-    position: relative;
+.dev-window ul li ul li::before {
+	content: "- ";
 }
-.input-starred::after {
-    position: absolute;
-    color: #EA1B23;
-    content: '*';
-    right: 10px; top: 10px;
-   font-size: 18px;
-   font-weight: bold;
+.dev-expand {
+	cursor: pointer;
+}
+.dev-window pre {
+	white-space: pre;
+	word-wrap: normal;
+}
+#_msgMsgBody {
+
+  }
+  #_msgMsgBody a {
+	color: #e60004;
+  }
+
+.l-messages-item > div {
 }
 
 
+.footer_outer {
+  z-index: 0;
+}
