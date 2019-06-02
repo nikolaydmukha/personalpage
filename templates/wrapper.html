@@ -106,7 +106,7 @@
             <div class="gold-client-and-user-block flexbox-x flex-jend flex-stretch">
                 <a href="http://rinet.ru/services/?ab=a" target="blank" class="b-messages">
                     <span class="icon">
-                        <div class="img_sp_off_change"></div>
+                        <div class="img_sp_off_change" tabindex="0"></div>
 		            </span>
                     <span class="text">Ваши скидки</span>
                 </a>
@@ -213,8 +213,15 @@
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
 <footer class="footer_outer" style="
-    {% if active == 'settings_inet'  %}margin: 320px auto 0;
-    {% elif active == 'dpay' %}margin: -80px auto 0;
+    {% if active == 'settings_inet'  %}margin: 300px auto 0;
+    {% elif active == 'block' %}margin: -180px auto 0;
+    {% elif active == 'dpay' %}margin: -35px auto 0;
+	{% elif active == 'pay_bcard' %}margin: -290px auto 0;
+	{% elif active == 'pay_sber' %}margin: -290px auto 0;
+	{% elif active == 'history_incomes' %}margin: -220px auto 0;
+	{% elif active == 'history_traf' %}margin: -220px auto 0;
+	{% elif active == 'your_messages' %}margin: -240px auto 0;
+	{% elif active == 'settings_personal' %}margin: -220px auto 0;
     {% endif %}">
 	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
@@ -241,21 +248,26 @@
 	</div>
 </div>
 <!-- /message div -->
-<style type="text/css">		div.dwbox_overlay{		position: fixed;		top: 0;		left: 0;		bottom: 0;
-right: 0;		/*background-image: url(../images/dwbox/black80.png);*/		z-index: 999999;		display: block;	}
-div.dwbox_wrap {		/* background-color: white; */		position: absolute;		margin: 0px;		padding: 0px;
-	z-index: 1101;		width: auto;		height: auto;		display: block;	}	div.dwbox_wrap.loading {
-	background-image: url(/bitrix/templates/rinet/images/loader.gif);		background-position: 50% 50%;
-	background-repeat: no-repeat;		overflow:hidden;		padding-right:90px;		padding-top:90px;
-	border-radius: 7px;		background-color:#e7ebee	}
+<style type="text/css">
+	div.dwbox_overlay{
+		position: fixed;top: 0;left: 0;bottom: 0;right: 0;
+		/*background-image: url(../images/dwbox/black80.png);*/	z-index: 999999;display: block;
+		}
+	div.dwbox_wrap {
+		/* background-color: white; */position: absolute;margin: 0px;padding: 0px;
+		z-index: 1101;width: auto;height: auto;display: block
+	}
+	div.dwbox_wrap.loading {
+		background-image: url(/bitrix/templates/rinet/images/loader.gif);background-position: 50% 50%;
+		background-repeat: no-repeat;overflow:hidden;padding-right:90px;padding-top:90px;
+		border-radius: 7px;	background-color:#e7ebee
+	}
 </style>
 
 <div class="dwbox_overlay" style="display: none;">
 	<div class="dwbox_wrap" style="left: 140.5px; top: 53px;">
 		<div class="detail_card">
-			<div class="closebtn" onclick="dwbox.close();">
-
-			</div>
+			<div class="closebtn" onclick="dwbox.close();"></div>
 			<div class="help_pop_up">
 				<div class="pop_up_in">
 					<section>

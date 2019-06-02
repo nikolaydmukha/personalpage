@@ -176,7 +176,7 @@ body {
 }
 /*Текст в блоках "Ваши скидки", "Сообщения"*/
 .b-messages span.text {
-    font-size : 12px;
+    font-size : 13px;
     text-decoration : none solid rgb(119, 119, 119);
     text-align : center;
     word-spacing : 0px;
@@ -195,7 +195,17 @@ body {
 color: #000000;
     text-decoration: none;
 }
-/*В блоке "Скидки" делаем замену картинки при наведении*/
+/*В блоке "Скидки" делаем замену картинки при наведении, предварительно загрузив все 4 картинки, чтобы не было
+мерцания при наведение курсора мыщи!!!*/
+body::after{
+    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+    content:url(../images/sp_off_new.png)
+    url(../images/sp_off_new_hover.png)
+    url(../images/sp_off_new_focus.png)
+    url(../images/i-bell-static.png)
+    url(../images/i-bell-hover.png)
+    url(../images/i-bell-focus.png);
+}
 .img_sp_off_change {
     height : 34.4px;
     width : 75.55px;
@@ -205,6 +215,9 @@ color: #000000;
 }
 .img_sp_off_change:hover {
     background-image: url(../images/sp_off_new_hover.png);
+}
+.img_sp_off_change:focus {
+    background-image: url(../images/sp_off_new_focus.png);
 }
 /*В блоке "Сообщения" делаем замену картинки при наведении*/
 .img_bell_change {
@@ -275,7 +288,7 @@ color: #000000;
 }
 .pc_user_block .info {
     display: block;
-    font-size: 12px;
+    font-size: 13px;
 }
 .pc_user_block strong {
     font-weight: 400;
@@ -537,12 +550,6 @@ color: #000000;
     -o-transform: rotate(90deg);
     transform: rotate(90deg);
 }
-h2 {
-    font-size: 24px;
-    margin-bottom: .625em;
-    font-weight: 600;
-}
-
 
 /*Футер*/
 .footer_inner {
@@ -557,7 +564,7 @@ h2 {
 }
 .footer_outer {
     height: 140px;
-    margin: -140px auto 0;
+    margin: -105px auto 0;
     min-height: 140px;
     position: relative;
     z-index: 2;
