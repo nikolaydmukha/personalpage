@@ -18,7 +18,8 @@
  padding:5px 9px;
  overflow:hidden;
  text-align:left;
- word-wrap:break-word
+ word-wrap:break-word;
+ color: red;
 }
 .qtip-titlebar {
  position:relative;
