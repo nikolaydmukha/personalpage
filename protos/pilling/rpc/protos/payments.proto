@@ -1,0 +1,124 @@
+/*
+    Pilling payments service.
+*/
+syntax = "proto2";
+
+import "pilling/rpc/protos/services.proto";  // import OrganizationReply
+
+
+/* Payments service */
+service Payments {
+    /* Get payments, order by time */
+    rpc GetPayments (GetPaymentsRequest) returns (GetPaymentsReply) {}
+
+    // -- Payment target resolver methods
+
+    /* Resolve payment target by account */
+    rpc ResolvePaymentTargetByAccount(PaymentTargetByAccountRequest) returns (PaymentTargetReply) {}
+
+
+    // -- Payment creation methods
+
+    /* Validate payment
+    *  doesn't check existing payment similarity if operation id already exists.
+    *  if both account and organization set, checks for an account
+    */
+    rpc ValidatePayment(CreatePaymentRequest) returns (CreatePaymentReply) {}
+
+    /* Create payment.
+    *  doesn't check existing payment similarity if operation id already exists.
+    *  if both account and organization set, checks for an account
+    */
+    rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentReply) {}
+}
+
+
+/* Get payments request */
+message GetPaymentsRequest {
+    optional string client_id = 1;              // client id
+    optional string login = 2;                  // target login
+    optional int32 organization_id = 3;         // organization id
+    optional string organization_name = 4;      // organization name
+    optional int64 ts_from = 5;                 // from unix timestamp
+    optional int64 ts_to = 6;                   // to unix timestamp
+    optional bool desc = 7 [default=false];     // order descending
+    optional int64 offset = 8;                  // pagination offset
+    optional int64 limit = 9;                   // result limit
+}
+
+/* Resolve payment target by account request */
+message PaymentTargetByAccountRequest {
+    required string account = 1;                // account value
+}
+
+/* Create payment request */
+message CreatePaymentRequest {
+    required string payment_system = 1;         // payment system name
+    required string operator = 2;
+    required string currency = 3;               // currency name (rub is rub)
+    required int64 curr_sum = 4;                // payment sum in currency (vm sum will be computed by billing)
+    required PaymentTarget target = 5;          // payment target definer (usually got from target resolver methods)
+    optional string operation_id = 6;           // payment operation id (unique for a payment system)
+    optional string user_input = 7;             // user input string
+    optional int64 time = 8;                    // payment accounting time (default is now)
+}
+
+
+/* Get payments reply */
+message GetPaymentsReply {
+    repeated PaymentReply payments = 1;         // payments
+}
+
+/* Payment reply */
+message PaymentReply {
+    required int64 id = 1;                          // payment id
+    required bool outcome = 2;                      // is payment an outcome
+    required string target_descr = 3;               // target description (cyrillic)
+    required int64 curr_sum = 4;                    // payment sum in currency
+    required int64 vm_sum = 5;                      // payment sum in virtual money
+    required CurrencyReply currency = 6;            // payment currency
+    required int64 created_ts = 7;                  // created at unix timestamp
+    optional int64 cancelled_ts = 8;                // cancelled at unix timestamp
+    optional OrganizationReply organization = 9;    // organization
+    optional string user_input = 10;                // payment user input
+    optional string client_id = 11;                 // client id
+}
+
+/* Payment target reply */
+message PaymentTargetReply {
+    required bool found = 1;                        // is target found
+    required string reason = 2;                     // target not found reason message or string "found"
+    optional PaymentTarget target = 3;              // payment target (if found)
+}
+
+/* Payment target */
+message PaymentTarget {
+    required string organization = 1;               // organization name
+    optional string client_id = 2;                  // client id
+    optional string contract_id = 3;                // contract id
+    optional string service_pack_id = 4;            // service pack id
+}
+
+/* Currency reply */
+message CurrencyReply {
+    required int32 id = 1;      // id
+    required string name = 2;   // name (short latin)
+    required string descr = 3;  // description (cyrillic name)
+    required float rate = 4;    // currency rate
+}
+
+/* Create payment reply */
+message CreatePaymentReply {
+    required bool valid = 1;                // is payment valid
+    required bool exists = 2;               // if payment with given operation id already exists
+    oneof result {                                      // result: validation error or payment object
+        PaymentValidationError validation_error = 3;    // payment validation error (if invalid)
+        PaymentReply payment = 4;                       // payment object (if valid)
+    }
+}
+
+/* Payment validation error */
+message PaymentValidationError {
+    required string message = 1;            // payment validation error message
+    required int32 code = 2;                // payment validation error code
+}

@@ -1,0 +1,102 @@
+/*
+    Pilling client credentials service.
+    Client search and auth.
+*/
+syntax = "proto2";
+
+
+/* Client credentials service */
+service Client {
+    /* Auth client */
+    rpc Auth (AuthRequest) returns (AuthReply) {}
+
+    /* Search for a client */
+    rpc Search (SearchRequest) returns (SearchReply) {}
+}
+
+/* Client auth request */
+message AuthRequest {
+    required string login = 1;      // auth login
+    required string password = 2;   // auth password
+}
+
+/* Client search request */
+message SearchRequest {
+    optional string id = 1;         // client id
+    optional string login = 2;      // client login
+    optional string phone = 3;      // client phone (E.164 e.g. +79991112233)
+    optional string email = 4;      // client email
+    optional string inn = 5;        // client INN
+}
+
+
+/* Auth reply */
+message AuthReply {
+    required bool success = 1;          // is auth successful
+    optional ClientReply client = 2;    // client object on success
+}
+
+/* Search reply */
+message SearchReply {
+    repeated ClientReply clients = 1;   // found clients
+}
+
+/* Client reply */
+message ClientReply {
+    required string id = 1;               // client id
+    required string name = 2;             // client name or company name
+    required AddressReply address = 3;    // address structure
+    required bool active = 4;             // is client active
+    required bool corp = 5;               // is client corp
+    required bool cashless = 6;           // is client cashless
+    required ContactsReply contacts = 7;  // client contacts info
+    optional int64 ts_from = 8;           // client connected unix timestamp
+    optional int64 ts_to = 9;             // client abandoned unix timestamp
+}
+
+/* Contacts reply */
+message ContactsReply {
+    required string main_email = 1;       // client main email
+    required string main_phone = 2;       // client main phone
+    required string pin = 3;              // client pin code
+}
+
+/* Contact reply */
+message Contact {
+    required string contact = 1;          // contact value
+    required ContactType type = 2;        // contact type
+    required string comment = 3;          // contact comment
+}
+
+/* Contact type */
+enum ContactType {
+    CT_EMAIL_MAIN = 0;
+    CT_EMAIL_ADDITIONAL = 1;
+    CT_PHONE_CELLULAR = 2;
+    CT_PHONE_STATIONARY = 3;
+    CT_PHONE_FAX = 4;
+}
+
+/* Address reply */
+message AddressReply {
+    required StreetReply street = 1; // street structure
+    required string house = 2;       // house number
+    optional string building = 3;    // building number (stroeniye)
+    optional string block = 4;       // block (korpus)
+    optional string fraction = 5;    // fraction (drob')
+}
+
+/* Street reply */
+message StreetReply {
+    required CityReply city = 1;   // city structure
+    optional string num_pre = 2;   // numeric prefix (1 for "1 hvostov per")
+    optional string pre = 3;       // prefix ("Nizhniy" for "1 Nizhniy Mihailovskiy per")
+    required string name = 4;      // street name
+    optional string post = 5;      // postfix (subject name, "per" for pereulok)
+}
+
+/* City reply */
+message CityReply {
+    required string pre = 1;       // prefix (object name, "s" for selo, "g" for gorod)\
+    required string name = 2;      // name
+}

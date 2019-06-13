@@ -564,7 +564,7 @@ body::after{
 }
 .footer_outer {
     height: 140px;
-    margin: -105px auto 0;
+    margin: -85px auto 0;
     min-height: 140px;
     position: relative;
     z-index: 2;

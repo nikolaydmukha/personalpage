@@ -1,0 +1,20 @@
+// pilling gRPC echo service
+syntax = "proto2";
+
+/* Echo service */
+service Echo {
+    /* Get echo reply */
+    rpc GetEcho (EchoRequest) returns (EchoReply) {}
+}
+
+/* Echo request */
+message EchoRequest {
+    /* Data string */
+    required string data = 1;
+}
+
+/* Echo reply */
+message EchoReply {
+    /* Data string */
+    required string data = 1;
+}

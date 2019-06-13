@@ -1,0 +1,162 @@
+/*
+    Pilling client service control service.
+*/
+syntax = "proto2";
+
+
+/* Client control service */
+service ClientControl {
+    /* Get delayed payment available targets */
+    rpc GetDelayedPaymentTargets (GetDelayedPaymentTargetsRequest) returns (GetDelayedPaymentTargetsReply) {}
+    /* Get delayed payments */
+    rpc GetDelayedPayments (GetDelayedPaymentsRequest) returns (GetDelayedPaymentsReply) {}
+    /* Set delayed payment */
+    rpc SetDelayedPayment (SetDelayedPaymentRequest) returns (SetDelayedPaymentReply) {}
+
+    /* Get voluntary block */
+    rpc GetVoluntaryBlockTargets (GetVoluntaryBlockTargetsRequest) returns (GetVoluntaryBlockTargetsReply) {}
+    rpc GetVoluntaryBlocks (GetVoluntaryBlocksRequest) returns (GetVoluntaryBlocksReply) {}
+    rpc SetVoluntaryBlock (SetVoluntaryBlockRequest) returns (SetVoluntaryBlockReply) {}
+}
+
+
+/* Delayed payment targets request */
+message GetDelayedPaymentTargetsRequest {
+    required string client_id = 1;      // client id
+}
+
+/* Delayed payments history request (descending ordered by start time) */
+message GetDelayedPaymentsRequest {
+    required string client_id = 1;      // client id
+    optional int64 limit = 2;           // limit result to this number of items
+    optional int64 time_limit = 3;      // limit result to records max this old (in seconds)
+}
+
+/* Set delayed payment request */
+message SetDelayedPaymentRequest {
+    required string client_id = 1;      // client id
+    required string login = 2;          // target login
+    optional int64 since = 3;           // since timestamp (default is since this moment)
+}
+
+/* Voluntary block targets request */
+message GetVoluntaryBlockTargetsRequest {
+    required string client_id = 1;      // client id
+}
+
+/* Voluntary block history request (descending ordered by start time) */
+message GetVoluntaryBlocksRequest {
+    required string client_id = 1;      // client id
+    required string login = 2;          // client login
+    optional int64 limit = 3;           // limit result to this number of items
+    optional int64 time_limit = 4;      // limit result to records max this old (in seconds)
+}
+
+/* Set voluntary block request */
+message SetVoluntaryBlockRequest {
+    required string client_id = 1;      // client id
+    required string login = 2;          // target login
+    optional int64 since = 3;           // since timestamp (default is since this moment)
+}
+
+
+/* Get delayed payment targets reply */
+message GetDelayedPaymentTargetsReply {
+    repeated DelayedPaymentTargetReply targets = 1;  // delayed payment targets list
+}
+
+/* Delayed payment target reply */
+message DelayedPaymentTargetReply {
+    required string login = 1;                  // target login
+    required string name = 2;                   // target name (short latin)
+    required string commercial = 3;             // target commercial name
+    required bool active = 4;                   // is delayed payment active on this target
+    required bool available = 5;                // is delayed payment currently available on this target
+    required DelayedPaymentReason reason = 6;   // reason for delayed payment non-availability or OK value
+}
+
+/* Get delayed payments reply */
+message GetDelayedPaymentsReply {
+    repeated DelayedPaymentReply delayed_payments = 1;  // delayed payments list
+}
+
+/* Delayed payment reply */
+message DelayedPaymentReply {
+    required bool active = 1;       // is delayed payment active now
+    required string login = 2;      // delayed payment target login
+    required int64 ts_from = 3;     // start unix timestamp
+    required int64 ts_to = 4;       // end unix timestamp
+    required int64 cost = 5;        // delayed payment cost
+    required int64 sum = 6;         // delayed payment sum
+    required bool is_paid = 7;      // whether delayed payment is paid
+}
+
+/* Set delayed payment reply */
+message SetDelayedPaymentReply {
+    required bool success = 1;                          // is delayed payment set
+    required DelayedPaymentReason reason = 2;           // delayed payment not set reason (if not set), or OK value
+    required string result_message = 3;                 // result message ("success" if set or error comment if not)
+    optional DelayedPaymentReply delayed_payment = 4;   // delayed payment object (if set)
+}
+
+/* Delayed payment set reason */
+enum DelayedPaymentReason {
+    DP_OK = 0;                     // no fault reason
+    DP_PERMISSION_DENIED = 1;      // target can't use delayed payments at all
+    DP_WRONG_TARGET = 2;           // wrong target: too broad or too specific login
+    DP_QUOTA_EXCEEDED = 3;         // activation quota was exceeded in this period
+    DP_TRUST_EXCEEDED = 4;         // client's trust quota exceeded due to non-payment
+    DP_INSUFFICIENT_FUNDS = 5;     // insufficient funds to activate this service
+    DP_ALREADY_SET = 6;            // already set for selected period
+    DP_WRONG_STATUS = 7;           // wrong target's service status
+    DP_ERROR = 255;                // other error happened
+}
+
+/* Get voluntary block targets reply */
+message GetVoluntaryBlockTargetsReply {
+    repeated VoluntaryBlockTargetReply targets = 1;     // voluntary block targets
+}
+
+/* Voluntary block targets reply */
+message VoluntaryBlockTargetReply {
+    required string login = 1;                  // target login
+    required string name = 2;                   // target name (short latin)
+    required string commercial = 3;             // target commercial name
+    required bool active = 4;                   // is voluntary block active on this target
+    required bool available = 5;                // is voluntary block currently available on this target
+    required VoluntaryBlockReason reason = 6;   // reason for voluntary block non-availability or OK value
+}
+
+/* Get voluntary blocks reply */
+message GetVoluntaryBlocksReply {
+    repeated VoluntaryBlockReply voluntary_blocks = 1;  // voluntary blocks list
+}
+
+/* Voluntary block reply */
+message VoluntaryBlockReply {
+    required bool active = 1;       // is voluntary block active now
+    required string login = 2;      // voluntary block target login
+    required int64 cost = 3;        // voluntary block cost
+    required int64 ts_from = 4;     // start unix timestamp
+    optional int64 ts_to = 5;       // end unix timestamp
+}
+
+/* Set voluntary block reply */
+message SetVoluntaryBlockReply {
+    required bool success = 1;                          // is voluntary block set
+    required VoluntaryBlockReason reason = 2;           // voluntary block not set reason (if not set), or OK value
+    required string result_message = 3;                 // result message ("success" if set or error comment if not)
+    optional VoluntaryBlockReply voluntary_block = 4;   // voluntary block object (if set)
+}
+
+/* Voluntary block set reason */
+enum VoluntaryBlockReason {
+    VB_OK = 0;                     // no fault reason
+    VB_PERMISSION_DENIED = 1;      // target can't use voluntary blocks at all
+    VB_WRONG_TARGET = 2;           // wrong target: too broad or too specific login
+    VB_QUOTA_EXCEEDED = 3;         // service activation quota was exceeded in this period
+    VB_INSUFFICIENT_FUNDS = 4;     // insufficient funds to activate this service
+    VB_WRONG_STATUS = 5;           // wrong target's service status
+    VB_ALREADY_SET = 6;            // already set for selected period
+    VB_ERROR = 255;                // other error happened
+}

@@ -1,0 +1,64 @@
+/*
+    Pilling expenses service.
+*/
+
+syntax = "proto2";
+
+service Expenses {
+    /* Get expenses periods, order by time */
+    rpc GetExpensesPeriods (GetExpensesPeriodsRequest) returns (GetExpensesPeriodsReply) {}
+    /* Get expenses for period */
+    rpc GetExpensesForPeriod (GetExpensesForPeriodRequest) returns (GetExpensesForPeriodReply) {}
+}
+
+
+/* Get expenses periods request */
+message GetExpensesPeriodsRequest {
+    required string client_id = 1;              // client id
+    optional string login = 2;                  // login
+    optional bool desc = 3 [default=false];     // order descending
+}
+
+/* Get expenses for period request */
+message GetExpensesForPeriodRequest {
+    required string client_id = 1;              // client id
+    optional string login = 2;                  // login
+    required int32 year = 3;                    // year
+    optional int32 month = 4;                   // month
+}
+
+
+/* Get expenses periods reply */
+message GetExpensesPeriodsReply {
+    repeated ExpensesPeriodReply periods = 1;   // periods
+}
+
+/* Expenses period reply */
+message ExpensesPeriodReply {
+    required int32 year = 1;    // year
+    optional int32 month = 2;   // month
+}
+
+/* Get expenses for period reply */
+message GetExpensesForPeriodReply {
+    required int32 year = 1;                            // year
+    optional int32 month = 2;                           // month
+    required int64 total_cost = 3;                      // period total cost
+    required int64 conditional_cost = 4;                // period conditional cost
+    required int64 unconditional_cost = 5;              // period unconditional cost
+    required ResourcesExpensesReply resources = 6;      // per-resources expenses
+}
+
+/* Per-resources expenses */
+message ResourcesExpensesReply {
+    repeated IpTraffic ip4 = 1;        // IPv4 traffic expenses
+    repeated IpTraffic ip6 = 2;        // IPv6 traffic expenses
+}
+
+/* IPv4 traffic */
+message IpTraffic {
+    required string address_net = 1;        // IP address or network
+    required int64 local_bytes = 2;         // local traffic in bytes
+    required int64 external_bytes = 3;      // external traffic in bytes
+    required int64 total_bytes = 4;         // total traffic in bytes
+}

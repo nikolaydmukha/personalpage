@@ -76,6 +76,13 @@
 	<!-- /JS SERVER DATA -->
 </head>
 <body>
+sssssssSSSS {{user_data}}
+{% for i,j in user_data.items %}
+	{{i}}
+	{{j}}
+	<br>
+{% endfor %}
+
 <!--Начало блока main_outer -->
 <div class="main_outer">
     <!--Начало блока main_inner -->
@@ -213,18 +220,19 @@
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
 <footer class="footer_outer" style="
-    {% if active == 'settings_inet'  %}margin: 300px auto 0;
-    {% elif active == 'block' %}margin: -180px auto 0;
-    {% elif active == 'dpay' %}margin: -35px auto 0;
-	{% elif active == 'pay_bcard' %}margin: -290px auto 0;
-	{% elif active == 'pay_sber' %}margin: -290px auto 0;
-	{% elif active == 'history_incomes' %}margin: -220px auto 0;
-	{% elif active == 'history_traf' %}margin: -220px auto 0;
-	{% elif active == 'your_messages' %}margin: -240px auto 0;
-	{% elif active == 'settings_personal' %}margin: -220px auto 0;
+    {% if active == 'settings_inet'  %}margin: 320px auto 0;
+    {% elif active == 'block' %}margin: -160px auto 0;
+    {% elif active == 'dpay' %}margin: -15px auto 0;
+	{% elif active == 'pay_bcard' %}margin: -270px auto 0;
+	{% elif active == 'pay_sber' %}margin: -120px auto 0;
+	{% elif active == 'history_incomes' %}margin: -200px auto 0;
+	{% elif active == 'history_traf' %}margin: -200px auto 0;
+	{% elif active == 'your_messages' %}margin: -205px auto 0;
+	{% elif active == 'settings_personal' %}margin: -200px auto 0;
     {% endif %}">
 	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
+
 <!-- err div -->
 <div id="_errMsg" class="b-popup popup-md">
 	<div class="b-popup-body">

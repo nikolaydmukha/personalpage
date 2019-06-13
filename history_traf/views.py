@@ -1,3 +1,6 @@
+import locale
+locale.setlocale(locale.LC_ALL, "")
+import datetime
 from django.shortcuts import render
 from datetime import date
 
@@ -5,13 +8,15 @@ from datetime import date
 def index(request):
     # Сформируем даты для вывода в форме выбора дат, за который можно сделать отчёт.
     # Полагаем, что очтет доступен от текущей даты - 1 год.
+    current_month = datetime.datetime.now().strftime("%B")  # Текущий месяц
+
     today = date.today()
     month_now = today.month
     year_now = today.year
     years = [year for year in range(today.year, today.year+1)]
-    months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь',
-             'Декабрь']
-    form_date = list() # переменная для вставки в форма в шаблоне
+    months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+              'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь','Декабрь']
+    form_date = list()  # переменная для вставки в форма в шаблоне
     for year in years:
         if year != today.year:
             for month in months:
@@ -19,7 +24,7 @@ def index(request):
                 form_date.append(formated_date)
         else:
             index = 0
-            while index < months.index("Май"):
+            while index < months.index(current_month):
                 formated_date = f"{months[index]} {year}"
                 form_date.append(formated_date)
                 index += 1

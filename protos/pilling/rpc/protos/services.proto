@@ -1,0 +1,97 @@
+/*
+    Pilling client services service.
+*/
+syntax = "proto2";
+
+import "pilling\\rpc\\protos\\client.proto"; // imports: ClientReply
+
+
+/* Client services service */
+service Services {
+    /* Get client services by ID */
+    rpc GetClientServices(ClientServicesRequest) returns (ClientServicesReply) {}
+}
+
+
+/* Balance computation method */
+enum BalanceMethod {
+    BM_PERIOD_START = 0;       // Get balance for accounting period start
+    BM_PERIOD_END = 1;         // Get expected balance for period end
+    BM_PROPORTIONAL = 2;       // Get proportional balance for current moment
+}
+
+/* Client services request */
+message ClientServicesRequest {
+    required string id = 1;                     // client id
+    required bool with_balance = 2;             // whether to include balance data
+    optional BalanceMethod balance_method = 3 [default=BM_PROPORTIONAL];
+                                                // balance computation method
+}
+
+
+/* Client services tree and client data */
+message ClientServicesReply {
+    required client.proto.ClientReply client = 1;        // client info
+    repeated ContractReply contracts = 2;   // client contracts
+}
+
+/* Client contract data */
+message ContractReply {
+    required string id = 1;                          // contract id
+    required string login = 2;                       // contract login
+    required bool active = 3;                        // is contract active
+    required string commercial = 4;                  // contract commercial name
+    required bool own = 5;                           // whether contract is for own services
+    required bool advance = 6;                       // Is contract billed in advance
+    required OrganizationReply organization = 7;     // contract organization
+    required OrganizationReply provider = 8;         // contract provider
+    required PaymentTypeReply payment_type = 9;      // contract payment type
+    repeated ServicePackReply service_packs = 10;    // contract service packs
+    required int32 ts_from = 11;                     // activation unix timestamp
+    optional int32 ts_to = 12;                       // cancellation unix timestamp
+    optional int64 balance = 13;                     // contract balance
+    optional int64 required_payment = 14;            // contract required payment
+}
+
+/* Organization data */
+message OrganizationReply {
+    required int32 id = 1;              // Organization id
+    required string name = 2;           // Organization name (short latin)
+    required string descr = 3;          // Organization description (full cyrillic name)
+}
+
+/* Payment type data */
+message PaymentTypeReply {
+    required int32 id = 1;              // Payment type id
+    required string name = 2;           // Payment type name (short latin)
+    required string descr = 3;          // Payment type description (full cyrillic name)
+}
+
+/* Contract services data */
+message ServicePackReply {
+    required string id = 1;                                // service pack id
+    required string login = 2;                             // service pack login
+    required bool active = 3;                              // is service pack active
+    required string commercial = 4;                        // service pack commercial name
+    required int64 total_cost = 5;                         // total service pack cost
+    required int64 conditional_cost = 6;                   // conditional service pack cost
+    required int64 unconditional_cost = 7;                 // unconditional service pack cost
+    required AccountingInterval accounting_interval = 8;   // accounting interval (in accordance to contract)
+    required AccountingInterval charge_interval = 9;       // charge interval (tariff setting)
+    required int32 ts_from = 10;                           // activation unix timestamp
+    optional int32 ts_to = 11;                             // cancellation unix timestamp
+    optional int64 balance = 12;                           // service pack balance
+    optional int64 required_payment = 13;                  // service pack required payment
+}
+
+/* Accounting interval */
+enum AccountingInterval {
+    AI_HOUR = 0;
+    AI_DAY = 1;
+    AI_WEEK = 2;
+    AI_MONTH = 3;
+    AI_MONTH2 = 4;
+    AI_MONTH3 = 5;
+    AI_MONTH6 = 6;
+    AI_YEAR = 7;
+}
