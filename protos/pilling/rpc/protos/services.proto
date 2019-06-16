@@ -3,7 +3,7 @@
 */
 syntax = "proto2";
 
-import "pilling\\rpc\\protos\\client.proto"; // imports: ClientReply
+import "client.proto"; // imports: ClientReply
 
 
 /* Client services service */
@@ -31,7 +31,7 @@ message ClientServicesRequest {
 
 /* Client services tree and client data */
 message ClientServicesReply {
-    required client.proto.ClientReply client = 1;        // client info
+    required ClientReply client = 1;        // client info
     repeated ContractReply contracts = 2;   // client contracts
 }
 

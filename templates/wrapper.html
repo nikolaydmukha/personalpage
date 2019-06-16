@@ -76,13 +76,21 @@
 	<!-- /JS SERVER DATA -->
 </head>
 <body>
-sssssssSSSS {{user_data}}
-{% for i,j in user_data.items %}
-	{{i}}
-	{{j}}
+CLIENT ---> {{user_data_client}}
+<br>
+{% for i,j in user_data_client.items %}
+	{{i}}:<b>{{j}}</b>
 	<br>
 {% endfor %}
+SERVICE ---> {{user_data_contracts}}<br>
+{% for i, j in user_data_contracts.items %}
+		{{i}}:<br>
+		{% for k, l in j.items %}
+			{{k}}:<b>{{l}}</b>
+			<br>
+		{% endfor %}
 
+{% endfor %}
 <!--Начало блока main_outer -->
 <div class="main_outer">
     <!--Начало блока main_inner -->
@@ -230,7 +238,7 @@ sssssssSSSS {{user_data}}
 	{% elif active == 'your_messages' %}margin: -205px auto 0;
 	{% elif active == 'settings_personal' %}margin: -200px auto 0;
     {% endif %}">
-	<div class="footer_inner">© 1995-2019 ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
+	<div class="footer_inner">© 1995-{% now "Y" %} ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
 
 <!-- err div -->

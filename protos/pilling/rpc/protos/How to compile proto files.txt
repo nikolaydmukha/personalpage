@@ -1,1 +1,5 @@
 "C:\Users\n.dmukha\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.7\Python 3.7 (64-bit).lnk"  -m grpc_tools.protoc -I=C:\Users\n.dmukha\Downloads\protos --python_out=C:\Users\n.dmukha\Downloads\protos --grpc_python_out=C:\Users\n.dmukha\Downloads\protos client.proto
+
+GIT BASH:
+export PATH="$PATH:/c/Users/n.dmukha/AppData/Local/Programs/Python/Python37
+python -m grpc_tools.protoc --proto_path=/c/Users/n.dmukha/Documents/personalpage/protos/pilling/rpc/protos --python_out=/c/Users/n.dmukha/Documents/personalpage/protos/pilling/rpc/protos --grpc_python_out=/c/Users/n.dmukha/Documents/personalpage/protos/pilling/rpc/protos services.proto

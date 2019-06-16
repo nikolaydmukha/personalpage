@@ -33,3 +33,14 @@ urlpatterns = [
     path('settings_personal/', include('settings_personal.urls')),
     path('', include('main.urls'))
 ]
+
+#### FOR DJANGO-DEBUG-TOOOLBAR
+from django.conf import settings
+from django.conf.urls import include, url
+
+if settings.DEBUG:
+   import debug_toolbar
+   urlpatterns += [
+       url(r'^__debug__/', include(debug_toolbar.urls)),
+   ]
+#### FOR DJANGO-DEBUG-TOOOLBAR
