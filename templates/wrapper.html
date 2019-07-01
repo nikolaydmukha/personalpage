@@ -79,14 +79,14 @@
 CLIENT ---> {{user_data_client}}
 <br>
 {% for i,j in user_data_client.items %}
-	{{i}}:<b>{{j}}</b>
+	{{i}}: <b>{{j}}</b>
 	<br>
 {% endfor %}
 SERVICE ---> {{user_data_contracts}}<br>
 {% for i, j in user_data_contracts.items %}
 		{{i}}:<br>
 		{% for k, l in j.items %}
-			{{k}}:<b>{{l}}</b>
+			{{k}}: <b>{{l}}</b>
 			<br>
 		{% endfor %}
 

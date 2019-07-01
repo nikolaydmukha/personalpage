@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<div id="authorize" class="g-block b-login" ng-hide="recovery">
+    <h2>Вход</h2>
+    <div class="l-form form-login">
+        <form action="" method="POST">
+            {%csrf_token%}
+            <div class="l-form-item">
+                <div class="field-name">Логин</div>
+                <div class="field-option">
+                    <input type="text" class="input " id="auth_user" name="user" placeholder="Логин">
+                    <span class="form-control-comment">
+                    </span>
+                </div>
+            </div>
+            <div class="l-form-item">
+                <div class="field-name">Пароль</div>
+                <div class="field-option">
+                    <div class="password-wrapper ">
+                        <input type="password" id="auth_pwd" name="passwd" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль">
+                        <img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" onclick="if ($('#auth_pwd').get(0).type=='password') $('#auth_pwd').get(0).type='text'; else $('#auth_pwd').get(0).type='password';">
+                    </div>
+                </div>
+            </div>
+            <div class="l-form-item row-btns">
+                <button type="submit" class="g-btn btn-danger">Войти</button>
+                <button id="recover_recover" class="g-btn btn-link pseudo" ng-click="recovery = true"><span>Забыли логин или пароль?</span></button>
+            </div>
+        </form>
+    </div>
+    <img src="{% static '/images/i-secured.png' %}" class="i-secured" alt="" width="64" height="25">
+</div>

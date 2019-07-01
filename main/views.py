@@ -32,17 +32,22 @@ def index(request):
     user_data_client = {
         'user_id': raw_data_client[0].id,
         'user_name': raw_data_client[0].name,
-        'user_address': raw_data_client[0].address,                 # address: street, house, building, block, fraction
-        'user_num_pre': raw_data_client[0].address.street.num_pre,  # numeric prefix (1 for "1 hvostov per")
-        'user_house': raw_data_client[0].address.house,             # house number
-        'user_street': raw_data_client[0].address.street,           # street
-        'user_city': raw_data_client[0].address.street.city.pre,    # prefix (object name, "s" for selo, "g" for gorod)
-        'user_is_active': raw_data_client[0].active,                # is client active
-        'user_is_corp': raw_data_client[0].corp,                    # is client corp
-        'user_is_cashless': raw_data_client[0].cashless,            # is client cashless
-        'user_contacts': raw_data_client[0].contacts,               # client contacts info: EMAIL, PHONE, PIN
-        'user_ts_to': raw_data_client[0].ts_to,                     # client abandoned unix timestamp
-        'user_ts_from': raw_data_client[0].ts_from,                 # client abandoned unix timestamp
+        'user_address': raw_data_client[0].address,                         # address: street, house, building, block, fraction
+        'user_address_street': raw_data_client[0].address.street,           # street
+        'user_address_house': raw_data_client[0].address.house,             # house number
+        'user_address_building': raw_data_client[0].address.building,       # house builidng
+        'user_address_block': raw_data_client[0].address.block,             # house block
+        'user_address_fraction': raw_data_client[0].address.fraction,       # house fraction
+        'user_address_num_pre': raw_data_client[0].address.street.num_pre,  # numeric prefix (1 for "1 hvostov per")
+
+
+        'user_city': raw_data_client[0].address.street.city.pre,            # prefix (object name, "s" for selo, "g" for gorod)
+        'user_is_active': raw_data_client[0].active,                        # is client active
+        'user_is_corp': raw_data_client[0].corp,                            # is client corp
+        'user_is_cashless': raw_data_client[0].cashless,                    # is client cashless
+        'user_contacts': raw_data_client[0].contacts,                       # client contacts info: EMAIL, PHONE, PIN
+        'user_ts_to': raw_data_client[0].ts_to,                             # client abandoned unix timestamp
+        'user_ts_from': raw_data_client[0].ts_from,                         # client abandoned unix timestamp
     }
     print(user_data_client)
     print("####### ALLALLALLALL")
@@ -53,20 +58,29 @@ def index(request):
         print(item)
         print("Next \n")
         user_data_contracts[item.id] = {
-            'id': item.id,                                          # contract id
-            'login': item.login,                                    # contract login
-            'active': item.active,                                  # is contract active
-            'commercial': item.commercial,                          # contract commercial name
-            'own': item.own,                                        # whether contract is for own services
-            'advance': item.advance,                                # is contract billed in advance
-            'organization': item.organization,                      # organization: ID? NAME(short lat), DESCR(full cyr)
-            'provider': item.provider,                              # contract provider
-            'payment_type': item.payment_type,                      # contract payment type
-            'service_packs': item.service_packs,                    # contract service packs
-            'ts_from': item.ts_from,                                # activation unix timestamp
-            'ts_to': item.ts_to,                                    # cancellation unix timestamp
-            'balance': item.balance,                                # contract balance
-            'required_payment': item.required_payment,              # contract required payment
+            'id': item.id,                                                  # contract id
+            'login': item.login,                                            # contract login
+            'active': item.active,                                          # is contract active
+            'commercial': item.commercial,                                  # contract commercial name
+            'own': item.own,                                                # whether contract is for own services
+            'advance': item.advance,                                        # is contract billed in advance
+            'organization': item.organization,                              # organization: ID, NAME(short lat), DESCR(full cyr)
+            'organization_id': item.organization.id,
+            'organization_name': item.organization.name,
+            'organization_descr': item.organization.descr,
+            'provider': item.provider,                                      # provider: ID, NAME(short lat), DESCR(full cyr)
+            'provider_id': item.provider.id,
+            'provider_name': item.provider.name,
+            'provider_descr': item.provider.descr,
+            'payment_type': item.payment_type,                              # payment type: ID, NAME(short lat), DESCR(full cyr)
+            'payment_type_id': item.payment_type.id,
+            'payment_type_name': item.payment_type.name,
+            'payment_type_descr': item.payment_type.descr,
+            'service_packs': item.service_packs,                            # contract service packs
+            'ts_from': item.ts_from,                                        # activation unix timestamp
+            'ts_to': item.ts_to,                                            # cancellation unix timestamp
+            'balance': item.balance,                                        # contract balance
+            'required_payment': item.required_payment,                      # contract required payment
         }
     pprint(user_data_contracts)
     context = {"active": "home",

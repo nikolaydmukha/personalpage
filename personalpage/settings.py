@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'settings_inet',
     'settings_personal',
     'your_messages',
+    'authorization',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
