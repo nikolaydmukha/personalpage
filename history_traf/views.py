@@ -3,8 +3,10 @@ locale.setlocale(locale.LC_ALL, "")
 import datetime
 from django.shortcuts import render
 from datetime import date
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def index(request):
     # Сформируем даты для вывода в форме выбора дат, за который можно сделать отчёт.
     # Полагаем, что очтет доступен от текущей даты - 1 год.

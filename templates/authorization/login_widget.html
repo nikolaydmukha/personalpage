@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<div id="authorize" class="g-block b-login" ng-hide="recovery">
+<div id="authorize" class="g-block b-login" ng-hide="recovery"  style="box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);">
     <h2>Вход</h2>
     <div class="l-form form-login">
         <form action="" method="POST">
@@ -7,8 +7,9 @@
             <div class="l-form-item">
                 <div class="field-name">Логин</div>
                 <div class="field-option">
-                    <input type="text" class="input " id="auth_user" name="user" placeholder="Логин">
-                    <span class="form-control-comment">
+                    <input type="text" class="input " id="auth_user" name="username" placeholder="Логин" required>
+                    <span class="form-control-comment" style="color: red;">
+                        {% if errors %} <img src="{% static '/images/i-exclamation-triangle-black.png' %}"> {{errors}}{% endif %}
                     </span>
                 </div>
             </div>
@@ -16,7 +17,7 @@
                 <div class="field-name">Пароль</div>
                 <div class="field-option">
                     <div class="password-wrapper ">
-                        <input type="password" id="auth_pwd" name="passwd" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль">
+                        <input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>
                         <img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" onclick="if ($('#auth_pwd').get(0).type=='password') $('#auth_pwd').get(0).type='text'; else $('#auth_pwd').get(0).type='password';">
                     </div>
                 </div>

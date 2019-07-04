@@ -33,7 +33,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    ###'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'settings_personal',
     'your_messages',
     'authorization',
-    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
 
 ROOT_URLCONF = 'personalpage.urls'
 

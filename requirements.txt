@@ -1,2 +1,1 @@
 grpcio-tools=1.21.1
-django-bbotstrap4

@@ -1,14 +1,15 @@
+import grpc, grpc_tools
 from pprint import pprint
-
 from django.shortcuts import render
 from protos.pilling.rpc.protos import client_pb2_grpc, services_pb2_grpc
 from protos.pilling.rpc.protos.client_pb2 import AuthRequest, SearchRequest
 from protos.pilling.rpc.protos.services_pb2 import ClientServicesReply, ClientServicesRequest
+from django.contrib.auth.decorators import login_required
 
-import grpc, grpc_tools
 
-
+@login_required()
 def index(request):
+    print("REQUEST USER==========>", request.user)
     login = "len11-22"
     password = "len11-22"
     channel = grpc.insecure_channel('stage.pilling.rinet.ru:57001')
