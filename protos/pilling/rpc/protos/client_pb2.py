@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63lient.proto\".\n\x0b\x41uthRequest\x12\r\n\x05login\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"U\n\rSearchRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05login\x18\x02 \x01(\t\x12\r\n\x05phone\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0b\n\x03inn\x18\x05 \x01(\t\":\n\tAuthReply\x12\x0f\n\x07success\x18\x01 \x02(\x08\x12\x1c\n\x06\x63lient\x18\x02 \x01(\x0b\x32\x0c.ClientReply\",\n\x0bSearchReply\x12\x1d\n\x07\x63lients\x18\x01 \x03(\x0b\x32\x0c.ClientReply\"\xb9\x01\n\x0b\x43lientReply\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x1e\n\x07\x61\x64\x64ress\x18\x03 \x02(\x0b\x32\r.AddressReply\x12\x0e\n\x06\x61\x63tive\x18\x04 \x02(\x08\x12\x0c\n\x04\x63orp\x18\x05 \x02(\x08\x12\x10\n\x08\x63\x61shless\x18\x06 \x02(\x08\x12 \n\x08\x63ontacts\x18\x07 \x02(\x0b\x32\x0e.ContactsReply\x12\x0f\n\x07ts_from\x18\x08 \x01(\x03\x12\r\n\x05ts_to\x18\t \x01(\x03\"D\n\rContactsReply\x12\x12\n\nmain_email\x18\x01 \x02(\t\x12\x12\n\nmain_phone\x18\x02 \x02(\t\x12\x0b\n\x03pin\x18\x03 \x02(\t\"G\n\x07\x43ontact\x12\x0f\n\x07\x63ontact\x18\x01 \x02(\t\x12\x1a\n\x04type\x18\x02 \x02(\x0e\x32\x0c.ContactType\x12\x0f\n\x07\x63omment\x18\x03 \x02(\t\"n\n\x0c\x41\x64\x64ressReply\x12\x1c\n\x06street\x18\x01 \x02(\x0b\x32\x0c.StreetReply\x12\r\n\x05house\x18\x02 \x02(\t\x12\x10\n\x08\x62uilding\x18\x03 \x01(\t\x12\r\n\x05\x62lock\x18\x04 \x01(\t\x12\x10\n\x08\x66raction\x18\x05 \x01(\t\"a\n\x0bStreetReply\x12\x18\n\x04\x63ity\x18\x01 \x02(\x0b\x32\n.CityReply\x12\x0f\n\x07num_pre\x18\x02 \x01(\t\x12\x0b\n\x03pre\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x02(\t\x12\x0c\n\x04post\x18\x05 \x01(\t\"&\n\tCityReply\x12\x0b\n\x03pre\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t*{\n\x0b\x43ontactType\x12\x11\n\rCT_EMAIL_MAIN\x10\x00\x12\x17\n\x13\x43T_EMAIL_ADDITIONAL\x10\x01\x12\x15\n\x11\x43T_PHONE_CELLULAR\x10\x02\x12\x17\n\x13\x43T_PHONE_STATIONARY\x10\x03\x12\x10\n\x0c\x43T_PHONE_FAX\x10\x04\x32V\n\x06\x43lient\x12\"\n\x04\x41uth\x12\x0c.AuthRequest\x1a\n.AuthReply\"\x00\x12(\n\x06Search\x12\x0e.SearchRequest\x1a\x0c.SearchReply\"\x00')
+  serialized_pb=_b('\n\x0c\x63lient.proto\".\n\x0b\x41uthRequest\x12\r\n\x05login\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\t\"U\n\rSearchRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05login\x18\x02 \x01(\t\x12\r\n\x05phone\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x0b\n\x03inn\x18\x05 \x01(\t\":\n\tAuthReply\x12\x0f\n\x07success\x18\x01 \x02(\x08\x12\x1c\n\x06\x63lient\x18\x02 \x01(\x0b\x32\x0c.ClientReply\",\n\x0bSearchReply\x12\x1d\n\x07\x63lients\x18\x01 \x03(\x0b\x32\x0c.ClientReply\"\xb9\x01\n\x0b\x43lientReply\x12\n\n\x02id\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x1e\n\x07\x61\x64\x64ress\x18\x03 \x02(\x0b\x32\r.AddressReply\x12\x0e\n\x06\x61\x63tive\x18\x04 \x02(\x08\x12\x0c\n\x04\x63orp\x18\x05 \x02(\x08\x12\x10\n\x08\x63\x61shless\x18\x06 \x02(\x08\x12 \n\x08\x63ontacts\x18\x07 \x02(\x0b\x32\x0e.ContactsReply\x12\x0f\n\x07ts_from\x18\x08 \x02(\x03\x12\r\n\x05ts_to\x18\t \x01(\x03\"s\n\rContactsReply\x12\x12\n\nmain_email\x18\x01 \x02(\t\x12\x11\n\tadd_email\x18\x02 \x01(\t\x12\x12\n\nmain_phone\x18\x03 \x02(\t\x12\x0b\n\x03pin\x18\x04 \x02(\t\x12\x1a\n\x08\x63ontacts\x18\x05 \x03(\x0b\x32\x08.Contact\"G\n\x07\x43ontact\x12\x0f\n\x07\x63ontact\x18\x01 \x02(\t\x12\x1a\n\x04type\x18\x02 \x02(\x0e\x32\x0c.ContactType\x12\x0f\n\x07\x63omment\x18\x03 \x01(\t\"8\n\x0c\x41\x64\x64ressReply\x12\x1a\n\x05house\x18\x01 \x02(\x0b\x32\x0b.HouseReply\x12\x0c\n\x04\x66lat\x18\x02 \x01(\t\"l\n\nHouseReply\x12\x1c\n\x06street\x18\x01 \x02(\x0b\x32\x0c.StreetReply\x12\r\n\x05house\x18\x02 \x02(\t\x12\x10\n\x08\x62uilding\x18\x03 \x01(\t\x12\r\n\x05\x62lock\x18\x04 \x01(\t\x12\x10\n\x08\x66raction\x18\x05 \x01(\t\"a\n\x0bStreetReply\x12\x18\n\x04\x63ity\x18\x01 \x02(\x0b\x32\n.CityReply\x12\x0f\n\x07num_pre\x18\x02 \x01(\t\x12\x0b\n\x03pre\x18\x03 \x01(\t\x12\x0c\n\x04name\x18\x04 \x02(\t\x12\x0c\n\x04post\x18\x05 \x01(\t\"&\n\tCityReply\x12\x0b\n\x03pre\x18\x01 \x02(\t\x12\x0c\n\x04name\x18\x02 \x02(\t*{\n\x0b\x43ontactType\x12\x11\n\rCT_EMAIL_MAIN\x10\x00\x12\x17\n\x13\x43T_EMAIL_ADDITIONAL\x10\x01\x12\x15\n\x11\x43T_PHONE_CELLULAR\x10\x02\x12\x17\n\x13\x43T_PHONE_STATIONARY\x10\x03\x12\x10\n\x0c\x43T_PHONE_FAX\x10\x04\x32V\n\x06\x43lient\x12\"\n\x04\x41uth\x12\x0c.AuthRequest\x1a\n.AuthReply\"\x00\x12(\n\x06Search\x12\x0e.SearchRequest\x1a\x0c.SearchReply\"\x00')
 )
 
 _CONTACTTYPE = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _CONTACTTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=839,
-  serialized_end=962,
+  serialized_start=942,
+  serialized_end=1065,
 )
 _sym_db.RegisterEnumDescriptor(_CONTACTTYPE)
 
@@ -291,7 +291,7 @@ _CLIENTREPLY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='ts_from', full_name='ClientReply.ts_from', index=7,
-      number=8, type=3, cpp_type=2, label=1,
+      number=8, type=3, cpp_type=2, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -335,16 +335,30 @@ _CONTACTSREPLY = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='main_phone', full_name='ContactsReply.main_phone', index=1,
-      number=2, type=9, cpp_type=9, label=2,
+      name='add_email', full_name='ContactsReply.add_email', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='pin', full_name='ContactsReply.pin', index=2,
+      name='main_phone', full_name='ContactsReply.main_phone', index=2,
       number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pin', full_name='ContactsReply.pin', index=3,
+      number=4, type=9, cpp_type=9, label=2,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='contacts', full_name='ContactsReply.contacts', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -361,7 +375,7 @@ _CONTACTSREPLY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=445,
-  serialized_end=513,
+  serialized_end=560,
 )
 
 
@@ -388,7 +402,7 @@ _CONTACT = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='comment', full_name='Contact.comment', index=2,
-      number=3, type=9, cpp_type=9, label=2,
+      number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -405,8 +419,8 @@ _CONTACT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=515,
-  serialized_end=586,
+  serialized_start=562,
+  serialized_end=633,
 )
 
 
@@ -418,35 +432,73 @@ _ADDRESSREPLY = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='street', full_name='AddressReply.street', index=0,
+      name='house', full_name='AddressReply.house', index=0,
       number=1, type=11, cpp_type=10, label=2,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='house', full_name='AddressReply.house', index=1,
+      name='flat', full_name='AddressReply.flat', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=635,
+  serialized_end=691,
+)
+
+
+_HOUSEREPLY = _descriptor.Descriptor(
+  name='HouseReply',
+  full_name='HouseReply',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='street', full_name='HouseReply.street', index=0,
+      number=1, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='house', full_name='HouseReply.house', index=1,
       number=2, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='building', full_name='AddressReply.building', index=2,
+      name='building', full_name='HouseReply.building', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='block', full_name='AddressReply.block', index=3,
+      name='block', full_name='HouseReply.block', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='fraction', full_name='AddressReply.fraction', index=4,
+      name='fraction', full_name='HouseReply.fraction', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -464,8 +516,8 @@ _ADDRESSREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=588,
-  serialized_end=698,
+  serialized_start=693,
+  serialized_end=801,
 )
 
 
@@ -523,8 +575,8 @@ _STREETREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=700,
-  serialized_end=797,
+  serialized_start=803,
+  serialized_end=900,
 )
 
 
@@ -561,16 +613,18 @@ _CITYREPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=799,
-  serialized_end=837,
+  serialized_start=902,
+  serialized_end=940,
 )
 
 _AUTHREPLY.fields_by_name['client'].message_type = _CLIENTREPLY
 _SEARCHREPLY.fields_by_name['clients'].message_type = _CLIENTREPLY
 _CLIENTREPLY.fields_by_name['address'].message_type = _ADDRESSREPLY
 _CLIENTREPLY.fields_by_name['contacts'].message_type = _CONTACTSREPLY
+_CONTACTSREPLY.fields_by_name['contacts'].message_type = _CONTACT
 _CONTACT.fields_by_name['type'].enum_type = _CONTACTTYPE
-_ADDRESSREPLY.fields_by_name['street'].message_type = _STREETREPLY
+_ADDRESSREPLY.fields_by_name['house'].message_type = _HOUSEREPLY
+_HOUSEREPLY.fields_by_name['street'].message_type = _STREETREPLY
 _STREETREPLY.fields_by_name['city'].message_type = _CITYREPLY
 DESCRIPTOR.message_types_by_name['AuthRequest'] = _AUTHREQUEST
 DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
@@ -580,6 +634,7 @@ DESCRIPTOR.message_types_by_name['ClientReply'] = _CLIENTREPLY
 DESCRIPTOR.message_types_by_name['ContactsReply'] = _CONTACTSREPLY
 DESCRIPTOR.message_types_by_name['Contact'] = _CONTACT
 DESCRIPTOR.message_types_by_name['AddressReply'] = _ADDRESSREPLY
+DESCRIPTOR.message_types_by_name['HouseReply'] = _HOUSEREPLY
 DESCRIPTOR.message_types_by_name['StreetReply'] = _STREETREPLY
 DESCRIPTOR.message_types_by_name['CityReply'] = _CITYREPLY
 DESCRIPTOR.enum_types_by_name['ContactType'] = _CONTACTTYPE
@@ -641,6 +696,13 @@ AddressReply = _reflection.GeneratedProtocolMessageType('AddressReply', (_messag
   ))
 _sym_db.RegisterMessage(AddressReply)
 
+HouseReply = _reflection.GeneratedProtocolMessageType('HouseReply', (_message.Message,), dict(
+  DESCRIPTOR = _HOUSEREPLY,
+  __module__ = 'client_pb2'
+  # @@protoc_insertion_point(class_scope:HouseReply)
+  ))
+_sym_db.RegisterMessage(HouseReply)
+
 StreetReply = _reflection.GeneratedProtocolMessageType('StreetReply', (_message.Message,), dict(
   DESCRIPTOR = _STREETREPLY,
   __module__ = 'client_pb2'
@@ -663,8 +725,8 @@ _CLIENT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=964,
-  serialized_end=1050,
+  serialized_start=1067,
+  serialized_end=1153,
   methods=[
   _descriptor.MethodDescriptor(
     name='Auth',

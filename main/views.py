@@ -9,85 +9,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required()
 def index(request):
-    print("REQUEST USER==========>", request.user)
-    login = "len11-22"
-    password = "len11-22"
-    channel = grpc.insecure_channel('stage.pilling.rinet.ru:57001')
-    # Установка соединения для Авторизация(AuthRequest) клиента и
-    # получение информации(Search) о клиенте
-    client = client_pb2_grpc.ClientStub(channel)
-    client.Auth(AuthRequest(login=login, password=password))
-
-    # gRPC запрос для получения данных клиента
-    raw_data_client = client.Search(SearchRequest(login=login)).clients
-
-    # Установка соединения для получение(GetClientServices) всех услуг,
-    # подключенных у клиента
-    service = services_pb2_grpc.ServicesStub(channel)
-
-    # gRPC запрос для получения данных об услугах клиента
-    raw_data_services = service.GetClientServices(ClientServicesRequest(id=raw_data_client[0].id, with_balance=2))
-
-    # Обработка полученных данных(ИНФОРМАЦИЯ) о клиенте.
-    # Сохранение данных в переменные с понятым именем
-    user_data_client = {
-        'user_id': raw_data_client[0].id,
-        'user_name': raw_data_client[0].name,
-        'user_address': raw_data_client[0].address,                         # address: street, house, building, block, fraction
-        'user_address_street': raw_data_client[0].address.street,           # street
-        'user_address_house': raw_data_client[0].address.house,             # house number
-        'user_address_building': raw_data_client[0].address.building,       # house builidng
-        'user_address_block': raw_data_client[0].address.block,             # house block
-        'user_address_fraction': raw_data_client[0].address.fraction,       # house fraction
-        'user_address_num_pre': raw_data_client[0].address.street.num_pre,  # numeric prefix (1 for "1 hvostov per")
-
-
-        'user_city': raw_data_client[0].address.street.city.pre,            # prefix (object name, "s" for selo, "g" for gorod)
-        'user_is_active': raw_data_client[0].active,                        # is client active
-        'user_is_corp': raw_data_client[0].corp,                            # is client corp
-        'user_is_cashless': raw_data_client[0].cashless,                    # is client cashless
-        'user_contacts': raw_data_client[0].contacts,                       # client contacts info: EMAIL, PHONE, PIN
-        'user_ts_to': raw_data_client[0].ts_to,                             # client abandoned unix timestamp
-        'user_ts_from': raw_data_client[0].ts_from,                         # client abandoned unix timestamp
-    }
-    print(user_data_client)
-    print("####### ALLALLALLALL")
-    # Обработка полученных данных(УСЛУГИ) клиента.
-    # Сохранение данных в переменные с понятым именем
-    user_data_contracts = dict()
-    for item in raw_data_services.contracts:
-        print(item)
-        print("Next \n")
-        user_data_contracts[item.id] = {
-            'id': item.id,                                                  # contract id
-            'login': item.login,                                            # contract login
-            'active': item.active,                                          # is contract active
-            'commercial': item.commercial,                                  # contract commercial name
-            'own': item.own,                                                # whether contract is for own services
-            'advance': item.advance,                                        # is contract billed in advance
-            'organization': item.organization,                              # organization: ID, NAME(short lat), DESCR(full cyr)
-            'organization_id': item.organization.id,
-            'organization_name': item.organization.name,
-            'organization_descr': item.organization.descr,
-            'provider': item.provider,                                      # provider: ID, NAME(short lat), DESCR(full cyr)
-            'provider_id': item.provider.id,
-            'provider_name': item.provider.name,
-            'provider_descr': item.provider.descr,
-            'payment_type': item.payment_type,                              # payment type: ID, NAME(short lat), DESCR(full cyr)
-            'payment_type_id': item.payment_type.id,
-            'payment_type_name': item.payment_type.name,
-            'payment_type_descr': item.payment_type.descr,
-            'service_packs': item.service_packs,                            # contract service packs
-            'ts_from': item.ts_from,                                        # activation unix timestamp
-            'ts_to': item.ts_to,                                            # cancellation unix timestamp
-            'balance': item.balance,                                        # contract balance
-            'required_payment': item.required_payment,                      # contract required payment
-        }
-    pprint(user_data_contracts)
+    pprint(request.session['user_info'])
     context = {"active": "home",
                "title": "Состояние счёта и подключенные услуги",
-               'user_data_client': user_data_client,
-               'user_data_contracts': user_data_contracts
+               'personal_data': request.session['user_info']['personal_data'],
+               'contracts_data': request.session['user_info']['contracts_data']
                }
     return render(request, 'main/home.html', context)
 

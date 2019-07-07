@@ -7,35 +7,38 @@ from protos.pilling.rpc.protos import client_pb2_grpc, services_pb2_grpc
 from protos.pilling.rpc.protos.client_pb2 import AuthRequest, SearchRequest
 from django.contrib.auth import authenticate, logout, login
 import grpc, grpc_tools
+from authorization.grpc_get_userdata import get_userdata
+from personalpage.settings import GRPC_CHANNEL
 
 
 # ФУНКЦИЯ АВТОРИЗАЦИИ - LOGIN
 def personalpage_login(request):
     template = 'authorization/login.html'
     if request.method == 'POST' and 'csrfmiddlewaretoken' in request.POST:
-        # Аутентифицируем пользователя***:
+        # *** Аутентифицируем пользователя:
         # 1. Если пользователь есть(проверяется таблица User средствами Django), то логиним его на главную страницу.
         # 2. Если пользователя нет в таблице User Django, то делаем запрос к серверу по grpc и в случае успеха создадим
         # пользователя в Django. Это необходимое условие, для тспользования во всех views декоратор login_required()
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
-        if user is not None and user.is_active:  # 1 условие ***
+        if user is not None and user.is_active:                 # 1 условие ***
             # Логиним пользователя джанговским механизмом
             login(request, user)
             # Если пользователь сразу идёт на какую-либо страницу ЛК(без предварительного логина - ну, например, у него
             # какая-либо страница в закладках) и т.к. у нас работает декоратор login_required(),
             # то этот декоратор кидает пользователя на форму логина и передёт параметр ?next= - страница, куда хотел
             # зайти пользователь. Значит после авторизации пользователя туда и нужно его перекинуть
+            # При этом, получим данные о пользователе и запишем в сессию, чтобы иметь доступ отовсюду
+            request.session['user_info'] = get_userdata(request.POST['username'], request.POST['password'])
+            request.session.save()
             if 'next' in request.GET:
                 return redirect(request.GET['next'])
             return redirect('/main')
-        else:   # 2 условие ***
-            print("ПОЛЬЗОВАТЕЛЯ НЕТ В ДЖАНГО. НАДО БЫ СОЗДАТЬ")
-            print("=========")
+        else:                                                   # 2 условие ***
             # Логин и пароль приходят из формы
             username = request.POST['username']
             password = request.POST['password']
             # Адрес сервера
-            channel_address = 'stage.pilling.rinet.ru:57001'
+            channel_address = GRPC_CHANNEL
             # Установка соединения для Авторизация(AuthRequest) клиента
             channel = grpc.insecure_channel(channel_address)
             client = client_pb2_grpc.ClientStub(channel)
@@ -46,6 +49,9 @@ def personalpage_login(request):
             if auth.success:
                 user = User.objects.create_user(username=username, password=password)
                 user.save()
+                # Получим клиентские данные и запишем их в сессию для доступа на всех страницах
+                request.session['user_info'] = get_userdata(request.POST['username'], request.POST['password'])
+                request.session.save()
                 return redirect('main/')
             else:
                 context = create_context_username_csrf(request)

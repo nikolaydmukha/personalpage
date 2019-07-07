@@ -33,6 +33,8 @@ def index(request):
     context = {
         "active": "history_traf",
         "title": "Расходы и трафик",
-        'form_date': form_date
+        'form_date': form_date,
+        'personal_data': request.session['user_info']['personal_data'],
+        'contracts_data': request.session['user_info']['contracts_data']
     }
     return render(request, 'history_traf/history_traf.html', context)

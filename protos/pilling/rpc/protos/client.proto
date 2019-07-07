@@ -50,22 +50,24 @@ message ClientReply {
     required bool corp = 5;               // is client corp
     required bool cashless = 6;           // is client cashless
     required ContactsReply contacts = 7;  // client contacts info
-    optional int64 ts_from = 8;           // client connected unix timestamp
+    required int64 ts_from = 8;           // client connected unix timestamp
     optional int64 ts_to = 9;             // client abandoned unix timestamp
 }
 
 /* Contacts reply */
 message ContactsReply {
     required string main_email = 1;       // client main email
-    required string main_phone = 2;       // client main phone
-    required string pin = 3;              // client pin code
+    optional string add_email = 2;        // client additional email
+    required string main_phone = 3;       // client main phone
+    required string pin = 4;              // client pin code
+    repeated Contact contacts = 5;        // contacts list
 }
 
 /* Contact reply */
 message Contact {
     required string contact = 1;          // contact value
     required ContactType type = 2;        // contact type
-    required string comment = 3;          // contact comment
+    optional string comment = 3;          // contact comment
 }
 
 /* Contact type */
@@ -79,11 +81,18 @@ enum ContactType {
 
 /* Address reply */
 message AddressReply {
+    required HouseReply house = 1;  // house structure
+    optional string flat = 2;       // flat number
+}
+
+/* House reply */
+message HouseReply {
     required StreetReply street = 1; // street structure
     required string house = 2;       // house number
     optional string building = 3;    // building number (stroeniye)
     optional string block = 4;       // block (korpus)
     optional string fraction = 5;    // fraction (drob')
+
 }
 
 /* Street reply */
