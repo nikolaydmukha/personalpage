@@ -22,7 +22,7 @@ def get_userdata(login, password):
 
     # gRPC запрос для получения данных об услугах клиента
     raw_data_services = service.GetClientServices(ClientServicesRequest(id=raw_data_client[0].id, with_balance=2))
-    ###print("====\n", raw_data_services)
+    print("====\n", raw_data_services)
     # Обработка полученных данных(ИНФОРМАЦИЯ) о клиенте.
     # Сохранение данных в переменные с понятым именем и далее сохраним в словарь для передачи в сессию
     session_dict = {}

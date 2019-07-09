@@ -7,188 +7,79 @@
 	<div class="l-services">
 		<!-- service item -->
 		{% for service, param in contracts_data.items %}
-				{{service}} {{param.commercial}}
-				<div class="l-services-item g-block">
-					<div class="l-services-item-title">
-						<div class="col-left color-gray">
-							{{param.commercial}} {% if service == 'ls' %}- "смотрЁшка"{% elif service == '24tv' %} -"24ТВ" {% endif %}
-						</div>
-						<div class="col-right">
-							<!-- Opened service header -->
-							{% if param.active %}
-								<label class="g-label label-success">Доступ открыт</label>
-							{% else %}
-								<label class="g-label label-danger">Доступ закрыт</label>
-							{% endif %}
-							<!-- /opened service header -->
-						</div>
+			<div class="l-services-item g-block">
+				<div class="l-services-item-title">
+					<div class="col-left color-gray">
+						{{param.commercial}} {% if service == 'ls' %}- "смотрЁшка"{% elif service == '24tv' %} -"24ТВ" {% endif %}
 					</div>
-					<div class="l-services-item-content">
-						<div class="payment-general flexbox-x">
-							<div class="col col-to-pay wafer">
-								<div class="amount" title="К оплате">
-									 <span id="SPAN_12">{{param.required_payment}}</span>
-									<sup id="SUP_13">руб.</sup>
-								</div>
-								<div class="comment">К оплате за {% now "F Y" %}</div>
-							</div>
-							<div class="col col-balance">
-								<div class="amount" title="Баланс">
-									<span>{{param.balance}}</span>
-									<sup id="SUP_18">руб.</sup>
-								</div>
-								<div class="comment">Остаток на счете</div>
-							</div>
-							{% if service == 'rinet' %}
-								<div class="col col-login">
-									<div class="login-current">
-										<div class="key">Ваш логин</div>
-										<div class="value">{{personal_data.user_id}}</div>
-									</div>
-									<div class="login-old">
-										<div class="key">Старый логин</div>
-										<div class="value">{{personal_data.user_old_login}}</div>
-									</div>
-									<div class="login-old">
-										<div class="key">Пин-код</div>
-										<div class="value">{{personal_data.user_pin}}</div>
-									</div>
-								</div>
-							{% endif %}
-						</div>
-						<div iclass="btns"></div>
-						<div class="payment-details">
-							<div class="payment-details-item title">
-								<div class="col-left">Абонентская плата</div>
-								<div class="col-right">{{param.service_packs_total_cost}} руб/мес</div>
-							</div>
-							<!-- Вывод списка услуг -->
-							<!-- subservice body -->
-							{% for service_pack_id, service_pack_param in param.service_packs.items %}
-								<div class="payment-details-item">
-									<div class="col-left">{{service_pack_param.commercial}}</div>
-									<div class="col-right">{{service_pack_param.total_cost}} руб/мес</div>
-									<div class="hidden">
-										<span class="ok">Вкл</span>
-									</div>
-								</div>
-							{% endfor %}
-							<!-- /subservice body -->
-						</div>
-						<div class="service-by">
-							 <span>Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
-						</div>
+					<div class="col-right">
+						<!-- Opened service header -->
+						{% if param.active %}
+							<label class="g-label label-success">Доступ открыт</label>
+						{% else %}
+							<label class="g-label label-danger">Доступ закрыт</label>
+						{% endif %}
+						<!-- /opened service header -->
 					</div>
 				</div>
+				<div class="l-services-item-content">
+					<div class="payment-general flexbox-x">
+						<div class="col col-to-pay wafer">
+							<div class="amount" title="К оплате">
+								 <span id="SPAN_12">{{param.required_payment}}</span>
+								<sup id="SUP_13">руб.</sup>
+							</div>
+							<div class="comment">К оплате за {% now "F Y" %}</div>
+						</div>
+						<div class="col col-balance">
+							<div class="amount" title="Баланс">
+								<span>{{param.balance}}</span>
+								<sup id="SUP_18">руб.</sup>
+							</div>
+							<div class="comment">Остаток на счете</div>
+						</div>
+						{% if service == 'rinet' %}
+							<div class="col col-login">
+								<div class="login-current">
+									<div class="key">Ваш логин</div>
+									<div class="value">{{personal_data.user_id}}</div>
+								</div>
+								<div class="login-old">
+									<div class="key">Старый логин</div>
+									<div class="value">{{personal_data.user_old_login}}</div>
+								</div>
+								<div class="login-old">
+									<div class="key">Пин-код</div>
+									<div class="value">{{personal_data.user_pin}}</div>
+								</div>
+							</div>
+						{% endif %}
+					</div>
+					<div iclass="btns"></div>
+					<div class="payment-details">
+						<div class="payment-details-item title">
+							<div class="col-left">Абонентская плата</div>
+							<div class="col-right">{{param.service_packs_total_cost}} руб/мес</div>
+						</div>
+						<!-- Вывод списка услуг -->
+						<!-- subservice body -->
+						{% for service_pack_id, service_pack_param in param.service_packs.items %}
+							<div class="payment-details-item">
+								<div class="col-left">{{service_pack_param.commercial}}</div>
+								<div class="col-right">{{service_pack_param.total_cost}} руб/мес</div>
+								<div class="hidden">
+									<span class="ok">Вкл</span>
+								</div>
+							</div>
+						{% endfor %}
+						<!-- /subservice body -->
+					</div>
+					<div class="service-by">
+						 <span>Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
+					</div>
+				</div>
+			</div>
 		{% endfor %}
 	</div>
 </div>
 {% endblock %}
-<!--
-			<div class="l-services-item-content">
-				<div class="payment-general flexbox-x">
-					<div class="col col-to-pay wafer">
-						<div class="amount" title="К оплате">
-							 <span id="SPAN_12">{{contracts_data.rinet.required_payment}}</span>
-							<sup id="SUP_13">руб.</sup>
-						</div>
-						<div class="comment">К оплате за {% now "F Y" %}</div>
-					</div>
-					<div class="col col-balance">
-						<div class="amount" title="Баланс">
-							<span>{{contracts_data.rinet.balance}}</span>
-							<sup id="SUP_18">руб.</sup>
-						</div>
-						<div class="comment">Остаток на счете</div>
-					</div>
-					<div class="col col-login">
-						<div class="login-current">
-							<div class="key">Ваш логин</div>
-							<div class="value">{{personal_data.user_id}}</div>
-						</div>
-						<div class="login-old">
-							<div class="key">Старый логин</div>
-							<div class="value">{{personal_data.user_old_login}}</div>
-						</div>
-						<div class="login-old">
-							<div class="key">Пин-код</div>
-							<div class="value">{{personal_data.user_pin}}</div>
-						</div>
-					</div>
-				</div>
-				<div iclass="btns"></div>
-				<div class="payment-details">
-					<div class="payment-details-item title">
-						<div class="col-left">Абонентская плата</div>
-						<div class="col-right">{{contracts_data.rinet.service_packs_total_cost}} руб/мес</div>
-					</div>
-
-					{% for service_pack_id, service_pack_param in contracts_data.rinet.service_packs.items %}
-						<div class="payment-details-item">
-							<div class="col-left">{{service_pack_param.commercial}}</div>
-							<div class="col-right">{{service_pack_param.total_cost}} руб/мес</div>
-							<div class="hidden">
-								<span class="ok">Вкл</span>
-							</div>
-						</div>
-					{% endfor %}
-
-				</div>
-				<div class="service-by">
-					 <span>Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
-				</div>
-			</div>
-		</div>
-
-		<div class="l-services-item g-block">
-			<div class="l-services-item-title">
-				<div class="col-left color-gray">Интерактивное ТВ - сервис «СмотрЁшка»</div>
-				<div class="col-right">
-					<label class="g-label label-danger" title="Данные находятся в стадии обновления. Если Вы наблюдаете данный статус уже более 30 минут, пожалуйста, обратитесь в техподдержку.">
-						Выкл
-					</label>
-				</div>
-			</div>
-			<div class="l-services-item-content">
-				<div class="payment-general flexbox-x">
-					<div class="col col-to-pay wafer">
-						<div class="amount" title="К оплате">
-							<span >0</span>
-							<sup>руб.</sup>
-						</div>
-						<div class="comment">К оплате за {% now "F Y" %}</div>
-					</div>
-					<div class="col col-balance">
-						<div class="amount" title="Баланс">
-							<span>38.14</span>
-							<sup>руб.</sup>
-						</div>
-						<div class="comment">Остаток на счете</div>
-					</div>
-				</div>
-				<div class="btns">
-				</div>
-				<div class="payment-details">
-					<div class="payment-details-item title">
-						<div class="col-left">Абонентская плата</div>
-						<div class="col-right">0 руб/мес</div>
-					</div>
-					<div class="payment-details-item">
-						<div class="col-left">Первый Бандл</div>
-						<div class="col-right">0 руб/мес</div>
-						<div class="hidden">
-							 <span>Выкл</span>
-						</div>
-					</div>
-				</div>
-				<div class="service-by">
-					 <span >Вас обслуживает ООО "КРОНИКС ПЛЮС"</span>
-				</div>
-			</div>
-		</div>
-
-
-	</div>
-</div>
--->
-<!-- HERE END CONTENTS!!!! -->

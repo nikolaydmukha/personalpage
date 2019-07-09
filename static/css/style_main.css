@@ -1307,6 +1307,15 @@ body .fancybox-wrap .fancybox-skin
 	float: left;
 	font-size: 22px;
 	padding-top: 5px;
+	/*width: auto;*/
+	width: 160px;
+}
+.field-name-login
+{
+	color: #777;
+	float: left;
+	font-size: 22px;
+	padding-top: 5px;
 	width: auto;
 }
 .l-form .l-form-item .field-option
@@ -1678,7 +1687,8 @@ table.type1 td
 }
 .l-settings .l-settings-item .l-settings-item-content .field-wrap input
 {
-	width: 100%;
+	/*width: 100%;*/
+	width: 200px;
 }
 .b-get-mac-address .icon,.b-info .icon
 {

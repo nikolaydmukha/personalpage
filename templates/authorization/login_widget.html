@@ -5,7 +5,7 @@
         <form action="" method="POST">
             {%csrf_token%}
             <div class="l-form-item">
-                <div class="field-name">Логин</div>
+                <div class="field-name-login">Логин</div>
                 <div class="field-option">
                     <input type="text" class="input " id="auth_user" name="username" placeholder="Логин" required>
                     <span class="form-control-comment" style="color: red;">
@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="l-form-item">
-                <div class="field-name">Пароль</div>
+                <div class="field-name-login">Пароль</div>
                 <div class="field-option">
                     <div class="password-wrapper ">
                         <input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>

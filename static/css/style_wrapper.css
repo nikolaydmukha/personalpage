@@ -195,44 +195,23 @@ body {
 color: #000000;
     text-decoration: none;
 }
-/*В блоке "Скидки" делаем замену картинки при наведении, предварительно загрузив все 4 картинки, чтобы не было
-мерцания при наведение курсора мыщи!!!*/
-body::after{
-    position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
-    content:url(../images/sp_off_new.png)
-    url(../images/sp_off_new_hover.png)
-    url(../images/sp_off_new_focus.png)
-    url(../images/i-bell-static.png)
-    url(../images/i-bell-hover.png)
-    url(../images/i-bell-focus.png);
-}
-.img_sp_off_change {
-    height : 34.4px;
-    width : 75.55px;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-image: url(../images/sp_off_new.png);
-}
-.img_sp_off_change:hover {
-    background-image: url(../images/sp_off_new_hover.png);
-}
-.img_sp_off_change:focus {
-    background-image: url(../images/sp_off_new_focus.png);
-}
-/*В блоке "Сообщения" делаем замену картинки при наведении*/
-.img_bell_change {
-    height : 34.4px;
-    width : 75.55px;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-image: url(../images/i-bell-static.png);
-}
-.img_bell_change:hover {
-    background-image: url(../images/i-bell-hover.png);
-}
-.img_bell_change:focus {
-    background-image: url(../images/i-bell-focus.png);
-}
+/*В блоке "Скидки" делаем замену картинки при наведении с помощью sprite*/
+.img_sp_off_change, .img_sp_off_change:focus, .img_sp_off_change:hover
+{ display: inline-block; background: url(../images/sp_sprite.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+.img_sp_off_change { background-position: -0px -0px; width: 32px; height: 32px; }
+.img_sp_off_change:hover { background-position: -0px -32px; width: 32px; height: 32px; }
+.img_sp_off_change:focus { background-position: -0px -64px; width: 32px; height: 32px; }
+
+/*В блоке "Сообщения" делаем замену картинки при наведении с помощью sprite*/
+.img_bell_change:focus, .img_bell_change:hover, .img_bell_change
+{ display: inline-block; background: url(../images/i_bell_sprite.png) no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+.img_bell_change { background-position: -0px -0px; width: 32px; height: 32px; }
+.img_bell_change:hover { background-position: -0px -32px; width: 32px; height: 32px; }
+.img_bell_change:focus { background-position: -0px -64px; width: 32px; height: 32px; }
+
+
 /*Убираем рамки, которые появляются при наведении и клике на кликабельный элемент*/
 :active, :hover, :focus {
     outline: 0;
