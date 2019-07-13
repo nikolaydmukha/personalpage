@@ -10,172 +10,57 @@
 		Выберите услугу
 	</h3>
 	<div id="radio_button_switcher" class="l-select-service">
-<!--		{% for service, param in contracts_data.items %}-->
-<!--			<div class="l-select-service-item">-->
-<!--				<div class="radio" id="radio_but{{forloop.counter}}">-->
-<!--					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>-->
-<!--						<div class="item-radio">-->
-<!--							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.logn}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">-->
-<!--							<span class="fake"></span>-->
-<!--						</div>-->
-<!--					</label>-->
-<!--				</div>-->
-<!--				<div class="login">Логин: {{param.login}}-->
-<!--					<br>({{personal_data.user_old_login}})-->
-<!--				</div>-->
-<!--				<div class="purpose">-->
-<!--					<div class="name">-->
-<!--						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- "СмотрЁшка"{% elif service == '24tv' %} -"24ТВ" {% endif %}</label>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		{% endfor %}-->
-<!--	</div>-->
-
-		<div class="l-select-service-item">
-			<div class="radio" id="radio_but1">
-				<label for="select-service-0" class="checked">
-					<div class="item-radio">
-						<input type="radio" name="ulogin" id="select-service-0" data-login="1100077049" data-service-name="Интернет, Цифровое ТВ" value="yak32-221" checked="CHECKED" class="select-service-radio">
-						<span class="fake"></span>
+		{% for service, param in contracts_data.items %}
+			<div class="l-select-service-item">
+				<div class="radio" id="radio_but{{forloop.counter}}">
+					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>
+						<div class="item-radio">
+							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.login}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">
+							<span class="fake"></span>
+						</div>
+					</label>
+				</div>
+				<div class="login">Логин: {{param.login}}
+					<br>({{personal_data.user_old_login}})
+				</div>
+				<div class="purpose">
+					<div class="name">
+						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>
 					</div>
-				</label>
-			</div>
-			<div class="login">Логин: 1100077049
-				<br>(yak32-221)
-			</div>
-			<div class="purpose">
-				<div class="name">
-					<label for="select-service-0">Интернет, Цифровое ТВ</label>
 				</div>
 			</div>
-		</div>
-		<div class="l-select-service-item">
-			<div class="radio" id="radio_but2">
-				<label for="select-service-1">
-					<div class="item-radio">
-						<input type="radio" name="ulogin" id="select-service-1" data-login="2100077041" data-service-name="Интерактивное ТВ - сервис «СмотрЁшка»" value="yak32-221sm" class="select-service-radio">
-						<span class="fake"></span>
-					</div>
-				</label>
-			</div>
-			<div class="login">Логин: 2100077041
-				<br>(yak32-221sm)
-			</div>
-			<div class="purpose">
-				<div class="name">
-					<label for="select-service-1">Интерактивное ТВ - сервис «СмотрЁшка»</label>
-				</div>
-			</div>
-		</div>
+		{% endfor %}
 	</div>
-
 	<!-- /Service selector -->
 	<!-- Idle stats -->
-<!--	{% for service, param in contracts_data.items %}-->
-<!--		{% if forloop.first %}-->
-<!--		<div class="idledata" data-login="{{param.login}}" style="display: block; " id="inet_login">-->
-<!--		{% else %}-->
-<!--		<div class="idledata" data-login="{{param.login}}" style="display: none; " id="inet_login">-->
-<!--		{% endif %}-->
-<!--			<table class="type1" cellpadding="0" cellspacing="0">-->
-<!--				<tbody>-->
-<!--				<tr>-->
-<!--					<td style="text-align: left;">-->
-<!--						<strong>Логин абонента:</strong>-->
-<!--					</td>-->
-<!--					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td style="text-align: left;">-->
-<!--						<strong>Кол-во блокировок в текущем месяце:</strong>-->
-<!--					</td>-->
-<!--					<td style="text-align: right;">УТОЧНИТЬ</td>-->
-<!--				</tr>-->
-<!--				<tr>-->
-<!--					<td style="text-align: left;">-->
-<!--						<strong>Текущая блокировка:</strong>-->
-<!--					</td>-->
-<!--					<td style="text-align: right;">УТОЧНИТЬ</td>-->
-<!--				</tr>-->
-<!--				</tbody>-->
-<!--			</table>-->
-<!--			<div class="section"></div>-->
-<!--		</div>-->
-<!--	{% endfor %}-->
-<!--		&lt;!&ndash; /Idle stats &ndash;&gt;-->
-<!--	<br>-->
-<!--	&lt;!&ndash; Idle footer &ndash;&gt;-->
-<!--	<h3>-->
-<!--		Условия предоставления Добровольной блокировки доступа-->
-<!--	</h3>-->
-<!--	<ul>-->
-<!--		<li>Первая блокировка в календарном месяце предоставляется бесплатно.</li>-->
-<!--		<li>Стоимость каждой последующей блокировки в течение календарного месяца - 30 руб.</li>-->
-<!--		<li>Услуга доступна только при положительном остатке на абонентском счете.</li>-->
-<!--		<li>Активация услуги занимает от 1 до 10 минут.</li>-->
-<!--	</ul>-->
-<!--	&lt;!&ndash; /conditions &ndash;&gt;-->
-<!--	<br>-->
-<!--	<br>-->
-<!--	<button id="switch_block" class="g-btn btn-danger">-->
-<!--		<span class="onoff-letter"></span>-->
-<!--		Включить блокировку-->
-<!--	</button>-->
-<!--</div>-->
-
-	<div class="idledata" data-login="1100077049" style="display: block; " id="inet_login">
-		<table class="type1" cellpadding="0" cellspacing="0">
-			<tbody>
-			<tr>
-				<td style="text-align: left;">
-					<strong>Логин абонента:</strong>
-				</td>
-				<td style="text-align: right;">1100077049 (yak32-221)</td>
-			</tr>
-			<tr>
-				<td style="text-align: left;">
-					<strong>Кол-во блокировок в текущем месяце:</strong>
-				</td>
-				<td style="text-align: right;">0</td>
-			</tr>
-			<tr>
-				<td style="text-align: left;">
-					<strong>Текущая блокировка:</strong>
-				</td>
-				<td style="text-align: right;">нет</td>
-			</tr>
-			</tbody>
-		</table>
-		<div class="section"></div>
-	</div>
-	<div class="idledata" data-login="2100077041" style="display: none;" id="tv_login">
-		<table class="type1" cellpadding="0" cellspacing="0">
-			<tbody>
-			<tr>
-				<td style="text-align: left;">
-					<strong>Логин абонента:</strong>
-				</td>
-					<td style="text-align: right;">2100077041 (yak32-221sm)</td>
+	{% for service, param in contracts_data.items %}
+		<div class="idledata" data-login="{{param.login}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">
+			<table class="type1" cellpadding="0" cellspacing="0">
+				<tbody>
+				<tr>
+					<td style="text-align: left;">
+						<strong>Логин абонента:</strong>
+					</td>
+					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>
 				</tr>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Кол-во блокировок в текущем месяце:</strong>
 					</td>
-					<td style="text-align: right;">0</td>
+					<td style="text-align: right;">УТОЧНИТЬ</td>
 				</tr>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Текущая блокировка:</strong>
 					</td>
-					<td style="text-align: right;">нет</td>
+					<td style="text-align: right;">УТОЧНИТЬ</td>
 				</tr>
-			</tbody>
-		</table>
-		<div class="section"></div>
-	</div>
-
-	<!-- /Idle stats -->
+				</tbody>
+			</table>
+			<div class="section"></div>
+		</div>
+	{% endfor %}
+		<!-- /Idle stats -->
 	<br>
 	<!-- Idle footer -->
 	<h3>
@@ -194,7 +79,6 @@
 		<span class="onoff-letter"></span>
 		Включить блокировку
 	</button>
-
 	<div class="hidden" id="block_confirmation">
 		<div class="b-popup popup-md">
 			<h3>

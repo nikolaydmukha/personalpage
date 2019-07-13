@@ -1,5 +1,6 @@
 {% extends "wrapper.html" %}
 {% load staticfiles %}
+{% load personalpage_filters %}
 
 {% block  content %}
 <script type="text/javascript" src="{% static 'js/lk/pay_bcard.js' %}"></script>
@@ -8,47 +9,30 @@
 <div class="b-refill g-block">
     <!-- payment service -->
     <h3 class="color-gray">Услуги для оплаты</h3>
-    <div class="l-select-service">
-        <div class="l-select-service-item">
-            <div class="purpose">
-                <div class="name">
-                    <label for="select-service-1">
-                        Интернет, Цифровое ТВ
-                    </label>
+    {% for service, param in contracts_data.items %}
+        <div class="l-select-service">
+            <div class="l-select-service-item">
+                <div class="purpose">
+                    <div class="name">
+                        <label for="select-service-1">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="l-select-service">
-        <div class="l-select-service-item">
-            <div class="purpose">
-                <div class="name">
-                    <label for="select-service-1">
-                        Интерактивное ТВ - сервис «СмотрЁшка»
-                    </label>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
     <!-- /payment service -->
     <!-- payment sum -->
     <div class="b-amount">
         <h3>
-            <span>Сумма(руб.):
-            </span>
+            <span>Сумма (руб.):</span>
             <input value="0" input-filter="number" name="sum" id="isum" type="text">
-
         </h3>
     </div>
     <!-- /payment sum -->
     <!-- pay button -->
     <div class="b-refill-footer">
-        <button id="ipay" class="g-btn btn-danger">
-            Пополнить
-        </button>
-        <span id="ipay_msg">
-
-        </span>
+        <button id="ipay" class="g-btn btn-danger">Пополнить</button>
+        <span id="ipay_msg"></span>
     </div>
     <!-- /pay button -->
 </div>
@@ -58,36 +42,23 @@
         Оповещение о поступлении платежа придет на мобильный телефон:
     </div>
     <div class="row">
-        <span class="phone">
-            +7 (906) 704-2585
-        </span>
+        {% if personal_data.user_phone_main %}<span class="phone">{{personal_data.user_phone_main|phone_number}}        </span> {% else %}  <span style="color: red;">укажите контакнтый номер</span> {% endif %}
         <a href="/profile_settings" class="btn-change">
-            <i>
-                <img src="{% static 'images/i-cog-gray.png' %}" height="17" width="19" alt="">
-            </i>
-        <span>
-            Изменить
-        </span>
+            <i><img src="{% static 'images/i-cog-gray.png' %}" height="17" width="19" alt=""></i>
+        <span>Изменить</span>
         </a>
     </div>
 </div>
 <!-- / notification -->
 <!-- payment type -->
 <div class="b-payment-type g-block">
-    <span class="title">
-        К оплате принимаются карты
-    </span>
-    <span class="cards"><img src="{% static 'images/logos-cards.png' %}" height="38" width="225" alt="">
-    </span>
+    <span class="title">К оплате принимаются карты</span>
+    <span class="cards"><img src="{% static 'images/logos-cards.png' %}" height="38" width="225" alt=""></span>
 </div>
 <!-- / payment type -->
 <!-- Obsolete PSP selection dummy -->
 <div id="ipay-tabs" class="hide">
-    <ul>
-        <li class="ui-state-active" data-psp="alfabank">
-
-        </li>
-    </ul>
+    <ul><li class="ui-state-active" data-psp="alfabank"></li></ul>
 </div><!-- HERE END CONTENTS!!!! -->
 <!-- /Obsolete PSP selection dummy -->
 <!-- Payment script -->
