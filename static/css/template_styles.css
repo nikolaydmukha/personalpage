@@ -361,7 +361,7 @@ h4 {
 .g-btn.loading {
  color:transparent;
  cursor:default;
- background-image:url(../../img/ajax-loader.gif);
+ background-image:url(../images/ajax-loader.gif);
  background-position:50% 50%
 }
 .g-btn:disabled {
@@ -454,7 +454,7 @@ h4 {
 }
 .item-checkbox input:checked+.fake {
  border-color:#000;
- background-image:url(../../img/i-check.png)
+ background-image:url(../images/i-check.png)
 }
 .item-checkbox input:disabled+.fake {
  filter:alpha(opacity=50 );
@@ -648,11 +648,11 @@ h4 {
 }
 .header-link.call-back {
  width:96px;
- background-image:url(../../img/call24.png)
+ background-image:url(../images/call24.png)
 }
 .header-link.tech-serv {
  width:104px;
- background-image:url(../../img/techsup.png)
+ background-image:url(../images/techsup.png)
 }
 .header-link:before {
  content:"";
@@ -931,7 +931,7 @@ h4 {
  display:inline-block;
  width:10px;
  height:10px;
- background:url(../../img/arr_right.png)
+ background:url(../images/arr_right.png)
 }
 .l-services .l-services-item .l-services-item-content .payment-general:after,
 .l-services .l-services-item .l-services-item-content .payment-general:before,
@@ -1149,7 +1149,7 @@ h4 {
  color:#000
 }
 body .fancybox-close {
- background:url(../../img/sprite-i-close.png) no-repeat;
+ background:url(../images/sprite-i-close.png) no-repeat;
  width:19px;
  height:19px;
  top:22px;
@@ -1461,7 +1461,7 @@ div.ui-datepicker {
 }
 .has-datepicker {
  width:150px;
- background:url(../../img/calendar-small.png) 120px 50% no-repeat
+ background:url(../images/calendar-small.png) 120px 50% no-repeat
 }
 .b-history-results {
  margin-top:30px

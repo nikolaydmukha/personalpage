@@ -5,7 +5,6 @@ register = template.Library()
 @register.filter(name='phone_number')
 def phone_number(number):
     """Convert a +79991001111 string into +7(xxx)xxx-xx-xx."""
-    print("@@@@@@@22222", number)
     country_code = number[0:2]
     first = number[2:5]
     print(first,"\n")

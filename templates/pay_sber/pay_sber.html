@@ -11,36 +11,15 @@
     <!-- payment service -->
     <h3 class="color-gray">Услуги к оплате:</h3>
     <div class="l-select-service">
-        <div class="l-select-service-item ">
-            <div class="radio">
-                <label for="select-service-0">
-                </label>
-            </div>
-            <div class="purpose">
-                <div class="name">
-                    <label for="select-service-0">
-                        Интернет, Цифровое ТВ
-                    </label>
-                </div>
-                <div class="amount">
+        {% for service, param in contracts_data.items %}
+            <div class="l-select-service-item">
+                <div class="purpose">
+                    <div class="name">
+                        <li type="circle"><label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label></li>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="l-select-service-item ">
-            <div class="radio">
-                <label for="select-service-1">
-                </label>
-            </div>
-            <div class="purpose">
-                <div class="name">
-                    <label for="select-service-1">
-                        Интерактивное ТВ - сервис «СмотрЁшка»
-                    </label>
-                </div>
-                <div class="amount">
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
     <!-- /payment service -->
     <p>
@@ -56,7 +35,7 @@
         <p>
             <span class="text-small color-gray" id="qrdisclaimer">Код для оплаты:</span>
             <br>
-
+            <span id="qrloading">Загрузка...</span>
             <span id="qrerror" hidden="">Ошибка</span>
             <img id="qrimg" src="{% static '/images/qr.png' %}" alt="qr">
         </p>

@@ -4,7 +4,7 @@
 	position: absolute !important;
 	top: 22px !important;
 	right: 18px !important;
-	background-image: url('../../img/sprite-i-close.png') !important;
+	background-image: url(../images/sprite-i-close.png) !important;
 	background-color: transparent !important;
 	height: 19px !important; width: 19px !important;
 	padding: 0 !important; margin: 0 !important;

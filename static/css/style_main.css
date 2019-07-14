@@ -346,7 +346,7 @@ h4
 }
 .g-btn.loading
 {
-	background-image: url(../../img/ajax-loader.gif);
+	background-image: url(../images/ajax-loader.gif);
 	background-position: 50% 50%;
 	color: transparent;
 	cursor: default;
@@ -675,12 +675,12 @@ h4
 }
 .header-link.call-back
 {
-	background-image: url(../../img/call24.png);
+	background-image: url(../images/call24.png);
 	width: 96px;
 }
 .header-link.tech-serv
 {
-	background-image: url(../../img/techsup.png);
+	background-image: url(../images/techsup.png);
 	width: 104px;
 }
 .header-link:before
@@ -816,7 +816,7 @@ h4
 }
 .i-arrow
 {
-	background: url(../../img/arr_right.png);
+	background: url(../images/arr_right.png);
 	display: inline-block;
 	height: 10px;
 	width: 10px;
@@ -1089,7 +1089,7 @@ h4
 }
 body .fancybox-close
 {
-	background: url(../../img/sprite-i-close.png) no-repeat;
+	background: url(../images/sprite-i-close.png) no-repeat;
 	height: 19px;
 	right: 18px;
 	top: 22px;
