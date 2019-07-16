@@ -13,17 +13,19 @@
             </div>
             <div class="field-option">
                 <p class="form-control-static">
-                    Генералов
+                    {{personal_data.user_name_surname}}
                 </p>
             </div>
         </div>
         <div class="l-form-item row-name">
             <div class="field-name">
-                Имя
+                <p class="form-control-static">
+                    Имя
+                </p>
             </div>
             <div class="field-option">
                 <p class="form-control-static">
-                    Михаил
+                    {{personal_data.user_name_firstname}}
                 </p>
             </div>
         </div>
@@ -33,7 +35,7 @@
             </div>
             <div class="field-option">
                 <p class="form-control-static">
-                    Владимирович
+                    {{personal_data.user_name_lastname}}
                 </p>
             </div>
         </div>
@@ -42,7 +44,7 @@
                 Электронный адрес
             </div>
             <div class="field-option">
-                <input type="email" id="iemail" class="email" name="email" value="ner@rinet.ru">
+                <input type="email" id="iemail" class="email" name="email" value="{{personal_data.user_email_main}}">
                 <p class="help-block">
                     <label for="iadvmail" class="checked">
                         <span class="item-checkbox">
@@ -56,13 +58,13 @@
                 </p>
             </div>
         </div>
-        Также у вас имеется e-mail nerevarin@rinet.ru
+        {% if personal_data.user_email_add %} Также у вас есть дополнительный e-mail: {{personal_data.user_email_add}} {% endif %}
         <div class="l-form-item row-phone">
             <div class="field-name">
                 Мобильный телефон
             </div>
             <div class="field-option">
-                <input type="text" name="mobile" input-filter="phone" value="+7 (906) 704-2585" id="imobile">
+                <input type="text" name="mobile" input-filter="phone" value="{{personal_data.user_phone_main}}" id="imobile">
                 <p class="help-block">
                     <label for="isms" class="checked">
                         <span class="item-checkbox">
@@ -83,7 +85,7 @@
                 ПИН-код
             </div>
             <div class="field-option">
-                <input type="text" name="pincode" value="64433" id="ipincode">
+                <input type="text" name="pincode" value="{{personal_data.user_pin}}" id="ipincode">
                 <p class="help-block">
                     <label for="ipincode">
                         <span class="text color-gray">
@@ -126,7 +128,7 @@
                     </label>
                 </div>
                 <div class="field-option">
-                    <input type="text" id="iwrongname_email" field="wrongname_email" class="email" value="ner@rinet.ru">
+                    <input type="text" id="iwrongname_email" field="wrongname_email" class="email" value="{{personal_data.user_email_main}}">
                 </div>
             </div>
             <div class="l-form-item">
@@ -140,7 +142,7 @@
                     </label>
                 </div>
                 <div class="field-option">
-                    <input type="text" id="iwrongname_phone" field="wrongname_phone" input-filter="phone" value="+7 (906) 704-2585">
+                    <input type="text" id="iwrongname_phone" field="wrongname_phone" input-filter="phone" value="{{personal_data.user_phone_main}}">
                 </div>
             </div>
         </div>

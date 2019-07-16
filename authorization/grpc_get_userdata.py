@@ -27,9 +27,13 @@ def get_userdata(login, password):
     # Сохранение данных в переменные с понятым именем и далее сохраним в словарь для передачи в сессию
     session_dict = {}
     info = raw_data_client[0]
+    info.name = 'Николай Владимирович Дмуха'
     user_data_client = {
         'user_id': info.id,
         'user_name': info.name,
+        'user_name_firstname': info.name[0:info.name.find(' '):1].strip(),
+        'user_name_lastname': info.name[info.name.find(' '):info.name.rfind(' '):1].strip(),
+        'user_name_surname': info.name[info.name.rfind(' ')::1].strip(),
         'user_city': info.address.house.street.city.name,
         'user_city_pre': info.address.house.street.city.pre,        # prefix (object name, "s" for selo, "g" for gorod)
         'user_street': info.address.house.street.name,              # street

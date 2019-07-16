@@ -67,7 +67,7 @@
         data.loading = [button];
         data.keepLoading = true;
         console.log("OUTPUT ===> ", data, "====> ", button);
-        ajax_post('/pay_bcard/alfa', data, function(res_data) {
+        ajax_post('/pay/bcard/alfa', data, function(res_data) {
             if (res_data.success) {
                 $('#ipay_msg').text('Подождите, пожалуйста. Перемещение на страницу оплаты...');
                 location.href = res_data.location;

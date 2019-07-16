@@ -257,6 +257,30 @@ color: #000000;
     border-bottom-left-radius : 7px;
     border-bottom-right-radius : 7px;
 }
+.pc_user_block.is-checked .pc_user_tooltip {
+    opacity: 1;
+    left: auto;
+    right: -28px;
+}
+.pc_user_block .pc_user_tooltip .menu .menu-item a, .pc_user_block .pc_user_tooltip .menu .menu-item a:link, .pc_user_block .pc_user_tooltip .menu .menu-item a:visited {
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+    padding: 8px;
+    display: block;
+    height: auto;
+    margin: 0;
+    color: #000;
+    text-decoration: none;
+    border-bottom: 1px solid #ebebeb;
+    cursor: pointer;
+    float: none;
+    width: auto !important;
+}
+.pc_user_block .pc_user_tooltip .menu .menu-item a:active, .pc_user_block .pc_user_tooltip .menu .menu-item a:hover {
+    color: #e50004;
+}
 .flex-dummy {
     flex-grow: 1;
 }

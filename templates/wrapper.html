@@ -123,7 +123,7 @@
 				</a>
                 <!--Блок для размещения информации о пользователе. Начало user-block.-->
                 <div class="user-block flexbox-y">
-                    <div class="pc_user_block flex-dummy is-checked">
+                    <div class="pc_user_block flex-dummy">
                         <span class="info">
                             <strong>
                                 {{personal_data.user_name}}
@@ -135,9 +135,8 @@
                         <div class="pc_user_block_button" style=""></div>
                         <div class="pc_user_tooltip">
                             <div class="menu">
-                                <div class="menu-item"><a href="/admin?return" style="">Вернуться в админку</a></div>
-                                <div class="menu-item"><a href="/profile">Изменить</a></div>
-                                <div class="menu-item"><a href="/?dlogout=Logout">Выйти</a></div>
+                                <div class="menu-item"><a href="/profile_settings">Изменить</a></div>
+                                <div class="menu-item"><a href="/logout">Выйти</a></div>
                             </div>
                         </div>
                     </div>
@@ -148,6 +147,7 @@
         </div>
         <!--Обёртка для самого верхнего блока на странице.Конец header_wrapper. -->
         <h2>{{ title }}</h2>
+
         <!-- Контейнер с управляемой, справочной информацией и меню -->
         <section class="content-wrapper">
             <div class="content-col-right">
@@ -231,7 +231,6 @@
     {% endif %}">
 	<div class="footer_inner">© 1995-{% now "Y" %} ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
 </footer>
-
 <!-- err div -->
 <div id="_errMsg" class="b-popup popup-md">
 	<div class="b-popup-body">
