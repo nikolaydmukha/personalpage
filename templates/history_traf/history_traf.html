@@ -8,43 +8,108 @@
    <div class="g-block">
       <h3>Показать расходы и трафик</h3>
       <div class="form-show-traffic">
-         <form action="/history/traf">
-            <div class="name">
-               За
-            </div>
+         <form action="/history_traf">
+            <div class="name">За</div>
             <div class="value">
                <div class="mgn-select-wrap basic" id="form-show-traffic">
-                  <div class="mgn-select-choosed">
-                     {% now "F Y" %}
-                     <span class="crutch">
-                     {% now "Y-m" %}
-                     </span>
-                  </div>
-                  <div class="mgn-select-list">
-                     <div class="mgn-select-item active">{% now "F Y" %}
-                        <span class="crutch">
-                        {% now "Y-m" %}
-                        </span>
-                     </div>
-                     {% for date in form_date %}
-                            <div class="mgn-select-item">
-                        		{{ date }}
-                        		<span class="crutch">
-                        			{{ date }}
-                        		</span>
-                     		</div>
-					  	{% endfor %}
-                  </div>
+                   {% if choosen_date %}
+                        <div class="mgn-select-choosed">{{ choosen_date }}
+                            <span class="crutch">{{ choosen_date }}</span>
+                        </div>
+                   {% else %}
+                       <div class="mgn-select-choosed">
+                         {% now "F Y" %}
+                         <span class="crutch">{% now "F Y" %}</span>
+                       </div>
+                   {% endif %}
+                   <div class="mgn-select-list">
+                       <div class="mgn-select-item active">{% now "F Y" %}
+                           <span class="crutch">{% now "F Y" %}</span>
+                       </div>
+                       {% for date in form_date %}
+                           <div class="mgn-select-item">{{ date }}
+                               <span class="crutch">{{ date }}</span>
+                           </div>
+                       {% endfor %}
+                   </div>
                </div>
             </div>
             <select id="imonth" name="month" hidden="">
+               <option value="{% now 'F Y' %}" selected="selected">{% now "F Y" %}</option>
+               {% for date in form_date %}
+                  <option value="{{ date }}">{{date}}</option>
+               {% endfor %}
             </select>
             <div class="btn">
                <input type="submit" class="g-btn btn-danger" value="Показать">
             </div>
          </form>
       </div>
+       <!-- Вывод статистики -->
+       {% if choosen_date %}
+           <div class="l-traffic">
+               <div class="l-traffic-item">
+                   <h3>Расходы и трафик за {{choosen_date}}:</h3>
+                   <table>
+                       <tbody>
+                       <tr>
+                           <td class="col-name"><strong>Стоимость:</strong></td>
+                           <td class="col-value">0.00 руб</td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+               <div class="l-traffic-item">
+                   <h4>Входящий трафик:</h4>
+                   <table>
+                       <tbody>
+                       <tr>
+                           <td class="col-name">Локальный:</td>
+                            <td class="col-value">
+                                <span class="briefly">5.68 Гбайт</span>
+                            </td>
+                       </tr>
+                       <tr>
+                           <td class="col-name">Внешний:</td>
+                           <td class="col-value">
+                               <span class="briefly">33.23 Гбайт</span>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="col-name"><strong>Всего:</strong></td>
+                           <td class="col-value">
+                               <span class="briefly">38.91 Гбайт</span>
+                           </td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+               <div class="l-traffic-item">
+                   <h4>Исходящий трафик:</h4>
+                   <table>
+                       <tbody><tr>
+                           <td class="col-name">Локальный:</td>
+                           <td class="col-value">
+                               <span class="briefly">71 Мбайт</span>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="col-name">Внешний:</td>
+                           <td class="col-value">
+                               <span class="briefly">4.00 Гбайт</span>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td class="col-name"><strong>Всего:</strong></td>
+                           <td class="col-value">
+                               <span class="briefly">4.07 Гбайт</span>
+                           </td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       {% endif %}
    </div><!-- end g-block -->
 </div><!-- HERE END CONTENTS!!!! -->
 {% endblock %}
-

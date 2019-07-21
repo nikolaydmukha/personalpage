@@ -81,6 +81,7 @@
 	<!-- /JS SERVER DATA -->
 </head>
 <body>
+
 <!--Начало блока main_outer -->
 <div class="main_outer">
     <!--Начало блока main_inner -->
@@ -216,21 +217,24 @@
                 {% endblock %}
             </div><!-- Конец блока с информацаией -->
         </section>
+		<footer class="footer_outer" style="{% if active == 'settings_inet'  %}margin: 350px auto 0;{% endif%}">
+			<div class="footer_inner">© 1995-{% now "Y" %} ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
+		</footer>
     </div><!--Конец блока main_inner -->
 </div><!--Конец блока main_outer -->
-<footer class="footer_outer" style="
-    {% if active == 'settings_inet'  %}margin: 320px auto 0;
-    {% elif active == 'block' %}margin: -160px auto 0;
-    {% elif active == 'dpay' %}margin: -15px auto 0;
-	{% elif active == 'pay_bcard' %}margin: -270px auto 0;
-	{% elif active == 'pay_sber' %}margin: -120px auto 0;
-	{% elif active == 'history_incomes' %}margin: -200px auto 0;
-	{% elif active == 'history_traf' %}margin: -200px auto 0;
-	{% elif active == 'your_messages' %}margin: -205px auto 0;
-	{% elif active == 'settings_personal' %}margin: -200px auto 0;
-    {% endif %}">
-	<div class="footer_inner">© 1995-{% now "Y" %} ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>
-</footer>
+<!--<footer class="footer_outer" style="-->
+<!--    {% if active == 'settings_inet'  %}margin: 320px auto 0;-->
+<!--    {% elif active == 'block' %}margin: -160px auto 0;-->
+<!--    {% elif active == 'dpay' %}margin: -15px auto 0;-->
+<!--	{% elif active == 'pay_bcard' %}margin: -270px auto 0;-->
+<!--	{% elif active == 'pay_sber' %}margin: -120px auto 0;-->
+<!--	{% elif active == 'history_incomes' %}margin: -200px auto 0;-->
+<!--	{% elif active == 'history_traf' %}margin: -200px auto 0;-->
+<!--	{% elif active == 'your_messages' %}margin: -205px auto 0;-->
+<!--	{% elif active == 'settings_personal' %}margin: -200px auto 0;-->
+<!--    {% endif %}">-->
+<!--	<div class="footer_inner">© 1995-{% now "Y" %} ООО "КРОНИКС ПЛЮС" Rinet - Internet Service Provider</div>-->
+<!--</footer>-->
 <!-- err div -->
 <div id="_errMsg" class="b-popup popup-md">
 	<div class="b-popup-body">

@@ -46,7 +46,7 @@
             range: false,
 
             todayButton: false,
-            clearButton: false,
+            clearButton: true,
 
             showEvent: 'focus',
             autoClose: false,

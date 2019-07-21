@@ -6,18 +6,51 @@
 <!-- HERE BE CONTENTS!!!! -->
 <div class="g-block">
     <h3>Показать платежи</h3>
-    <div class="form-show-history" id="form-show-history">
-        <form action="/history/incomes">
+    <span class="form-show-history" id="form-show-history">
+        <form action="/history_incomes">
             <span>
                 c
             </span>
-            <input type="text" id="ifrom" name="from" class="datepicker-here" data-position="bottom left" data-auto-close="true">
+            <input type="text" id="ifrom" name="from" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if choosen_date_from %}{{choosen_date_from}}{% else %}{% now 'j.m.Y' %}{% endif %}">
             <span>
                 по
             </span>
-            <input type="text" id="ito" name="to" class="datepicker-here" data-position="bottom left" data-auto-close="true">
+            <input type="text" id="ito" name="to" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if choosen_date_to %}{{choosen_date_to}}{% else %}{% now 'j.m.Y' %}{% endif %}">
             <input type="submit" class="g-btn btn-danger" value="Показать">
         </form>
+        <br>
+        {% if error_msg %}
+            <span style="color: red;">{{error_msg}}</span>
+        {% elif choosen_date_from and choosen_date_to %}
+            <h3>Платежи с {{ choosen_date_from }} по {{ choosen_date_to }}</h3>
+        <table class="table-history">
+					<thead>
+                        <tr>
+                            <th>Назначение</th>
+                            <th>Дата, время</th>
+                            <th>Сумма</th>
+                            <th>Тип платежа</th>
+                            <th>Цель платежа</th>
+                        </tr>
+					</thead>
+					<tbody>
+                    <tr>
+                        <td>Интернет/ТВ</td>
+                        <td>07.04.2019 14:58</td>
+                        <td>10.00</td>
+                        <td>банковская карта</td>
+                        <td>пополнение счёта</td>
+                    </tr>
+                    <tr>
+                        <td>Интернет/ТВ</td>
+                        <td>28.02.2019 16:39</td>
+                        <td>1000.00</td>
+                        <td>административный</td>
+                        <td>пополнение счёта</td>
+						</tr>
+					</tbody>
+				</table>
+        {% endif %}
     </div>
 </div><!-- HERE END CONTENTS!!!! -->
 {% endblock %}
