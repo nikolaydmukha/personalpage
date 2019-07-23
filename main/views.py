@@ -9,7 +9,9 @@ from django.contrib.auth.decorators import login_required
 
 @login_required()
 def index(request):
-    pprint(request.session['user_info'])
+    print(request.session['user_info']['personal_data']['user_name_firstname'])
+    for key, value in request.session['user_info']['personal_data'].items():
+        print(key,"===>", value, "\n")
     context = {"active": "home",
                "title": "Состояние счёта и подключенные услуги",
                'personal_data': request.session['user_info']['personal_data'],

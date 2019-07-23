@@ -24,7 +24,7 @@ def index(request):
               'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
     months_num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     form_date = list()  # переменная для вставки в форма в шаблоне
-    for year in years:
+    for year in years[::-1]:
         if year != today.year:
             for month in months:
                 formated_date = f"{month} {year}"

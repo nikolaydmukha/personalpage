@@ -5,7 +5,7 @@
 				<form id="ordercall">
 					<h2>Позвоните мне!</h2>
 					<div class="b-popup-body">
-						<p>Заполните данную форму и наши менеджеры<br> позвонят вам по указанному телефону.</p>
+						<p>Заполните данную форму, и наши менеджеры<br> позвонят вам по указанному телефону.</p>
 						<p class="block_border_red">Ваши заявки обрабатываются ежедневно с
 							10.00 до 21.30. Отправляя заявку после 21.30,
 							вы можете ожидать звонка менеджера на следующий день после 10.00.
@@ -15,12 +15,12 @@
 								<div class="l-form">
 									<div class="l-form-item">
 										<div class="item first input-starred">
-											<input style="width: 100%" type="text" title="Ваше имя" placeholder="Ваше имя" name="name" value="Михаил" size="0">
+											<input style="width: 100%" type="text" title="Ваше имя" placeholder="Ваше имя" name="name" value="{{request.session.user_info.personal_data.user_name_firstname}}" size="0">
 										</div>
 									</div>
 									<div class="l-form-item">
 										<div class="item first input-starred">
-											<input class="input-starred" style="width: 100%" type="text" title="Номер телефона" placeholder="Номер телефона" name="phone" value="+7(906)704-25-85" size="0">
+											<input class="input-starred" style="width: 100%" type="text" title="Номер телефона" placeholder="Номер телефона" name="phone" value="{{request.session.user_info.personal_data.user_phone_main}}" size="0">
 										</div>
 									</div>
 									<div class="l-form-item" >
