@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<div id="authorize" class="g-block b-login" ng-hide="recovery"  style="box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);">
+<div id="authorize" class="g-block b-login" ng-hide="recovery"  style="display: block; box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);">
     <h2>Вход</h2>
     <div class="l-form form-login">
         <form action="" method="POST">
@@ -17,8 +17,10 @@
                 <div class="field-name-login">Пароль</div>
                 <div class="field-option">
                     <div class="password-wrapper ">
-                        <input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>
-                        <img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" onclick="if ($('#auth_pwd').get(0).type=='password') {$('#auth_pwd').get(0).type='text';$('#show').addClass('active');}  else {$('#auth_pwd').get(0).type='password'; $('#show').removeClass('active');}">
+<!--                        <input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>-->
+<!--                        <img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" onclick="if ($('#auth_pwd').get(0).type=='password') {$('#auth_pwd').get(0).type='text';$('#show').addClass('active');}  else {$('#auth_pwd').get(0).type='password'; $('#show').removeClass('active');}">-->
+						<input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>
+						<img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" ng-class="password ? 'active' : ''" ng-click="password = !password" width="28" height="19">
                     </div>
                 </div>
             </div>
@@ -29,4 +31,81 @@
         </form>
     </div>
     <img src="{% static '/images/i-secured.png' %}" class="i-secured" alt="" width="64" height="25">
+</div>
+<!-- Форма восстановления пароля -->
+<div id="passwd_recover" class="g-block b-recovery hide" ng-show="recovery" style="display:none; box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);">
+	<h2>Восстановление логина и пароля</h2>
+	<div class="b-recovery-subtitle">Выберите данные, которые вам удобно ввести для идентификации. <br>Ваши логин и пароль будут отправлены в sms-сообщении или на электронный адрес.</div>
+	<div class="l-form form-recovery">
+		<div class="l-form-item list-radio">
+			<!-- by login -->
+			<label class="checked">
+				<div class="item-radio" id="login_recover_method_login">
+					<input type="radio" name="recover_method" ng-model="recoverBy" value="login" ng-init="recoverBy='login'" checked="">
+					<span class="fake"></span>
+					<span class="text">Логин</span>
+				</div>
+			</label>
+			<!-- / by login -->
+			<!-- by phone -->
+			<label>
+				<div class="item-radio" id="login_recover_method_phone">
+					<input type="radio" name="recover_method" ng-model="recoverBy" value="phone">
+					<span class="fake"></span>
+					<span class="text">Телефон</span>
+				</div>
+			</label>
+			<!-- / by phone -->
+			<!-- by email -->
+			<label>
+				<div class="item-radio" id="login_recover_method_email">
+					<input type="radio" name="recover_method" ng-model="recoverBy" value="email">
+					<span class="fake"></span>
+					<span class="text">Электронный адрес</span>
+				</div>
+			</label>
+			<!-- / by email -->
+		</div>
+		<div class="l-form-item checked-results">
+			<div class="recovery-item-form">
+				<input type="text" id="irecover_string">
+				<span class="text" type="phone" style="display: none;">
+					<img src="{% static '/images/i-exclamation-triangle-black.png' %}" alt="">
+					<span>Телефонный номер, привязанный к аккаунту</span>
+				</span>
+				<span class="text" type="email" style="display: none;">
+					<img src="{% static '/images/i-exclamation-triangle-black.png' %}" alt="">
+					<span>Электронный адрес, привязанный к аккаунту</span>
+				</span>
+			</div>
+			<!-- by login -->
+			<div class="recovery-item-form hide" ng-show="recoverBy === 'login'">
+				<input type="text">
+			</div>
+			<!-- / by login -->
+			<!-- by phone -->
+			<div class="recovery-item-form hide" ng-show="recoverBy === 'phone'">
+				<input type="text">
+				<span class="text">
+					<img src="{% static '/images/i-exclamation-triangle-gray.png' %}" alt="">
+					<span>Телефонный номер, привязанный к аккаунту</span>
+				</span>
+			</div>
+			<!-- / by phone -->
+			<!-- by email -->
+			<div class="recovery-item-form hide" ng-show="recoverBy === 'email'">
+				<input type="text">
+				<span class="text">
+					<img src="{% static '/images/i-exclamation-triangle-gray.png' %}" alt="">
+					<span>Электронный адрес, привязанный к аккаунту</span>
+				</span>
+			</div>
+			<!-- / by email -->
+		</div>
+		<div class="l-form-item row-btns">
+			<button id="passwd_recover_send" class="g-btn btn-danger">Отправить</button>
+			<button class="g-btn btn-link pseudo recover_cancel" ng-click="recovery = false"><span>Отмена</span></button>
+		</div>
+	</div>
+	<img src="{% static '/images/i-secured.png' %}" class="i-secured" alt="" width="64" height="25">
 </div>
