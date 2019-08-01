@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -50,10 +51,12 @@ MIDDLEWARE = [
 # For login
 LOGIN_URL = '/'
 
-# SESSION AGE 5 Minutes
-SESSION_COOKIE_AGE = 300
-SESSION_IDLE_TIMEOUT = 300
+#SESSION_COOKIE_AGE = 300
+#SESSION_IDLE_TIMEOUT = 300
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_EXPIRE_SECONDS = 300  # SESSION AGE 5 Minutes
+
 
 ROOT_URLCONF = 'personalpage.urls'
 

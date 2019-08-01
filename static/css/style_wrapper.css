@@ -281,8 +281,18 @@ color: #000000;
 .pc_user_block .pc_user_tooltip .menu .menu-item a:active, .pc_user_block .pc_user_tooltip .menu .menu-item a:hover {
     color: #e50004;
 }
-.flex-dummy {
-    flex-grow: 1;
+.pc_user_block.flex-dummy.is-checked {
+
+    transition: .2s;
+    border-color: #f8f9f9;
+    background-color: #e6e6e6;
+
+}
+.pc_user_block.is-checked .pc_user_block_button {
+
+    border-color: #fff;
+    background-color: #e6e6e6;
+
 }
 .flexbox-y {
     display: flex;

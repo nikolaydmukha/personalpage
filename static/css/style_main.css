@@ -1779,6 +1779,7 @@ table.type1 td
 .recovery-item-form .text span
 {
 	padding-left: 1px;
+	font-size: 15px;
 }
 .b-login,.b-recovery
 {
@@ -1822,6 +1823,7 @@ table.type1 td
 {
 	color: #999;
 	margin-bottom: 25px;
+	font-size: 15px;
 }
 .b-select-message-send-type .b-select-message-send-type-item:not(:last-child)
 {

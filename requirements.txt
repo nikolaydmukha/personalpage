@@ -1,1 +1,2 @@
 grpcio-tools=1.21.1
+django-session-timeout=0.0.4

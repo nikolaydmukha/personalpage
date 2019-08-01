@@ -20,7 +20,7 @@
 <!--                        <input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>-->
 <!--                        <img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" onclick="if ($('#auth_pwd').get(0).type=='password') {$('#auth_pwd').get(0).type='text';$('#show').addClass('active');}  else {$('#auth_pwd').get(0).type='password'; $('#show').removeClass('active');}">-->
 						<input type="password" id="auth_pwd" name="password" ng-hide="password" ng-value="{{passwordValue}}" ng-model="passwordValue" placeholder="Пароль" required>
-						<img id="show" src="{% static '/images/i-eye.png' %}" class="i-eye" alt="" ng-class="password ? 'active' : ''" ng-click="password = !password" width="28" height="19">
+						<img id="show" src="{% static '/images/i-eye.png' %}"fancybox-wrap class="i-eye" alt="" ng-class="password ? 'active' : ''" ng-click="password = !password" width="28" height="19">
                     </div>
                 </div>
             </div>
