@@ -2,6 +2,10 @@
 {% load staticfiles %}
 
 {% block  content %}
+
+{% for param, value in voluntary_block_targets.items %}
+	{{param}} {{value}}
+{% endfor %}
 <script type="text/javascript" src="{% static 'js/lk/block.js' %}"></script>
 <!-- HERE BE CONTENTS!!!! -->
 <div class="g-block">
@@ -9,57 +13,110 @@
 	<h3 class="color-gray">
 		Выберите услугу
 	</h3>
+<!--	<div id="radio_button_switcher" class="l-select-service">-->
+<!--		{% for service, param in contracts_data.items %}-->
+<!--			<div class="l-select-service-item">-->
+<!--				<div class="radio" id="radio_but{{forloop.counter}}">-->
+<!--					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>-->
+<!--						<div class="item-radio">-->
+<!--							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.login}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">-->
+<!--							<span class="fake"></span>-->
+<!--						</div>-->
+<!--					</label>-->
+<!--				</div>-->
+<!--				<div class="login">Логин: {{param.login}}-->
+<!--					<br>({{personal_data.user_old_login}})-->
+<!--				</div>-->
+<!--				<div class="purpose">-->
+<!--					<div class="name">-->
+<!--						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		{% endfor %}-->
+<!--	</div>-->
+
 	<div id="radio_button_switcher" class="l-select-service">
-		{% for service, param in contracts_data.items %}
+		{% for param, value in voluntary_block_targets.items %}
 			<div class="l-select-service-item">
 				<div class="radio" id="radio_but{{forloop.counter}}">
 					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>
 						<div class="item-radio">
-							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.login}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">
+							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{value.login}}" data-service-name="{{value.commercial}}" value="{{param}} {{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">
 							<span class="fake"></span>
 						</div>
 					</label>
 				</div>
-				<div class="login">Логин: {{param.login}}
+				<div class="login">Логин: {{param}}
 					<br>({{personal_data.user_old_login}})
 				</div>
 				<div class="purpose">
 					<div class="name">
-						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>
+						<label for="select-service-{{forloop.counter}}">{{value.commercial}} {% if value.name == 'ls' %}- сервис "СмотрЁшка"{% elif value.name == '24tv' %} - сервис "24ТВ" {% endif %}</label>
 					</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
+
 	<!-- /Service selector -->
 	<!-- Idle stats -->
-	{% for service, param in contracts_data.items %}
-		<div class="idledata" data-login="{{param.login}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">
+<!--	{% for service, param in contracts_data.items %}-->
+<!--		<div class="idledata" data-login="{{param.login}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">-->
+<!--			<table class="type1" cellpadding="0" cellspacing="0">-->
+<!--				<tbody>-->
+<!--				<tr>-->
+<!--					<td style="text-align: left;">-->
+<!--						<strong>Логин абонента:</strong>-->
+<!--					</td>-->
+<!--					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>-->
+<!--				</tr>-->
+<!--				<tr>-->
+<!--					<td style="text-align: left;">-->
+<!--						<strong>Кол-во блокировок в текущем месяце:</strong>-->
+<!--					</td>-->
+<!--					<td style="text-align: right;">УТОЧНИТЬ</td>-->
+<!--				</tr>-->
+<!--				<tr>-->
+<!--					<td style="text-align: left;">-->
+<!--						<strong>Текущая блокировка:</strong>-->
+<!--					</td>-->
+<!--					<td style="text-align: right;">УТОЧНИТЬ</td>-->
+<!--				</tr>-->
+<!--				</tbody>-->
+<!--			</table>-->
+<!--			<div class="section"></div>-->
+<!--		</div>-->
+<!--	{% endfor %}-->
+
+	{% for param, value in voluntary_block_history.items %}
+		<div class="idledata" data-login="{{param}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">
 			<table class="type1" cellpadding="0" cellspacing="0">
 				<tbody>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Логин абонента:</strong>
 					</td>
-					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>
+					<td style="text-align: right;">{{param}} ({{personal_data.user_old_login}})</td>
 				</tr>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Кол-во блокировок в текущем месяце:</strong>
 					</td>
-					<td style="text-align: right;">УТОЧНИТЬ</td>
+					<td style="text-align: right;">{{value.blocks_in_month}}</td>
 				</tr>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Текущая блокировка:</strong>
 					</td>
-					<td style="text-align: right;">УТОЧНИТЬ</td>
+					<td style="text-align: right;">{% for block_id, value in voluntary_block_targets.items %} {% if block_id == param %} {% if value.active == True %} есть {% else %} нет {% endif %}{% endif %}{% endfor %}</td>
 				</tr>
 				</tbody>
 			</table>
 			<div class="section"></div>
 		</div>
 	{% endfor %}
+
 		<!-- /Idle stats -->
 	<br>
 	<!-- Idle footer -->

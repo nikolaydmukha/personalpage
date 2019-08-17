@@ -1,33 +1,43 @@
 from pprint import pprint
 
-from protos.pilling.rpc.protos import client_pb2_grpc, services_pb2_grpc
+from protos.pilling.rpc.protos import client_pb2_grpc, services_pb2_grpc, client_control_pb2_grpc
 from protos.pilling.rpc.protos.client_pb2 import AuthRequest, SearchRequest
-from protos.pilling.rpc.protos.services_pb2 import ClientServicesReply, ClientServicesRequest
+from protos.pilling.rpc.protos.services_pb2 import ClientServicesRequest
+from protos.pilling.rpc.protos.client_control_pb2 import GetDelayedPaymentTargetsRequest, GetDelayedPaymentsRequest, \
+    SetDelayedPaymentRequest, GetVoluntaryBlockTargetsRequest, GetVoluntaryBlocksRequest, SetVoluntaryBlockRequest
 import grpc, grpc_tools
+from personalpage.settings import GRPC_CHANNEL
 
 
 def get_userdata(login, password):
-    channel = grpc.insecure_channel('stage.pilling.rinet.ru:57001')
+    ####channel = grpc.insecure_channel('stage.pilling.rinet.ru:57001')
+    channel = grpc.insecure_channel(GRPC_CHANNEL)
     # Установка соединения для Авторизация(AuthRequest) клиента и
     # получение информации(Search) о клиенте
     client = client_pb2_grpc.ClientStub(channel)
     client.Auth(AuthRequest(login=login, password=password))
-
     # gRPC запрос для получения данных клиента
     raw_data_client = client.Search(SearchRequest(login=login)).clients
 
     # Установка соединения для получение(GetClientServices) всех услуг,
     # подключенных у клиента
     service = services_pb2_grpc.ServicesStub(channel)
-
     # gRPC запрос для получения данных об услугах клиента
     raw_data_services = service.GetClientServices(ClientServicesRequest(id=raw_data_client[0].id, with_balance=2))
     print("====\n", raw_data_services)
+    # Установка соединения для полученияинформации и управления (ClientControl) услугами (об. платеж, блокировка),
+    # подключенными у клиента
+    client_control = client_control_pb2_grpc.ClientControlStub(channel)
+    # gRPC запрос для получения данных об услугах клиента
+    raw_data_dpay = client_control.GetDelayedPaymentTargets(GetDelayedPaymentTargetsRequest(client_id=raw_data_client[0].id))   # отл. платёж - текущее состояние
+    raw_data_dpay_history = client_control.GetDelayedPayments(GetDelayedPaymentsRequest(client_id=raw_data_client[0].id))       # отл. платёж - история
+    print("###############################\n", raw_data_dpay)
+    print("###############################\n", raw_data_dpay_history)
+
     # Обработка полученных данных(ИНФОРМАЦИЯ) о клиенте.
     # Сохранение данных в переменные с понятым именем и далее сохраним в словарь для передачи в сессию
     session_dict = {}
     info = raw_data_client[0]
-    info.name = 'Николай Владимирович Дмуха'
     user_data_client = {
         'user_id': info.id,
         'user_name': info.name,

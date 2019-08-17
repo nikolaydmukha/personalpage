@@ -3,7 +3,7 @@
 */
 syntax = "proto2";
 
-import "pilling/rpc/protos/services.proto";  // import OrganizationReply
+import "services.proto";  // import OrganizationReply
 
 
 /* Payments service */
@@ -30,6 +30,14 @@ service Payments {
     *  if both account and organization set, checks for an account
     */
     rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentReply) {}
+
+    // -- Order creation methods
+    /* Create online payment order */
+    rpc CreateOnlinePaymentOrder(CreateOnlinePaymentOrderRequest) returns (CreateOnlinePaymentOrderReply) {}
+    /* Check online payment order status */
+    rpc OnlinePaymentOrderStatus(OnlinePaymentOrderStatusRequest) returns (OnlinePaymentOrderStatusReply) {}
+    /* QR code payment */
+    rpc QRPayment(QRPaymentRequest) returns (QRPaymentReply) {}
 }
 
 
@@ -58,11 +66,40 @@ message CreatePaymentRequest {
     required string currency = 3;               // currency name (rub is rub)
     required int64 curr_sum = 4;                // payment sum in currency (vm sum will be computed by billing)
     required PaymentTarget target = 5;          // payment target definer (usually got from target resolver methods)
-    optional string operation_id = 6;           // payment operation id (unique for a payment system)
+    required string operation_id = 6;           // payment operation id (unique for a payment system)
     optional string user_input = 7;             // user input string
     optional int64 time = 8;                    // payment accounting time (default is now)
 }
 
+/* Create online payment order request */
+message CreateOnlinePaymentOrderRequest {
+    required string client_id = 1;                  // client id
+    required string login = 2;                      // target login
+    required int64 curr_sum = 3;                    // payment sum
+    required string acquirer = 4;                   // acquirer name
+    required string next_url = 5;                   // next url to return to after payment. Url must be absolute!
+                                                    // may contain a replacement: %ID% will be an order id
+    optional ReceiptSettings receipt_settings = 6;  // receipt settings
+}
+
+/* Online payment order status request */
+message OnlinePaymentOrderStatusRequest {
+    required string client_id = 1;                  // client id
+    required string order_id = 2;                   // order id
+}
+
+/* Payment receipt settings */
+message ReceiptSettings {
+    repeated string emails = 1;          // receipt emails
+    repeated string phones = 2;          // receipt sms phones
+}
+
+/* QR code payment request */
+message QRPaymentRequest {
+    required string client_id = 1;                  // client id
+    required string login = 2;                      // target login
+    required string processing = 4;                 // processing name
+}
 
 /* Get payments reply */
 message GetPaymentsReply {
@@ -121,4 +158,37 @@ message CreatePaymentReply {
 message PaymentValidationError {
     required string message = 1;            // payment validation error message
     required int32 code = 2;                // payment validation error code
+}
+
+/* Online payment order creation reply */
+message CreateOnlinePaymentOrderReply {
+    required bool success = 1;              // payment order creation success
+    required string message_sys = 2;        // payment order creation system message (in english)
+    required string message_user = 3;       // payment order creation user message (in current language)
+    optional string order_id = 4;           // order id
+    optional string next_url = 5;           // next url to redirect
+}
+
+/* Online payment order status reply */
+message OnlinePaymentOrderStatusReply {
+    required OnlinePaymentOrderStatus status = 1;    // order status
+    required string message_sys = 2;            // order status system message (in english)
+    required string message_user = 3;           // order status user message (in current language)
+    optional string error_message_sys = 4;      // error system message (if status is BS_FAIL, in english)
+    optional string error_message_user = 5;     // error user message (if status is BS_FAIL, in current language)
+}
+
+/* Online payment order status */
+enum OnlinePaymentOrderStatus {
+    OS_PROCESSING = 0;      // order is processing
+    OS_SUCCESS = 1;         // order succeeded
+    OS_FAIL = 2;            // order failed
+}
+
+/* QR code payment reply */
+message QRPaymentReply {
+    required bool success = 1;              // QR code creation success
+    required string message_sys = 2;        // QR code creation system message (in english)
+    required string message_user = 3;       // QR code creation user message (in current language)
+    optional string QRData = 4;             // QR code string data
 }
