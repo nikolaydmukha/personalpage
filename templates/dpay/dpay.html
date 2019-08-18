@@ -8,51 +8,114 @@
     <!-- Service selector -->
     <h3 class="color-gray">Выберите услугу</h3>
     <div id="radio_button_switcher" class="l-select-service">
-		{% for service, param in contracts_data.items %}
+<!--		{% for service, param in contracts_data.items %}-->
+<!--			<div class="l-select-service-item">-->
+<!--				<div class="radio" id="radio_but{{forloop.counter}}">-->
+<!--					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>-->
+<!--						<div class="item-radio">-->
+<!--							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.login}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">-->
+<!--							<span class="fake"></span>-->
+<!--						</div>-->
+<!--					</label>-->
+<!--				</div>-->
+<!--				<div class="login">Логин: {{param.login}}-->
+<!--					<br>({{personal_data.user_old_login}})-->
+<!--				</div>-->
+<!--				<div class="purpose">-->
+<!--					<div class="name">-->
+<!--						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>-->
+<!--					</div>-->
+<!--                    <div class="amount">Обещанный платеж заблокирован - ДОБАВИТЬ ПРОВЕРКУ!!!</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		{% endfor %}-->
+    		{% for  param, value in dpay_targets.items %}
 			<div class="l-select-service-item">
 				<div class="radio" id="radio_but{{forloop.counter}}">
 					<label for="select-service-{{forloop.counter}}" {% if forloop.first %} class="checked" {% endif %}>
 						<div class="item-radio">
-							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{param.login}}" data-service-name="{{param.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">
+							<input type="radio" name="ulogin" id="select-service-{{forloop.counter}}" data-login="{{value.login}}" data-service-name="{{value.commercial}}" value="{{personal_data.user_old_login}}" {% if forloop.first %} checked="CHECKED" {% endif %} class="select-service-radio">
 							<span class="fake"></span>
 						</div>
 					</label>
 				</div>
-				<div class="login">Логин: {{param.login}}
+				<div class="login">Логин: {{param}}
 					<br>({{personal_data.user_old_login}})
 				</div>
 				<div class="purpose">
 					<div class="name">
-						<label for="select-service-{{forloop.counter}}">{{param.commercial}} {% if service == 'ls' %}- сервис "СмотрЁшка"{% elif service == '24tv' %} - сервис "24ТВ" {% endif %}</label>
+						<label for="select-service-{{forloop.counter}}">{{value.commercial}} {% if value.name == 'ls' %}- сервис "СмотрЁшка"{% elif value.name == '24tv' %} - сервис "24ТВ" {% endif %}</label>
 					</div>
-                    <div class="amount">Обещанный платеж заблокирован - ДОБАВИТЬ ПРОВЕРКУ!!!</div>
+                    <div class="amount">{% if value.available == True %}обещанный платёж доступен{% else %}обещанный платёж не доступен{% endif %}</div>
 				</div>
 			</div>
 		{% endfor %}
 	</div>
     <!-- /Service selector -->
     <!-- Dpay stats -->
-    {% for service, param in contracts_data.items %}
-		<div class="dpaydata" data-login="{{param.login}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">
+<!--    {% for service, param in contracts_data.items %}-->
+<!--		<div class="dpaydata" data-login="{{param.login}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">-->
+<!--			<table class="type1" cellpadding="0" cellspacing="0">-->
+<!--				<tbody>-->
+<!--				<tr>-->
+<!--					<td style="text-align: left;">-->
+<!--						<strong>Логин абонента:</strong>-->
+<!--					</td>-->
+<!--					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>-->
+<!--				</tr>-->
+<!--				<tr>-->
+<!--					<td style="text-align: left;">-->
+<!--						<strong>В настоящее время услуга:</strong>-->
+<!--					</td>-->
+<!--					<td style="text-align: right;">УТОЧНИТЬ</td>-->
+<!--				</tr>-->
+<!--				</tbody>-->
+<!--			</table>-->
+<!--			<div class="section"></div>-->
+<!--        <br>-->
+<!--        <h3>Последние обещанные платежи</h3>-->
+<!--        <table class="type1" cellpadding="0" cellspacing="0">-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <td><b>Начало</b></td>-->
+<!--                    <td><b>Конец</b></td>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td>{% now "jS F Y H:i:s.u" %}</td>-->
+<!--                    <td>{% now "jS F Y H:i:s.u" %}</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>{% now "jS F Y H:i:s.u" %}</td>-->
+<!--                    <td>{% now "jS F Y H:i:s.u" %}</td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--        </div>-->
+<!--	{% endfor %}-->
+        {% for param, value in dpay_history.items %}
+		<div class="dpaydata" data-login="{{param}}" style="{% if forloop.first %} display: block; {% else %} display: block; {% endif %}" id="service_login{{forloop.counter}}">
 			<table class="type1" cellpadding="0" cellspacing="0">
 				<tbody>
 				<tr>
 					<td style="text-align: left;">
 						<strong>Логин абонента:</strong>
 					</td>
-					<td style="text-align: right;">{{param.login}} ({{personal_data.user_old_login}})</td>
+					<td style="text-align: right;">{{param}} ({{personal_data.user_old_login}})</td>
 				</tr>
 				<tr>
 					<td style="text-align: left;">
 						<strong>В настоящее время услуга:</strong>
 					</td>
-					<td style="text-align: right;">УТОЧНИТЬ</td>
+					<td style="text-align: right;">{% for dpay_id, value in dpay_targets.items %} {% if dpay_id == param %} {% if value.active == True %} активна {% else %} не активна {% endif %}{% endif %}{% endfor %}</td>
 				</tr>
 				</tbody>
 			</table>
 			<div class="section"></div>
         <br>
         <h3>Последние обещанные платежи</h3>
+        {% if value|length > 0 %}
         <table class="type1" cellpadding="0" cellspacing="0">
             <thead>
                 <tr>
@@ -61,16 +124,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{% now "jS F Y H:i:s.u" %}</td>
-                    <td>{% now "jS F Y H:i:s.u" %}</td>
-                </tr>
-                <tr>
-                    <td>{% now "jS F Y H:i:s.u" %}</td>
-                    <td>{% now "jS F Y H:i:s.u" %}</td>
-                </tr>
+
+                    {% for i in value %}
+                        <tr>
+                                <td>{{i.0}}</td>
+                                <td>{{i.1}}</td>
+                        </tr>
+                    {% endfor %}
             </tbody>
         </table>
+        {% else %}
+            <font color="red">Вы ещё не пользовались услугой</font>
+        {% endif %}
         </div>
 	{% endfor %}
     <!-- /Dpay stats -->

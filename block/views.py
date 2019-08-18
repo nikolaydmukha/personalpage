@@ -1,6 +1,3 @@
-
-from pprint import pprint
-
 from datetime import datetime
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
@@ -20,8 +17,6 @@ def index(request):
     # gRPC запрос для получения данных об услугах клиента
     raw_data_block = client_control.GetVoluntaryBlockTargets(GetVoluntaryBlockTargetsRequest(client_id=request.session['user_info']['personal_data']['user_id']))
     raw_data_block_history = client_control.GetVoluntaryBlocks(GetVoluntaryBlocksRequest(client_id=request.session['user_info']['personal_data']['user_id'], login=request.session['user_info']['personal_data']['user_old_login']))
-    print("###############################<<<<<<\n", raw_data_block)
-    print("###############################<<<<<<\n", raw_data_block_history)
     # Обработка целевых услуг, которым можно поставить блокировку
     voluntary_block_targets = dict()
     for item in raw_data_block.targets:
@@ -33,7 +28,6 @@ def index(request):
             'available': item.available,
             'reason': item.reason
         }
-    pprint(voluntary_block_targets)
     # Обработка истории установки блокировок - считаем количество блокировок в текущем месяце
     voluntary_block_history = dict()
     for item in raw_data_block_history.voluntary_blocks:
