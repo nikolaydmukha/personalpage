@@ -46,7 +46,7 @@
 					<div class="name">
 						<label for="select-service-{{forloop.counter}}">{{value.commercial}} {% if value.name == 'ls' %}- сервис "СмотрЁшка"{% elif value.name == '24tv' %} - сервис "24ТВ" {% endif %}</label>
 					</div>
-                    <div class="amount">{% if value.available == True %}обещанный платёж доступен{% else %}обещанный платёж не доступен{% endif %}</div>
+                    <div class="amount">{% if value.available == True %}обещанный платёж доступен{% else %}обещанный платёж недоступен{% endif %}</div>
 				</div>
 			</div>
 		{% endfor %}

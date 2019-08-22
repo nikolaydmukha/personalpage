@@ -35,7 +35,7 @@
             <br>
             <span id="qrloading">Загрузка...</span>
             <span id="qrerror" hidden="">Ошибка</span>
-            <img id="qrimg" src="{% static '/images/qr.png' %}" alt="qr">
+            <img id="qrimg" src="{% static '/images/qrcodes/' %}{{personal_data.user_old_login}}.svg" alt="qr">
         </p>
         <button class="g-btn btn-danger" id="qrprint">Распечатать</button>
     </div>
@@ -49,10 +49,11 @@
         };
         document.getElementById("qrprint").onclick = function() {
             var disclaimer = 'Интернет-провайдер RiNet. Оплата';
+            var qrsrc = document.getElementById("qrimg").src;
             var winPrint = window.open('','','left=50,top=50,width=800,height=640,toolbar=0,scrollbars=1,status=0');
             winPrint.document.write('<html><body>' +
                 '<p style="font-size: 16px; font-weight: bold; font-face: Arial, Courier, Times New Roman">'+disclaimer+'</p>' +
-                '<img src="/pay/qr/sber/qr.png?service=1" alt="QR"><p id="qrwinloading">Загрузка...</p></body></html>'
+                '<img src="' + qrsrc + '" alt="QR"><p id="qrwinloading">Загрузка...</p></body></html>'
             );
             winPrint.document.close();
             winPrint.focus();
