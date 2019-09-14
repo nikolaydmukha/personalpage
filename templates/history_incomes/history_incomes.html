@@ -34,6 +34,15 @@
                         </tr>
 					</thead>
 					<tbody>
+                    {% for item, value in incomes_history.items %}
+                    <tr>
+                        <td>{{value.organization}}</td>
+                        <td>{{value.created_ts}}</td>
+                        <td>{{value.curr_sum}}</td>
+                        <td>банковская карта</td>
+                        <td>{{value.target_descr}}</td>
+                    </tr>
+                    {% endfor %}
                     <tr>
                         <td>Интернет/ТВ</td>
                         <td>07.04.2019 14:58</td>
