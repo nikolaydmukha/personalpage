@@ -11,18 +11,18 @@
             <span>
                 c
             </span>
-            <input type="text" id="ifrom" name="from" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if choosen_date_from %}{{choosen_date_from}}{% else %}{% now 'j.m.Y' %}{% endif %}">
+            <input type="text" id="ifrom" name="from" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if chosen_date_from %}{{chosen_date_from}}{% else %}{% now 'j.m.Y' %}{% endif %}">
             <span>
                 по
             </span>
-            <input type="text" id="ito" name="to" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if choosen_date_to %}{{choosen_date_to}}{% else %}{% now 'j.m.Y' %}{% endif %}">
+            <input type="text" id="ito" name="to" class="datepicker-here" data-position="bottom left" data-auto-close="true" value="{% if chosen_date_to %}{{chosen_date_to}}{% else %}{% now 'j.m.Y' %}{% endif %}">
             <input type="submit" class="g-btn btn-danger" value="Показать">
         </form>
         <br>
         {% if error_msg %}
             <span style="color: red;">{{error_msg}}</span>
-        {% elif choosen_date_from and choosen_date_to %}
-            <h3>Платежи с {{ choosen_date_from }} по {{ choosen_date_to }}</h3>
+        {% elif chosen_date_from and chosen_date_to %}
+            <h3>Платежи с {{ chosen_date_from }} по {{ chosen_date_to }}</h3>
         <table class="table-history">
 					<thead>
                         <tr>
