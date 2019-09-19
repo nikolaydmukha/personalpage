@@ -13,9 +13,9 @@
             <div class="name">За</div>
             <div class="value">
                <div class="mgn-select-wrap basic" id="form-show-traffic">
-                   {% if choosen_date %}
-                        <div class="mgn-select-choosed">{{ choosen_date }}
-                            <span class="crutch">{{ choosen_date }}</span>
+                   {% if chosen_date %}
+                        <div class="mgn-select-choosed">{{ chosen_date }}
+                            <span class="crutch">{{ chosen_date }}</span>
                         </div>
                    {% else %}
                        <div class="mgn-select-choosed">
@@ -47,10 +47,10 @@
          </form>
       </div>
        <!-- Вывод статистики -->
-       {% if choosen_date %}
+       {% if chosen_date %}
            <div class="l-traffic">
                <div class="l-traffic-item">
-                   <h3>Расходы и трафик за {{choosen_date}}:</h3>
+                   <h3>Расходы и трафик за {{chosen_date}}:</h3>
                    <table>
                        <tbody>
                        <tr>
