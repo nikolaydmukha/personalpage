@@ -18,6 +18,7 @@ from protos.pilling.rpc.protos.expenses_pb2 import GetExpensesPeriodsRequest, Ge
 def index(request):
     # Если клиент сделал запрос трафика за нужную дату, то нужно эту дату выводить активной в списке выбора дат
     chosen_date = ''
+    total_traf_history = dict()
     if 'month' in request.GET:
         chosen_date = request.GET['month']
         request_month, request_year = request.GET['month'].split(' ')
@@ -37,8 +38,32 @@ def index(request):
         print(">>>>>>", raw_data_traf.conditional_cost)
         print(">>>>>>", raw_data_traf.unconditional_cost)
         print(">>>>>>", raw_data_traf.resources)
+        history_traf = dict()
+
         for data in raw_data_traf.resources.ip4:
-            print(data)
+            history_traf[data.address_net] = data.address_net
+            history_traf[data.address_net] = {
+                'local_bytes': data.local_bytes,
+                'external_bytes': data.external_bytes,
+                'total_bytes': data.total_bytes
+            }
+        pprint(history_traf)
+        nets = list()
+        local_gb = 0
+        external_gb = 0
+        total_gb = 0
+        for name, value in history_traf.items():
+            nets.append(name)
+            local_gb += history_traf[name]['local_bytes']
+            external_gb += history_traf[name]['external_bytes']
+            total_gb += history_traf[name]['total_bytes']
+        total_traf_history = {
+            'local_gb': local_gb/1024/1024/1024,
+            'external_gb': external_gb/1024/1024/1024,
+            'total_gb': total_gb/1024/1024/1024,
+            'nets': nets
+        }
+        pprint(total_traf_history)
     # Сформируем даты для вывода в форме выбора дат, за который можно сделать отчёт.
     # Полагаем, что очтет доступен от текущей даты - 1 год.
     current_month = datetime.datetime.now().strftime("%B")  # Текущий месяц
@@ -67,6 +92,7 @@ def index(request):
         'title': 'Расходы и трафик',
         'form_date': form_date,
         'chosen_date': chosen_date,
+        'total_traf_history': total_traf_history,
         'personal_data': request.session['user_info']['personal_data'],
         'contracts_data': request.session['user_info']['contracts_data']
     }

@@ -64,24 +64,26 @@
                    <h4>Входящий трафик:</h4>
                    <table>
                        <tbody>
+                       {% for item, value in total_traf_history.items %}                        
                        <tr>
                            <td class="col-name">Локальный:</td>
                             <td class="col-value">
-                                <span class="briefly">5.68 Гбайт</span>
+                                <span class="briefly">{% if item == 'local_gb' %} {{value}} {% endif %} Гбайт</span>
                             </td>
                        </tr>
                        <tr>
                            <td class="col-name">Внешний:</td>
                            <td class="col-value">
-                               <span class="briefly">33.23 Гбайт</span>
+                               <span class="briefly">{% if item == 'external_gb' %} {{value}} {% endif %} Гбайт</span>
                            </td>
                        </tr>
                        <tr>
                            <td class="col-name"><strong>Всего:</strong></td>
                            <td class="col-value">
-                               <span class="briefly">38.91 Гбайт</span>
+                               <span class="briefly">{% if item == 'total_gb' %} {{value}} {% endif %} Гбайт</span>
                            </td>
                        </tr>
+                       {% endfor %}
                        </tbody>
                    </table>
                </div>
